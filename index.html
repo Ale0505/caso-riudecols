@@ -2,591 +2,1543 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#080b0e">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#07111c">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Riudecols">
 
 <title>Caso de Riudecols</title>
 
 <style>
+
+/* ==============================
+   GENERAL
+================================ */
+
 * {
     box-sizing: border-box;
+}
+
+:root {
+    --azul: #0b1c2c;
+    --azul2: #10283d;
+    --azul3: #163955;
+    --linea: #29455d;
+    --texto: #e7edf2;
+    --secundario: #93a6b5;
+    --verde: #76bd8a;
+    --rojo: #cc7373;
+    --fondo: #050b11;
+}
+
+html {
+    background: var(--fondo);
 }
 
 body {
     margin: 0;
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at top, #172029 0%, #0b1015 42%, #050709 100%);
-    color: #e9edf0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        linear-gradient(
+            180deg,
+            #0b1824 0%,
+            #07111a 45%,
+            #04090e 100%
+        );
+
+    color: var(--texto);
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 }
+
+
+/* ==============================
+   PANTALLAS
+================================ */
 
 .screen {
     display: none;
     min-height: 100vh;
-    padding: 28px 20px;
 }
 
 .screen.active {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
 
 .container {
     width: 100%;
-    max-width: 820px;
+    max-width: 900px;
     margin: auto;
 }
 
-/* ---------- PORTADA ---------- */
 
-#inicio {
-    text-align: center;
-    justify-content: center;
+/* ==============================
+   CABECERA INSTITUCIONAL
+================================ */
+
+.institutional-header {
+
+    padding:
+        calc(18px + env(safe-area-inset-top))
+        22px
+        18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #102a40,
+            #081725
+        );
+
+    border-bottom: 3px solid #365c7a;
 }
 
-.badge {
-    width: 92px;
-    height: 92px;
-    border: 2px solid #8d99a3;
-    border-radius: 50%;
-    margin: 0 auto 30px;
+.institution-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fake-shield {
+
+    width: 54px;
+    height: 62px;
+
+    border: 2px solid #9aafbf;
+
+    border-radius:
+        7px 7px 18px 18px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    background: rgba(255,255,255,.03);
-    box-shadow: 0 0 30px rgba(255,255,255,.05);
+
+    font-weight: 900;
+    font-size: 17px;
+
+    color: #c7d5df;
+
+    background:
+        rgba(255,255,255,.035);
 }
 
-.small {
-    color: #7f8b94;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+.institution-name {
+
     font-size: 11px;
+    letter-spacing: 1.8px;
+    color: #b3c1cc;
+
+    text-transform: uppercase;
 }
 
-h1 {
-    margin: 10px 0 5px;
-    font-size: clamp(35px, 8vw, 65px);
-    letter-spacing: 2px;
+.unit-name {
+
+    margin-top: 5px;
+
+    font-size: 16px;
+    font-weight: 750;
+
+    letter-spacing: .6px;
 }
 
-.subtitle {
-    color: #9da7ae;
-    margin-bottom: 35px;
-}
+.session {
 
-.case-number {
-    display: inline-block;
-    border: 1px solid #343d44;
-    padding: 9px 15px;
-    border-radius: 4px;
+    margin-left: auto;
+
     font-family: monospace;
-    color: #aeb7bd;
-    margin-bottom: 45px;
+    font-size: 10px;
+
+    color: var(--verde);
+
+    white-space: nowrap;
 }
 
-.btn {
+.session::before {
+    content: "●";
+    margin-right: 5px;
+}
+
+
+/* ==============================
+   PORTADA
+================================ */
+
+.cover {
+
+    min-height:
+        calc(100vh - 100px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 38px 24px 70px;
+}
+
+.classification {
+
+    color: #a8bac7;
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 17px;
+}
+
+.case-code {
+
+    font-family: monospace;
+
+    font-size: 13px;
+
+    color: #aab8c2;
+
+    margin-bottom: 15px;
+}
+
+.case-title {
+
+    margin: 0;
+
+    font-size:
+        clamp(39px, 9vw, 68px);
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.case-subtitle {
+
+    margin-top: 15px;
+
+    color: #a4b2bd;
+
+    font-size: 18px;
+}
+
+.info-grid {
+
+    margin-top: 40px;
+
+    border-top: 1px solid var(--linea);
+
+    border-bottom: 1px solid var(--linea);
+}
+
+.info-row {
+
+    display: grid;
+
+    grid-template-columns:
+        130px 1fr;
+
+    padding: 13px 0;
+
+    border-bottom:
+        1px solid rgba(70,100,125,.3);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+
+    color: #748b9d;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.info-value {
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.access-btn {
+
     width: 100%;
-    border: 1px solid #626e77;
-    background: #151b20;
+
+    margin-top: 38px;
+
+    padding: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #173650,
+            #10283c
+        );
+
+    border: 1px solid #49677e;
+
+    border-radius: 3px;
+
     color: white;
-    padding: 17px;
-    border-radius: 5px;
-    font-size: 14px;
-    letter-spacing: 1.5px;
-    font-weight: 700;
+
+    font-weight: 800;
+
+    font-size: 13px;
+
+    letter-spacing: 1.6px;
+
     cursor: pointer;
 }
 
-.btn:active {
+.access-btn:active {
     transform: scale(.99);
 }
 
-.warning {
-    margin-top: 30px;
-    color: #6f777d;
-    font-size: 11px;
+.confidential {
+
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
     letter-spacing: 1px;
+
+    color: #637584;
 }
 
-/* ---------- PANEL ---------- */
 
-.header {
-    border-bottom: 1px solid #343c42;
-    padding-bottom: 18px;
-    margin-bottom: 25px;
+/* ==============================
+   EXPEDIENTE
+================================ */
+
+.content {
+    padding: 28px 20px 60px;
 }
 
-.header-top {
+.case-header {
+
+    padding-bottom: 20px;
+
+    border-bottom:
+        1px solid var(--linea);
+
+    margin-bottom: 28px;
+}
+
+.case-header-top {
+
     display: flex;
+
     justify-content: space-between;
+
     gap: 15px;
-    align-items: center;
 }
 
-.header-title {
-    font-weight: 800;
-    letter-spacing: 1px;
-}
+.eyebrow {
 
-.status {
-    font-family: monospace;
-    font-size: 11px;
-    color: #7fc995;
-}
+    color: #758b9c;
 
-.status::before {
-    content: "●";
-    margin-right: 6px;
-}
-
-.section-title {
-    color: #7e8991;
-    font-size: 11px;
-    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
 }
 
-/* ---------- ACTOS ---------- */
+.case-header h2 {
 
-.act {
-    border: 1px solid #30383e;
-    background: rgba(255,255,255,.025);
-    border-radius: 6px;
-    padding: 18px;
-    margin-bottom: 10px;
-}
+    margin:
+        5px 0 0;
 
-.act.current {
-    border-left: 4px solid #c5cdd2;
-}
+    font-size: 23px;
 
-.act.locked {
-    opacity: .35;
-}
-
-.act.completed {
-    border-left: 4px solid #669b75;
-}
-
-.act-number {
-    font-family: monospace;
-    color: #7d8991;
-    font-size: 11px;
-    margin-bottom: 6px;
-}
-
-.act-name {
-    font-weight: 700;
     letter-spacing: .5px;
 }
 
-.act-state {
-    float: right;
+.open-status {
+
+    color: var(--verde);
+
     font-family: monospace;
+
     font-size: 11px;
-    color: #89939a;
+
+    white-space: nowrap;
 }
 
-/* ---------- INVESTIGACIÓN ---------- */
+.open-status::before {
+    content: "●";
+    margin-right: 5px;
+}
 
-.card {
-    margin-top: 25px;
+
+/* ==============================
+   AVISO
+================================ */
+
+.notice {
+
+    padding: 14px 16px;
+
+    margin-bottom: 28px;
+
+    border-left:
+        3px solid #688ca8;
+
+    background:
+        rgba(54,88,114,.12);
+
+    color: #b7c5cf;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   FASES
+================================ */
+
+.section-label {
+
+    margin-bottom: 12px;
+
+    color: #778d9d;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.phase {
+
+    position: relative;
+
+    padding: 18px;
+
+    margin-bottom: 9px;
+
+    border:
+        1px solid #263b4b;
+
+    background:
+        rgba(12,29,43,.55);
+
+    border-radius: 3px;
+}
+
+.phase.active {
+
+    border-left:
+        4px solid #9eb4c4;
+}
+
+.phase.completed {
+
+    border-left:
+        4px solid var(--verde);
+}
+
+.phase.locked {
+
+    opacity: .28;
+}
+
+.phase-number {
+
+    color: #758b9c;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    margin-bottom: 7px;
+}
+
+.phase-title {
+
+    font-weight: 750;
+
+    font-size: 15px;
+
+    letter-spacing: .3px;
+}
+
+.phase-status {
+
+    position: absolute;
+
+    right: 17px;
+
+    top: 18px;
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+    color: #93a6b4;
+}
+
+
+/* ==============================
+   PREGUNTA
+================================ */
+
+.investigation-card {
+
+    margin-top: 32px;
+
     padding: 22px;
-    border: 1px solid #343d44;
-    border-radius: 6px;
-    background: #0e1317;
+
+    background: #071019;
+
+    border:
+        1px solid #334b5e;
+
+    border-radius: 3px;
 }
 
-.question-number {
+.document-reference {
+
+    color: #748b9d;
+
     font-family: monospace;
-    color: #6e7b84;
+
+    font-size: 10px;
+
+    margin-bottom: 15px;
+}
+
+.question-title {
+
     font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #a8b8c4;
+
+    text-transform: uppercase;
 }
 
 .question {
-    font-family: Georgia, serif;
+
+    margin:
+        17px 0 24px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 22px;
+
     line-height: 1.45;
-    margin: 13px 0 25px;
 }
 
-input {
+.answer-input {
+
     width: 100%;
-    background: #070a0d;
-    border: 1px solid #424c53;
+
+    padding: 16px;
+
+    background: #03080c;
+
+    border:
+        1px solid #3c5364;
+
+    border-radius: 2px;
+
     color: white;
-    padding: 17px;
-    border-radius: 4px;
-    font-size: 17px;
+
+    font-size: 16px;
+
     outline: none;
-    margin-bottom: 12px;
 }
 
-input:focus {
-    border-color: #9aa6ae;
+.answer-input:focus {
+    border-color: #829cad;
+}
+
+.validate-btn {
+
+    width: 100%;
+
+    margin-top: 11px;
+
+    padding: 16px;
+
+    border: 1px solid #4c687d;
+
+    border-radius: 2px;
+
+    background: #142c3f;
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    cursor: pointer;
 }
 
 .error {
+
     display: none;
-    color: #c98383;
-    font-family: monospace;
-    font-size: 12px;
-    margin-top: 12px;
-}
 
-.hint {
-    color: #69747c;
-    font-size: 12px;
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-left:
+        3px solid var(--rojo);
+
+    background:
+        rgba(160,60,60,.08);
+
+    color: #d99595;
+
+    font-family: monospace;
+
+    font-size: 11px;
+
     line-height: 1.5;
-    margin-top: 18px;
 }
 
-/* ---------- DESBLOQUEO ---------- */
+.evidence-warning {
 
-#desbloqueo {
-    text-align: center;
-    justify-content: center;
+    margin-top: 16px;
+
+    color: #697d8c;
+
+    font-size: 11px;
+
+    line-height: 1.5;
 }
 
-.check {
-    width: 85px;
-    height: 85px;
-    border: 2px solid #6fa37d;
-    color: #81b88f;
-    border-radius: 50%;
-    margin: 0 auto 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
+
+/* ==============================
+   VALIDACIÓN
+================================ */
+
+.validation-screen {
+
+    padding: 40px 22px 70px;
 }
 
-.unlocked {
-    color: #80b88f;
-    letter-spacing: 2px;
+.validation-box {
+
+    margin-top: 30px;
+
+    border:
+        1px solid #355267;
+
+    background: #08131d;
+
+    padding: 25px;
+}
+
+.validation-header {
+
+    color: var(--verde);
+
     font-family: monospace;
-    font-size: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
 }
 
-.reveal {
-    border-top: 1px solid #31383e;
-    border-bottom: 1px solid #31383e;
-    margin: 30px 0;
-    padding: 25px 5px;
+.validation-title {
+
+    margin:
+        12px 0 25px;
+
+    font-size: 28px;
+}
+
+.validation-text {
+
+    padding:
+        20px 0;
+
+    border-top:
+        1px solid #294052;
+
+    border-bottom:
+        1px solid #294052;
+
+    color: #bdc9d2;
+
     line-height: 1.7;
-    color: #c4cbd0;
+
+    font-size: 14px;
 }
 
-.envelope {
-    margin: 30px 0;
-    border: 1px dashed #6c777e;
-    padding: 22px;
-    font-family: monospace;
+.instruction {
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    border:
+        1px solid #536f83;
+
+    background:
+        rgba(46,78,103,.15);
 }
 
-.footer-code {
+.instruction-label {
+
+    color: #849aaa;
+
+    font-size: 9px;
+
+    letter-spacing: 1.7px;
+
+    text-transform: uppercase;
+}
+
+.instruction strong {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 16px;
+}
+
+.return-btn {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 16px;
+
+    background: #142c3f;
+
+    border:
+        1px solid #4a6579;
+
+    color: white;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+
+/* ==============================
+   PIE
+================================ */
+
+.footer {
+
     margin-top: 35px;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #263b4b;
+
+    color: #516676;
+
     font-family: monospace;
-    font-size: 10px;
-    color: #4f585e;
+
+    font-size: 9px;
+
+    line-height: 1.7;
 }
+
+
+/* ==============================
+   ADMIN
+================================ */
+
+.admin-trigger {
+
+    margin-top: 50px;
+
+    height: 25px;
+
+    opacity: .01;
+}
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= PORTADA ================= -->
 
-<section id="inicio" class="screen active">
-    <div class="container">
+<!-- ==================================
+     PORTADA
+=================================== -->
 
-        <div class="badge">⌖</div>
+<section
+    id="inicio"
+    class="screen active"
+>
 
-        <div class="small">Sistema de Investigación</div>
+    <div class="institutional-header">
 
-        <h1>RIUDECOLS</h1>
+        <div class="container">
 
-        <div class="subtitle">
-            Unidad de Investigación Criminal
-        </div>
+            <div class="institution-row">
 
-        <div class="case-number">
-            EXPEDIENTE CR/2026-017
-        </div>
+                <div class="fake-shield">
+                    UI
+                </div>
 
-        <button class="btn" onclick="entrar()">
-            ACCEDER AL EXPEDIENTE
-        </button>
+                <div>
 
-        <div class="warning">
-            DOCUMENTACIÓN CONFIDENCIAL · ACCESO RESTRINGIDO
+                    <div class="institution-name">
+                        Dirección General de Investigación
+                    </div>
+
+                    <div class="unit-name">
+                        Unidad de Investigación Criminal
+                    </div>
+
+                </div>
+
+                <div class="session">
+                    SISTEMA ACTIVO
+                </div>
+
+            </div>
+
         </div>
 
     </div>
+
+
+    <div class="container">
+
+        <div class="cover">
+
+            <div class="classification">
+                Investigación en curso · Acceso restringido
+            </div>
+
+            <div class="case-code">
+                EXPEDIENTE CR/2026-017
+            </div>
+
+            <h1 class="case-title">
+                Caso de<br>Riudecols
+            </h1>
+
+            <div class="case-subtitle">
+                Diligencias de investigación
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Clasificación
+                    </div>
+
+                    <div class="info-value">
+                        Muerte sospechosa / posible homicidio
+                    </div>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Localización
+                    </div>
+
+                    <div class="info-value">
+                        Riudecols · Tarragona
+                    </div>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Fecha
+                    </div>
+
+                    <div class="info-value">
+                        20 diciembre 2026
+                    </div>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <div class="info-label">
+                        Estado
+                    </div>
+
+                    <div class="info-value">
+                        Investigación activa
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="access-btn"
+                onclick="entrar()"
+            >
+                ACCEDER A DILIGENCIAS
+            </button>
+
+
+            <div class="confidential">
+                DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- ================= PANEL ================= -->
 
-<section id="panel" class="screen">
-    <div class="container">
+<!-- ==================================
+     PANEL PRINCIPAL
+=================================== -->
 
-        <div class="header">
+<section
+    id="panel"
+    class="screen"
+>
 
-            <div class="header-top">
+    <div class="institutional-header">
+
+        <div class="container">
+
+            <div class="institution-row">
+
+                <div class="fake-shield">
+                    UI
+                </div>
 
                 <div>
-                    <div class="small">Expediente</div>
-                    <div class="header-title">
-                        CASO DE RIUDECOLS
+
+                    <div class="institution-name">
+                        Unidad de Investigación Criminal
                     </div>
+
+                    <div class="unit-name">
+                        CR/2026-017
+                    </div>
+
                 </div>
 
-                <div class="status">
-                    ACTIVO
+                <div class="session">
+                    SESIÓN ACTIVA
                 </div>
 
             </div>
 
         </div>
 
-        <div class="section-title">
-            Progreso de investigación
+    </div>
+
+
+    <div class="container content">
+
+        <div class="case-header">
+
+            <div class="case-header-top">
+
+                <div>
+
+                    <div class="eyebrow">
+                        Expediente
+                    </div>
+
+                    <h2>
+                        CASO DE RIUDECOLS
+                    </h2>
+
+                </div>
+
+                <div class="open-status">
+                    ABIERTO
+                </div>
+
+            </div>
+
         </div>
 
-        <div id="acto1" class="act current">
-            <span class="act-state" id="estado1">
+
+        <div class="notice">
+
+            La documentación mostrada forma parte de
+            diligencias activas.
+
+            Toda conclusión deberá sustentarse en
+            las evidencias disponibles en el expediente.
+
+        </div>
+
+
+        <div class="section-label">
+            Fases de investigación
+        </div>
+
+
+        <div
+            id="fase1"
+            class="phase active"
+        >
+
+            <div
+                id="estado1"
+                class="phase-status"
+            >
                 EN CURSO
-            </span>
+            </div>
 
-            <div class="act-number">ACTO 01</div>
+            <div class="phase-number">
+                FASE 01 · DILIGENCIA CR-01
+            </div>
 
-            <div class="act-name">
+            <div class="phase-title">
                 EL EXPEDIENTE OLVIDADO
             </div>
+
         </div>
 
 
-        <div id="acto2" class="act locked">
-            <span class="act-state" id="estado2">
-                BLOQUEADO
-            </span>
+        <div
+            id="fase2"
+            class="phase locked"
+        >
 
-            <div class="act-number">ACTO 02</div>
-
-            <div class="act-name">
-                INFORMACIÓN RESTRINGIDA
+            <div
+                id="estado2"
+                class="phase-status"
+            >
+                RESTRINGIDO
             </div>
+
+            <div class="phase-number">
+                FASE 02
+            </div>
+
+            <div
+                id="titulo2"
+                class="phase-title"
+            >
+                INFORMACIÓN RESERVADA
+            </div>
+
         </div>
 
 
-        <div class="act locked">
-            <span class="act-state">BLOQUEADO</span>
-            <div class="act-number">ACTO 03</div>
-            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
-        </div>
+        <div class="phase locked">
 
-        <div class="act locked">
-            <span class="act-state">BLOQUEADO</span>
-            <div class="act-number">ACTO 04</div>
-            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
-        </div>
+            <div class="phase-status">
+                RESTRINGIDO
+            </div>
 
-        <div class="act locked">
-            <span class="act-state">BLOQUEADO</span>
-            <div class="act-number">ACTO 05</div>
-            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
-        </div>
+            <div class="phase-number">
+                FASE 03
+            </div>
 
-        <div class="act locked">
-            <span class="act-state">BLOQUEADO</span>
-            <div class="act-number">ACTO 06</div>
-            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
+            <div class="phase-title">
+                INFORMACIÓN RESERVADA
+            </div>
+
         </div>
 
 
-        <div class="card">
+        <div class="phase locked">
 
-            <div class="question-number">
-                CUESTIÓN DE INVESTIGACIÓN 01
+            <div class="phase-status">
+                RESTRINGIDO
+            </div>
+
+            <div class="phase-number">
+                FASE 04
+            </div>
+
+            <div class="phase-title">
+                INFORMACIÓN RESERVADA
+            </div>
+
+        </div>
+
+
+        <div class="phase locked">
+
+            <div class="phase-status">
+                RESTRINGIDO
+            </div>
+
+            <div class="phase-number">
+                FASE 05
+            </div>
+
+            <div class="phase-title">
+                INFORMACIÓN RESERVADA
+            </div>
+
+        </div>
+
+
+        <div class="phase locked">
+
+            <div class="phase-status">
+                RESTRINGIDO
+            </div>
+
+            <div class="phase-number">
+                FASE 06
+            </div>
+
+            <div class="phase-title">
+                INFORMACIÓN RESERVADA
+            </div>
+
+        </div>
+
+
+
+        <!-- PREGUNTA -->
+
+        <div class="investigation-card">
+
+            <div class="document-reference">
+                REF. CR/2026-017 · CUESTIÓN 01
+            </div>
+
+            <div class="question-title">
+                Cuestión de investigación
             </div>
 
             <div class="question">
-                ¿Qué elemento llevó a la víctima de Riudecols
-                a cuestionar la versión oficial de los hechos
+
+                ¿Qué elemento llevó a la víctima
+                de Riudecols a cuestionar la
+                versión oficial de los hechos
                 ocurridos en 2019?
+
             </div>
+
 
             <input
                 id="respuesta"
+                class="answer-input"
                 type="text"
-                placeholder="Introducir respuesta..."
+                placeholder="Registrar conclusión..."
                 autocomplete="off"
             >
 
-            <button class="btn" onclick="comprobar()">
-                VALIDAR HIPÓTESIS
+
+            <button
+                class="validate-btn"
+                onclick="comprobar()"
+            >
+                REGISTRAR CONCLUSIÓN
             </button>
 
-            <div id="error" class="error">
-                ✕ HIPÓTESIS NO VALIDADA
+
+            <div
+                id="error"
+                class="error"
+            >
+
+                CONCLUSIÓN NO ADMITIDA
+
                 <br><br>
-                Revisad nuevamente las evidencias disponibles.
+
+                La información introducida no permite
+                validar la diligencia.
+
+                Revise las evidencias disponibles.
+
             </div>
 
-            <div class="hint">
-                La respuesta debe basarse únicamente en las
-                evidencias recuperadas durante la investigación.
+
+            <div class="evidence-warning">
+
+                Introduzca únicamente información
+                respaldada por el material de investigación.
+
             </div>
 
         </div>
 
-        <div class="footer-code">
-            CR/2026-017 · SISTEMA INTERNO · SESIÓN 01
+
+        <div class="footer">
+
+            EXPEDIENTE CR/2026-017
+            <br>
+
+            UNIDAD DE INVESTIGACIÓN CRIMINAL
+            <br>
+
+            REGISTRO INTERNO · SESIÓN 01
+
+        </div>
+
+
+        <!-- Zona invisible para futuro panel admin -->
+
+        <div
+            class="admin-trigger"
+            onclick="adminReset()"
+        >
+            ADMIN
         </div>
 
     </div>
+
 </section>
 
 
-<!-- ================= DESBLOQUEO ================= -->
 
-<section id="desbloqueo" class="screen">
-    <div class="container">
+<!-- ==================================
+     VALIDACIÓN
+=================================== -->
 
-        <div class="check">✓</div>
+<section
+    id="validacion"
+    class="screen"
+>
 
-        <div class="unlocked">
-            HIPÓTESIS VALIDADA
-        </div>
+    <div class="institutional-header">
 
-        <h1 style="font-size:36px;">
-            ACTO I COMPLETADO
-        </h1>
+        <div class="container">
 
-        <div class="reveal">
+            <div class="institution-row">
 
-            La evidencia encontrada confirma el motivo por el
-            que se inició la investigación privada sobre los
-            acontecimientos de 2019.
+                <div class="fake-shield">
+                    UI
+                </div>
 
-            <br><br>
+                <div>
 
-            La pulsera documentada entre las evidencias no
-            debería haber estado en posesión de la víctima.
+                    <div class="institution-name">
+                        Unidad de Investigación Criminal
+                    </div>
 
-            <br><br>
+                    <div class="unit-name">
+                        Validación de diligencias
+                    </div>
 
-            Su procedencia vincula aquella escena con
-            integrantes del grupo.
+                </div>
 
-        </div>
+                <div class="session">
+                    VERIFICADO
+                </div>
 
-        <div class="unlocked">
-            🔓 NUEVO NIVEL DE INVESTIGACIÓN AUTORIZADO
-        </div>
+            </div>
 
-        <div class="envelope">
-
-            ACTO II DISPONIBLE
-
-            <br><br>
-
-            PROCEDAN CON LA APERTURA DEL
-            <strong>SOBRE 02</strong>
-
-        </div>
-
-        <button class="btn" onclick="volverPanel()">
-            VOLVER AL EXPEDIENTE
-        </button>
-
-        <div class="footer-code">
-            AUTORIZACIÓN CR/2026-017-A02
         </div>
 
     </div>
+
+
+    <div class="container validation-screen">
+
+        <div class="validation-box">
+
+            <div class="validation-header">
+                ✓ CONCLUSIÓN ADMITIDA
+            </div>
+
+
+            <div class="validation-title">
+                Diligencia CR-01 completada
+            </div>
+
+
+            <div class="validation-text">
+
+                El análisis de las evidencias permite
+                establecer el motivo que originó la
+                investigación privada sobre los hechos
+                ocurridos en 2019.
+
+                <br><br>
+
+                La pulsera documentada entre las
+                evidencias no debería haber estado
+                en posesión de la víctima portuguesa.
+
+                <br><br>
+
+                Su procedencia establece una conexión
+                entre la escena y el grupo investigado.
+
+            </div>
+
+
+            <div class="instruction">
+
+                <div class="instruction-label">
+                    Instrucción operativa
+                </div>
+
+                <strong>
+                    SE AUTORIZA LA APERTURA DEL SOBRE 02
+                </strong>
+
+            </div>
+
+
+            <button
+                class="return-btn"
+                onclick="volverPanel()"
+            >
+                CONTINUAR INVESTIGACIÓN
+            </button>
+
+        </div>
+
+
+        <div class="footer">
+
+            AUTORIZACIÓN:
+            CR/2026-017-A02
+
+            <br>
+
+            NUEVAS DILIGENCIAS HABILITADAS
+
+        </div>
+
+    </div>
+
 </section>
+
 
 
 <script>
 
-/* -------- CAMBIO DE PANTALLAS -------- */
+/* ==============================
+   PANTALLAS
+================================ */
 
 function mostrar(id) {
 
-    document.querySelectorAll(".screen").forEach(function(pantalla) {
-        pantalla.classList.remove("active");
-    });
+    document
+        .querySelectorAll(".screen")
+        .forEach(function(pantalla) {
 
-    document.getElementById(id).classList.add("active");
+            pantalla.classList.remove("active");
 
-    window.scrollTo(0, 0);
+        });
+
+    document
+        .getElementById(id)
+        .classList.add("active");
+
+    window.scrollTo(0,0);
 }
 
 
 function entrar() {
+
+    actualizarProgreso();
+
     mostrar("panel");
 }
 
 
-/* -------- NORMALIZAR RESPUESTAS -------- */
+/* ==============================
+   NORMALIZAR TEXTO
+================================ */
 
 function normalizar(texto) {
 
     return texto
+
         .toLowerCase()
+
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
+
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        )
+
         .trim();
 }
 
 
-/* -------- VALIDACIÓN ACTO 1 -------- */
+/* ==============================
+   COMPROBAR RESPUESTA
+================================ */
 
 function comprobar() {
 
+    const campo =
+        document.getElementById("respuesta");
+
     const respuesta =
-        normalizar(document.getElementById("respuesta").value);
+        normalizar(campo.value);
+
 
     const respuestasCorrectas = [
+
         "pulsera",
+
         "la pulsera",
+
         "una pulsera",
+
         "pulsera del grupo",
-        "la pulsera del grupo"
+
+        "la pulsera del grupo",
+
+        "pulsera exclusiva del grupo"
+
     ];
 
+
     const correcto =
-        respuestasCorrectas.some(function(opcion) {
-            return respuesta.includes(opcion);
-        });
+        respuestasCorrectas.some(
+            function(opcion) {
+
+                return respuesta.includes(opcion);
+
+            }
+        );
 
 
     if (correcto) {
 
         localStorage.setItem(
-            "riudecols_acto1",
-            "completado"
+            "riudecols_fase1",
+            "completada"
         );
 
-        document.getElementById("error").style.display = "none";
+        document
+            .getElementById("error")
+            .style.display = "none";
 
-        mostrar("desbloqueo");
-
-    } else {
-
-        document.getElementById("error").style.display = "block";
+        mostrar("validacion");
 
     }
+
+    else {
+
+        document
+            .getElementById("error")
+            .style.display = "block";
+
+    }
+
 }
 
 
-/* -------- PANEL DESPUÉS DEL DESBLOQUEO -------- */
+/* ==============================
+   PROGRESO
+================================ */
+
+function actualizarProgreso() {
+
+    const completada =
+        localStorage.getItem(
+            "riudecols_fase1"
+        );
+
+
+    if (completada === "completada") {
+
+        const fase1 =
+            document.getElementById("fase1");
+
+        const fase2 =
+            document.getElementById("fase2");
+
+
+        fase1
+            .classList
+            .remove("active");
+
+        fase1
+            .classList
+            .add("completed");
+
+
+        document
+            .getElementById("estado1")
+            .innerText =
+            "COMPLETADA ✓";
+
+
+        fase2
+            .classList
+            .remove("locked");
+
+        fase2
+            .classList
+            .add("active");
+
+
+        document
+            .getElementById("estado2")
+            .innerText =
+            "HABILITADA";
+
+
+        document
+            .getElementById("titulo2")
+            .innerText =
+            "LA NOCHE DE 2019";
+
+    }
+
+}
+
+
+/* ==============================
+   VOLVER
+================================ */
 
 function volverPanel() {
 
@@ -596,52 +1548,66 @@ function volverPanel() {
 }
 
 
-function actualizarProgreso() {
-
-    const completado =
-        localStorage.getItem("riudecols_acto1");
-
-    if (completado === "completado") {
-
-        const acto1 = document.getElementById("acto1");
-        const acto2 = document.getElementById("acto2");
-
-        acto1.classList.remove("current");
-        acto1.classList.add("completed");
-
-        document.getElementById("estado1").innerText =
-            "COMPLETADO ✓";
-
-
-        acto2.classList.remove("locked");
-        acto2.classList.add("current");
-
-        document.getElementById("estado2").innerText =
-            "DESBLOQUEADO";
-
-        acto2.querySelector(".act-name").innerText =
-            "LA NOCHE DE 2019";
-
-    }
-}
-
-
-/* -------- RECORDAR PROGRESO -------- */
-
-actualizarProgreso();
-
-
-/* -------- ENTER PARA VALIDAR -------- */
+/* ==============================
+   ENTER
+================================ */
 
 document
     .getElementById("respuesta")
-    .addEventListener("keydown", function(event) {
+    .addEventListener(
+        "keydown",
+        function(event) {
 
-        if (event.key === "Enter") {
-            comprobar();
+            if (event.key === "Enter") {
+
+                comprobar();
+
+            }
+
+        }
+    );
+
+
+/* ==============================
+   RESET ADMINISTRADOR
+================================ */
+
+function adminReset() {
+
+    const clave =
+        prompt(
+            "Código de administración:"
+        );
+
+
+    if (clave === "2019") {
+
+        const confirmar =
+            confirm(
+                "¿Reiniciar progreso del Caso de Riudecols?"
+            );
+
+
+        if (confirmar) {
+
+            localStorage.removeItem(
+                "riudecols_fase1"
+            );
+
+            location.reload();
+
         }
 
-    });
+    }
+
+}
+
+
+/* ==============================
+   INICIALIZACIÓN
+================================ */
+
+actualizarProgreso();
 
 </script>
 
