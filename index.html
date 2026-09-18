@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#080b0e">
+
+<title>Caso de Riudecols</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top, #172029 0%, #0b1015 42%, #050709 100%);
+    color: #e9edf0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+    padding: 28px 20px;
+}
+
+.screen.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 820px;
+    margin: auto;
+}
+
+/* ---------- PORTADA ---------- */
+
+#inicio {
+    text-align: center;
+    justify-content: center;
+}
+
+.badge {
+    width: 92px;
+    height: 92px;
+    border: 2px solid #8d99a3;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    background: rgba(255,255,255,.03);
+    box-shadow: 0 0 30px rgba(255,255,255,.05);
+}
+
+.small {
+    color: #7f8b94;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+h1 {
+    margin: 10px 0 5px;
+    font-size: clamp(35px, 8vw, 65px);
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #9da7ae;
+    margin-bottom: 35px;
+}
+
+.case-number {
+    display: inline-block;
+    border: 1px solid #343d44;
+    padding: 9px 15px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #aeb7bd;
+    margin-bottom: 45px;
+}
+
+.btn {
+    width: 100%;
+    border: 1px solid #626e77;
+    background: #151b20;
+    color: white;
+    padding: 17px;
+    border-radius: 5px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(.99);
+}
+
+.warning {
+    margin-top: 30px;
+    color: #6f777d;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* ---------- PANEL ---------- */
+
+.header {
+    border-bottom: 1px solid #343c42;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-title {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.status {
+    font-family: monospace;
+    font-size: 11px;
+    color: #7fc995;
+}
+
+.status::before {
+    content: "●";
+    margin-right: 6px;
+}
+
+.section-title {
+    color: #7e8991;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+/* ---------- ACTOS ---------- */
+
+.act {
+    border: 1px solid #30383e;
+    background: rgba(255,255,255,.025);
+    border-radius: 6px;
+    padding: 18px;
+    margin-bottom: 10px;
+}
+
+.act.current {
+    border-left: 4px solid #c5cdd2;
+}
+
+.act.locked {
+    opacity: .35;
+}
+
+.act.completed {
+    border-left: 4px solid #669b75;
+}
+
+.act-number {
+    font-family: monospace;
+    color: #7d8991;
+    font-size: 11px;
+    margin-bottom: 6px;
+}
+
+.act-name {
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.act-state {
+    float: right;
+    font-family: monospace;
+    font-size: 11px;
+    color: #89939a;
+}
+
+/* ---------- INVESTIGACIÓN ---------- */
+
+.card {
+    margin-top: 25px;
+    padding: 22px;
+    border: 1px solid #343d44;
+    border-radius: 6px;
+    background: #0e1317;
+}
+
+.question-number {
+    font-family: monospace;
+    color: #6e7b84;
+    font-size: 11px;
+}
+
+.question {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    line-height: 1.45;
+    margin: 13px 0 25px;
+}
+
+input {
+    width: 100%;
+    background: #070a0d;
+    border: 1px solid #424c53;
+    color: white;
+    padding: 17px;
+    border-radius: 4px;
+    font-size: 17px;
+    outline: none;
+    margin-bottom: 12px;
+}
+
+input:focus {
+    border-color: #9aa6ae;
+}
+
+.error {
+    display: none;
+    color: #c98383;
+    font-family: monospace;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.hint {
+    color: #69747c;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 18px;
+}
+
+/* ---------- DESBLOQUEO ---------- */
+
+#desbloqueo {
+    text-align: center;
+    justify-content: center;
+}
+
+.check {
+    width: 85px;
+    height: 85px;
+    border: 2px solid #6fa37d;
+    color: #81b88f;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+.unlocked {
+    color: #80b88f;
+    letter-spacing: 2px;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.reveal {
+    border-top: 1px solid #31383e;
+    border-bottom: 1px solid #31383e;
+    margin: 30px 0;
+    padding: 25px 5px;
+    line-height: 1.7;
+    color: #c4cbd0;
+}
+
+.envelope {
+    margin: 30px 0;
+    border: 1px dashed #6c777e;
+    padding: 22px;
+    font-family: monospace;
+}
+
+.footer-code {
+    margin-top: 35px;
+    font-family: monospace;
+    font-size: 10px;
+    color: #4f585e;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PORTADA ================= -->
+
+<section id="inicio" class="screen active">
+    <div class="container">
+
+        <div class="badge">⌖</div>
+
+        <div class="small">Sistema de Investigación</div>
+
+        <h1>RIUDECOLS</h1>
+
+        <div class="subtitle">
+            Unidad de Investigación Criminal
+        </div>
+
+        <div class="case-number">
+            EXPEDIENTE CR/2026-017
+        </div>
+
+        <button class="btn" onclick="entrar()">
+            ACCEDER AL EXPEDIENTE
+        </button>
+
+        <div class="warning">
+            DOCUMENTACIÓN CONFIDENCIAL · ACCESO RESTRINGIDO
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= PANEL ================= -->
+
+<section id="panel" class="screen">
+    <div class="container">
+
+        <div class="header">
+
+            <div class="header-top">
+
+                <div>
+                    <div class="small">Expediente</div>
+                    <div class="header-title">
+                        CASO DE RIUDECOLS
+                    </div>
+                </div>
+
+                <div class="status">
+                    ACTIVO
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="section-title">
+            Progreso de investigación
+        </div>
+
+        <div id="acto1" class="act current">
+            <span class="act-state" id="estado1">
+                EN CURSO
+            </span>
+
+            <div class="act-number">ACTO 01</div>
+
+            <div class="act-name">
+                EL EXPEDIENTE OLVIDADO
+            </div>
+        </div>
+
+
+        <div id="acto2" class="act locked">
+            <span class="act-state" id="estado2">
+                BLOQUEADO
+            </span>
+
+            <div class="act-number">ACTO 02</div>
+
+            <div class="act-name">
+                INFORMACIÓN RESTRINGIDA
+            </div>
+        </div>
+
+
+        <div class="act locked">
+            <span class="act-state">BLOQUEADO</span>
+            <div class="act-number">ACTO 03</div>
+            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
+        </div>
+
+        <div class="act locked">
+            <span class="act-state">BLOQUEADO</span>
+            <div class="act-number">ACTO 04</div>
+            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
+        </div>
+
+        <div class="act locked">
+            <span class="act-state">BLOQUEADO</span>
+            <div class="act-number">ACTO 05</div>
+            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
+        </div>
+
+        <div class="act locked">
+            <span class="act-state">BLOQUEADO</span>
+            <div class="act-number">ACTO 06</div>
+            <div class="act-name">INFORMACIÓN RESTRINGIDA</div>
+        </div>
+
+
+        <div class="card">
+
+            <div class="question-number">
+                CUESTIÓN DE INVESTIGACIÓN 01
+            </div>
+
+            <div class="question">
+                ¿Qué elemento llevó a la víctima de Riudecols
+                a cuestionar la versión oficial de los hechos
+                ocurridos en 2019?
+            </div>
+
+            <input
+                id="respuesta"
+                type="text"
+                placeholder="Introducir respuesta..."
+                autocomplete="off"
+            >
+
+            <button class="btn" onclick="comprobar()">
+                VALIDAR HIPÓTESIS
+            </button>
+
+            <div id="error" class="error">
+                ✕ HIPÓTESIS NO VALIDADA
+                <br><br>
+                Revisad nuevamente las evidencias disponibles.
+            </div>
+
+            <div class="hint">
+                La respuesta debe basarse únicamente en las
+                evidencias recuperadas durante la investigación.
+            </div>
+
+        </div>
+
+        <div class="footer-code">
+            CR/2026-017 · SISTEMA INTERNO · SESIÓN 01
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ================= DESBLOQUEO ================= -->
+
+<section id="desbloqueo" class="screen">
+    <div class="container">
+
+        <div class="check">✓</div>
+
+        <div class="unlocked">
+            HIPÓTESIS VALIDADA
+        </div>
+
+        <h1 style="font-size:36px;">
+            ACTO I COMPLETADO
+        </h1>
+
+        <div class="reveal">
+
+            La evidencia encontrada confirma el motivo por el
+            que se inició la investigación privada sobre los
+            acontecimientos de 2019.
+
+            <br><br>
+
+            La pulsera documentada entre las evidencias no
+            debería haber estado en posesión de la víctima.
+
+            <br><br>
+
+            Su procedencia vincula aquella escena con
+            integrantes del grupo.
+
+        </div>
+
+        <div class="unlocked">
+            🔓 NUEVO NIVEL DE INVESTIGACIÓN AUTORIZADO
+        </div>
+
+        <div class="envelope">
+
+            ACTO II DISPONIBLE
+
+            <br><br>
+
+            PROCEDAN CON LA APERTURA DEL
+            <strong>SOBRE 02</strong>
+
+        </div>
+
+        <button class="btn" onclick="volverPanel()">
+            VOLVER AL EXPEDIENTE
+        </button>
+
+        <div class="footer-code">
+            AUTORIZACIÓN CR/2026-017-A02
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+/* -------- CAMBIO DE PANTALLAS -------- */
+
+function mostrar(id) {
+
+    document.querySelectorAll(".screen").forEach(function(pantalla) {
+        pantalla.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+function entrar() {
+    mostrar("panel");
+}
+
+
+/* -------- NORMALIZAR RESPUESTAS -------- */
+
+function normalizar(texto) {
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim();
+}
+
+
+/* -------- VALIDACIÓN ACTO 1 -------- */
+
+function comprobar() {
+
+    const respuesta =
+        normalizar(document.getElementById("respuesta").value);
+
+    const respuestasCorrectas = [
+        "pulsera",
+        "la pulsera",
+        "una pulsera",
+        "pulsera del grupo",
+        "la pulsera del grupo"
+    ];
+
+    const correcto =
+        respuestasCorrectas.some(function(opcion) {
+            return respuesta.includes(opcion);
+        });
+
+
+    if (correcto) {
+
+        localStorage.setItem(
+            "riudecols_acto1",
+            "completado"
+        );
+
+        document.getElementById("error").style.display = "none";
+
+        mostrar("desbloqueo");
+
+    } else {
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+
+/* -------- PANEL DESPUÉS DEL DESBLOQUEO -------- */
+
+function volverPanel() {
+
+    actualizarProgreso();
+
+    mostrar("panel");
+}
+
+
+function actualizarProgreso() {
+
+    const completado =
+        localStorage.getItem("riudecols_acto1");
+
+    if (completado === "completado") {
+
+        const acto1 = document.getElementById("acto1");
+        const acto2 = document.getElementById("acto2");
+
+        acto1.classList.remove("current");
+        acto1.classList.add("completed");
+
+        document.getElementById("estado1").innerText =
+            "COMPLETADO ✓";
+
+
+        acto2.classList.remove("locked");
+        acto2.classList.add("current");
+
+        document.getElementById("estado2").innerText =
+            "DESBLOQUEADO";
+
+        acto2.querySelector(".act-name").innerText =
+            "LA NOCHE DE 2019";
+
+    }
+}
+
+
+/* -------- RECORDAR PROGRESO -------- */
+
+actualizarProgreso();
+
+
+/* -------- ENTER PARA VALIDAR -------- */
+
+document
+    .getElementById("respuesta")
+    .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+            comprobar();
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
