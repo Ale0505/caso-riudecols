@@ -51,6 +51,10 @@ max-width:900px;
 margin:auto;
 }
 
+.hidden{
+display:none !important;
+}
+
 /* ================================
    CABECERA
 ================================ */
@@ -79,6 +83,7 @@ font-weight:900;
 font-size:17px;
 color:#c7d5df;
 background:rgba(255,255,255,.035);
+flex-shrink:0;
 }
 
 .institution-name{
@@ -453,7 +458,7 @@ margin-top:20px;
 }
 
 /* ================================
-   FALSO FINAL
+   FALSO FINAL OPORTO
 ================================ */
 
 .closed-case{
@@ -493,7 +498,7 @@ color:#98a9b6;
 }
 
 /* ================================
-   ALERTA RIUDECOLS
+   ALERTA
 ================================ */
 
 .alert-box{
@@ -531,14 +536,8 @@ border:1px solid #75613d;
 background:rgba(135,105,55,.1);
 }
 
-.alert-instruction strong{
-display:block;
-margin-top:7px;
-font-size:16px;
-}
-
 /* ================================
-   PIE
+   FOOTER / ADMIN TRIGGER
 ================================ */
 
 .footer{
@@ -552,13 +551,214 @@ line-height:1.7;
 }
 
 .admin-trigger{
-margin-top:50px;
-height:25px;
-opacity:.01;
+margin-top:45px;
+padding:10px;
+text-align:center;
+font-family:monospace;
+font-size:8px;
+letter-spacing:2px;
+color:#1c2b36;
+cursor:pointer;
+user-select:none;
 }
 
-.hidden{
-display:none !important;
+/* ================================
+   PANEL ADMIN
+================================ */
+
+.admin-panel{
+display:none;
+position:fixed;
+inset:0;
+z-index:9999;
+padding:
+calc(25px + env(safe-area-inset-top))
+18px
+calc(25px + env(safe-area-inset-bottom));
+background:rgba(1,5,9,.94);
+backdrop-filter:blur(12px);
+overflow-y:auto;
+}
+
+.admin-panel.active{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.admin-window{
+width:100%;
+max-width:520px;
+padding:24px;
+background:linear-gradient(180deg,#0d1c28,#071018);
+border:1px solid #405b70;
+border-top:3px solid #6d899d;
+box-shadow:0 20px 60px rgba(0,0,0,.65);
+}
+
+.admin-top{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+padding-bottom:18px;
+border-bottom:1px solid #294052;
+}
+
+.admin-small{
+font-family:monospace;
+font-size:9px;
+letter-spacing:2px;
+color:#748b9d;
+}
+
+.admin-title{
+margin-top:5px;
+font-size:22px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.admin-close{
+width:38px;
+height:38px;
+border:1px solid #425b6d;
+background:#101f2a;
+color:#b7c5cf;
+font-size:22px;
+cursor:pointer;
+}
+
+.admin-warning{
+margin-top:18px;
+padding:12px;
+border-left:3px solid var(--ambar);
+background:rgba(209,167,92,.08);
+color:#cbb88e;
+font-family:monospace;
+font-size:9px;
+line-height:1.6;
+letter-spacing:.5px;
+}
+
+.admin-current{
+margin-top:20px;
+padding:17px;
+border:1px solid #38566c;
+background:#050c12;
+color:var(--verde);
+font-family:monospace;
+font-size:13px;
+letter-spacing:1px;
+}
+
+.admin-section-title{
+margin-top:25px;
+margin-bottom:10px;
+color:#778d9d;
+font-size:9px;
+letter-spacing:1.8px;
+text-transform:uppercase;
+}
+
+.admin-navigation{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+.admin-navigation button{
+padding:14px 8px;
+border:1px solid #3d596e;
+background:#102638;
+color:#e7edf2;
+font-size:10px;
+font-weight:700;
+cursor:pointer;
+}
+
+.admin-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+.admin-grid button{
+min-height:75px;
+padding:12px;
+border:1px solid #314b5f;
+background:#09151f;
+color:#d9e2e8;
+text-align:left;
+font-size:10px;
+font-weight:700;
+line-height:1.4;
+cursor:pointer;
+}
+
+.admin-grid button span{
+display:block;
+margin-bottom:5px;
+color:#71899b;
+font-family:monospace;
+font-size:9px;
+}
+
+.admin-reset-button{
+width:100%;
+padding:15px;
+border:1px solid #7b4747;
+background:rgba(130,48,48,.13);
+color:#d28a8a;
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+cursor:pointer;
+}
+
+.admin-exit-button{
+width:100%;
+margin-top:8px;
+padding:15px;
+border:1px solid #40596b;
+background:#112638;
+color:white;
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+cursor:pointer;
+}
+
+/* ================================
+   MÓVIL
+================================ */
+
+@media(max-width:520px){
+
+.institution-name{
+font-size:8px;
+}
+
+.unit-name{
+font-size:13px;
+}
+
+.session{
+font-size:8px;
+}
+
+.fake-shield{
+width:45px;
+height:52px;
+}
+
+.phase-status{
+font-size:8px;
+}
+
+.admin-grid{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -662,7 +862,7 @@ DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
 
 
 <!-- ===================================
-     PANEL
+     PANEL PRINCIPAL
 =================================== -->
 
 <section id="panel" class="screen">
@@ -696,12 +896,8 @@ SESIÓN ACTIVA
 <div class="case-header-top">
 
 <div>
-<div class="eyebrow">
-Expediente
-</div>
-<h2>
-CASO DE RIUDECOLS
-</h2>
+<div class="eyebrow">Expediente</div>
+<h2>CASO DE RIUDECOLS</h2>
 </div>
 
 <div class="open-status">
@@ -724,112 +920,49 @@ Fases de investigación
 </div>
 
 
-<!-- FASE 1 -->
-
 <div id="fase1" class="phase active">
-
-<div id="estado1" class="phase-status">
-EN CURSO
+<div id="estado1" class="phase-status">EN CURSO</div>
+<div class="phase-number">FASE 01 · DILIGENCIA CR-01</div>
+<div class="phase-title">EL EXPEDIENTE OLVIDADO</div>
 </div>
 
-<div class="phase-number">
-FASE 01 · DILIGENCIA CR-01
-</div>
-
-<div class="phase-title">
-EL EXPEDIENTE OLVIDADO
-</div>
-
-</div>
-
-
-<!-- FASE 2 -->
 
 <div id="fase2" class="phase locked">
-
-<div id="estado2" class="phase-status">
-RESTRINGIDO
+<div id="estado2" class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 02 · DILIGENCIA CR-02</div>
+<div id="titulo2" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
-<div class="phase-number">
-FASE 02 · DILIGENCIA CR-02
-</div>
-
-<div id="titulo2" class="phase-title">
-INFORMACIÓN RESERVADA
-</div>
-
-</div>
-
-
-<!-- FASE 3 -->
 
 <div id="fase3" class="phase locked">
-
-<div id="estado3" class="phase-status">
-RESTRINGIDO
+<div id="estado3" class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 03 · DILIGENCIA CR-03</div>
+<div id="titulo3" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
-<div class="phase-number">
-FASE 03 · DILIGENCIA CR-03
-</div>
-
-<div id="titulo3" class="phase-title">
-INFORMACIÓN RESERVADA
-</div>
-
-</div>
-
-
-<!-- FASE 4 -->
 
 <div id="fase4" class="phase locked">
-
-<div id="estado4" class="phase-status">
-RESTRINGIDO
-</div>
-
-<div class="phase-number">
-FASE 04 · DILIGENCIA CR-04
-</div>
-
-<div id="titulo4" class="phase-title">
-INFORMACIÓN RESERVADA
-</div>
-
+<div id="estado4" class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 04 · DILIGENCIA CR-04</div>
+<div id="titulo4" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
 
 <div class="phase locked">
-<div class="phase-status">
-RESTRINGIDO
-</div>
-<div class="phase-number">
-FASE 05
-</div>
-<div class="phase-title">
-INFORMACIÓN RESERVADA
-</div>
+<div class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 05</div>
+<div class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
 
 <div class="phase locked">
-<div class="phase-status">
-RESTRINGIDO
-</div>
-<div class="phase-number">
-FASE 06
-</div>
-<div class="phase-title">
-INFORMACIÓN RESERVADA
-</div>
+<div class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 06</div>
+<div class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
 
-
-<!-- ================================
-     PREGUNTA FASE 1
-================================ -->
+<!-- PREGUNTA 1 -->
 
 <div id="preguntaFase1" class="investigation-card">
 
@@ -859,33 +992,23 @@ autocomplete="off"
 
 <button
 class="validate-btn"
-onclick="comprobarFase1()"
->
+onclick="comprobarFase1()">
 REGISTRAR CONCLUSIÓN
 </button>
 
 <div id="error1" class="error">
-
 CONCLUSIÓN NO ADMITIDA
-
 <br><br>
-
 Revise las evidencias disponibles.
-
 </div>
 
 </div>
 
 
+<!-- PREGUNTA 2 -->
 
-<!-- ================================
-     PREGUNTA FASE 2
-================================ -->
-
-<div
-id="preguntaFase2"
-class="investigation-card hidden"
->
+<div id="preguntaFase2"
+class="investigation-card hidden">
 
 <div class="document-reference">
 REF. CR/2026-017 · CUESTIÓN 02
@@ -905,7 +1028,6 @@ en 2019?
 
 </div>
 
-
 <div class="suspect-label">
 SOSPECHOSO 01
 </div>
@@ -915,8 +1037,8 @@ id="sospechoso1"
 class="answer-input"
 type="text"
 placeholder="Nombre..."
+autocomplete="off"
 >
-
 
 <div class="suspect-label">
 SOSPECHOSO 02
@@ -927,8 +1049,8 @@ id="sospechoso2"
 class="answer-input"
 type="text"
 placeholder="Nombre..."
+autocomplete="off"
 >
-
 
 <div class="suspect-label">
 SOSPECHOSO 03
@@ -939,16 +1061,14 @@ id="sospechoso3"
 class="answer-input"
 type="text"
 placeholder="Nombre..."
+autocomplete="off"
 >
-
 
 <button
 class="validate-btn"
-onclick="comprobarFase2()"
->
+onclick="comprobarFase2()">
 VALIDAR SOSPECHOSOS
 </button>
-
 
 <div id="error2" class="error">
 
@@ -956,31 +1076,22 @@ RECONSTRUCCIÓN NO VALIDADA
 
 <br><br>
 
-La selección no coincide con
-las evidencias disponibles.
+La selección no coincide con las
+evidencias disponibles.
 
 </div>
-
 
 <div class="evidence-warning">
-
-El orden de los tres nombres
-no es relevante.
-
+El orden de los tres nombres no es relevante.
 </div>
 
 </div>
 
 
+<!-- PREGUNTA 3 -->
 
-<!-- ================================
-     PREGUNTA FASE 3
-================================ -->
-
-<div
-id="preguntaFase3"
-class="investigation-card hidden"
->
+<div id="preguntaFase3"
+class="investigation-card hidden">
 
 <div class="document-reference">
 REF. CR/2026-017 · CUESTIÓN 03
@@ -989,7 +1100,6 @@ REF. CR/2026-017 · CUESTIÓN 03
 <div class="question-title">
 Determinación de responsabilidad
 </div>
-
 
 <div class="question">
 
@@ -1005,7 +1115,6 @@ en 2019?
 
 </div>
 
-
 <div class="suspect-label">
 PERSONA RESPONSABLE
 </div>
@@ -1018,14 +1127,11 @@ placeholder="Introducir nombre..."
 autocomplete="off"
 >
 
-
 <button
 class="validate-btn"
-onclick="comprobarFase3()"
->
+onclick="comprobarFase3()">
 VALIDAR CONCLUSIÓN
 </button>
-
 
 <div id="error3" class="error">
 
@@ -1036,36 +1142,26 @@ CONCLUSIÓN NO ADMITIDA
 La persona indicada no coincide
 con la reconstrucción de los hechos.
 
-<br><br>
-
-Revise nuevamente la cronología,
-las declaraciones y las evidencias
-del lugar de la caída.
-
 </div>
 
 </div>
-
 
 
 <div class="footer">
 
 EXPEDIENTE CR/2026-017
 <br>
-
 UNIDAD DE INVESTIGACIÓN CRIMINAL
 <br>
-
 REGISTRO INTERNO · SESIÓN 01
 
 </div>
 
+<div class="admin-trigger"
+onclick="abrirAdmin()">
 
-<div
-class="admin-trigger"
-onclick="adminReset()"
->
-ADMIN
+CONTROL DEL SISTEMA
+
 </div>
 
 </div>
@@ -1073,9 +1169,8 @@ ADMIN
 </section>
 
 
-
 <!-- ===================================
-     VALIDACIÓN FASE 1
+     VALIDACIÓN 1
 =================================== -->
 
 <section id="validacion1" class="screen">
@@ -1102,7 +1197,6 @@ VERIFICADO
 </div>
 </div>
 </div>
-
 
 <div class="container validation-screen">
 
@@ -1137,7 +1231,6 @@ el lugar de los hechos.
 
 </div>
 
-
 <div class="instruction">
 
 <div class="instruction-label">
@@ -1150,11 +1243,8 @@ SE AUTORIZA LA APERTURA DEL SOBRE 02
 
 </div>
 
-
-<button
-class="return-btn"
-onclick="continuarFase2()"
->
+<button class="return-btn"
+onclick="continuarFase2()">
 CONTINUAR INVESTIGACIÓN
 </button>
 
@@ -1165,9 +1255,8 @@ CONTINUAR INVESTIGACIÓN
 </section>
 
 
-
 <!-- ===================================
-     VALIDACIÓN FASE 2
+     VALIDACIÓN 2
 =================================== -->
 
 <section id="validacion2" class="screen">
@@ -1194,7 +1283,6 @@ VERIFICADO
 </div>
 </div>
 </div>
-
 
 <div class="container validation-screen">
 
@@ -1231,7 +1319,6 @@ Es necesario reconstruir los
 
 </div>
 
-
 <div class="instruction">
 
 <div class="instruction-label">
@@ -1244,11 +1331,8 @@ SE AUTORIZA LA APERTURA DEL SOBRE 03
 
 </div>
 
-
-<button
-class="return-btn"
-onclick="continuarFase3()"
->
+<button class="return-btn"
+onclick="continuarFase3()">
 CONTINUAR INVESTIGACIÓN
 </button>
 
@@ -1259,9 +1343,8 @@ CONTINUAR INVESTIGACIÓN
 </section>
 
 
-
 <!-- ===================================
-     VALIDACIÓN FASE 3
+     VALIDACIÓN 3
 =================================== -->
 
 <section id="validacion3" class="screen">
@@ -1288,7 +1371,6 @@ VERIFICADO
 </div>
 </div>
 </div>
-
 
 <div class="container validation-screen">
 
@@ -1326,11 +1408,8 @@ la muerte.
 
 </div>
 
-
-<button
-class="return-btn"
-onclick="mostrarCierreOporto()"
->
+<button class="return-btn"
+onclick="mostrarCierreOporto()">
 CERRAR DILIGENCIA DE OPORTO
 </button>
 
@@ -1341,9 +1420,8 @@ CERRAR DILIGENCIA DE OPORTO
 </section>
 
 
-
 <!-- ===================================
-     FALSO FINAL OPORTO
+     FALSO CIERRE
 =================================== -->
 
 <section id="cierreOporto" class="screen">
@@ -1371,7 +1449,6 @@ RESUELTO
 </div>
 </div>
 
-
 <div class="container">
 
 <div class="closed-case">
@@ -1392,7 +1469,6 @@ CASO DE OPORTO
 2019
 </div>
 
-
 <div class="validation-box">
 
 <div class="validation-text">
@@ -1409,11 +1485,8 @@ investigación.
 
 </div>
 
-
-<button
-class="return-btn"
-onclick="mostrarAlerta()"
->
+<button class="return-btn"
+onclick="mostrarAlerta()">
 FINALIZAR RECONSTRUCCIÓN
 </button>
 
@@ -1426,9 +1499,8 @@ FINALIZAR RECONSTRUCCIÓN
 </section>
 
 
-
 <!-- ===================================
-     GIRO / ALERTA
+     GIRO
 =================================== -->
 
 <section id="alerta" class="screen">
@@ -1448,17 +1520,14 @@ CR/2026-017
 </div>
 </div>
 
-<div
-class="session"
-style="color:#d1a75c"
->
+<div class="session"
+style="color:#d1a75c">
 REVISIÓN
 </div>
 
 </div>
 </div>
 </div>
-
 
 <div class="container validation-screen">
 
@@ -1471,7 +1540,6 @@ REVISIÓN
 <div class="alert-title">
 La investigación no ha terminado
 </div>
-
 
 <div class="alert-text">
 
@@ -1503,7 +1571,6 @@ la misma persona.
 
 </div>
 
-
 <div class="alert-instruction">
 
 <div class="instruction-label">
@@ -1516,11 +1583,8 @@ SE AUTORIZA LA APERTURA DEL SOBRE 04
 
 </div>
 
-
-<button
-class="return-btn"
-onclick="activarFase4()"
->
+<button class="return-btn"
+onclick="activarFase4()">
 REABRIR INVESTIGACIÓN
 </button>
 
@@ -1531,23 +1595,135 @@ REABRIR INVESTIGACIÓN
 </section>
 
 
+<!-- ===================================
+     PANEL ADMIN
+=================================== -->
+
+<div id="adminPanel" class="admin-panel">
+
+<div class="admin-window">
+
+<div class="admin-top">
+
+<div>
+
+<div class="admin-small">
+CR/2026-017 · SISTEMA DE CONTROL
+</div>
+
+<div class="admin-title">
+ADMINISTRACIÓN
+</div>
+
+</div>
+
+<button
+class="admin-close"
+onclick="cerrarAdmin()">
+×
+</button>
+
+</div>
+
+
+<div class="admin-warning">
+
+MODO DE PRUEBAS
+
+<br>
+
+Las acciones realizadas desde este panel
+modifican el progreso almacenado de la investigación.
+
+</div>
+
+
+<div id="adminFaseActual"
+class="admin-current">
+FASE ACTUAL: 01
+</div>
+
+
+<div class="admin-section-title">
+Control de progreso
+</div>
+
+
+<div class="admin-navigation">
+
+<button onclick="adminRetroceder()">
+← FASE ANTERIOR
+</button>
+
+<button onclick="adminAvanzar()">
+SIGUIENTE FASE →
+</button>
+
+</div>
+
+
+<div class="admin-section-title">
+Acceso directo
+</div>
+
+
+<div class="admin-grid">
+
+<button onclick="adminIrAFase(1)">
+<span>FASE 01</span>
+EL EXPEDIENTE OLVIDADO
+</button>
+
+<button onclick="adminIrAFase(2)">
+<span>FASE 02</span>
+LA NOCHE DE 2019
+</button>
+
+<button onclick="adminIrAFase(3)">
+<span>FASE 03</span>
+LA CAÍDA
+</button>
+
+<button onclick="adminIrAFase(4)">
+<span>FASE 04</span>
+RIUDECOLS
+</button>
+
+</div>
+
+
+<div class="admin-section-title">
+Partida
+</div>
+
+
+<button
+class="admin-reset-button"
+onclick="adminRestablecer()">
+RESTABLECER INVESTIGACIÓN
+</button>
+
+
+<button
+class="admin-exit-button"
+onclick="cerrarAdmin()">
+CERRAR PANEL
+</button>
+
+</div>
+
+</div>
+
 
 <script>
 
 /* ====================================
-   CONFIGURACIÓN PROVISIONAL
+   RESPUESTAS PROVISIONALES
 ==================================== */
 
 /*
 FASE 2:
-Hasta que elijamos los personajes
-reales, introducir:
-
-A
-X
-Y
-
-en cualquier orden.
+A + X + Y
 */
 
 const sospechososCorrectos = [
@@ -1559,9 +1735,6 @@ const sospechososCorrectos = [
 
 /*
 FASE 3:
-Por ahora el responsable de 2019
-es simplemente:
-
 A
 */
 
@@ -1569,7 +1742,7 @@ const responsableCorrecto2019 = "a";
 
 
 /* ====================================
-   UTILIDADES
+   PANTALLAS
 ==================================== */
 
 function mostrar(id){
@@ -1591,6 +1764,19 @@ window.scrollTo(0,0);
 }
 
 
+function entrar(){
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* ====================================
+   NORMALIZAR
+==================================== */
+
 function normalizar(texto){
 
 return texto
@@ -1598,15 +1784,6 @@ return texto
 .normalize("NFD")
 .replace(/[\u0300-\u036f]/g,"")
 .trim();
-
-}
-
-
-function entrar(){
-
-actualizarProgreso();
-
-mostrar("panel");
 
 }
 
@@ -1820,10 +1997,6 @@ mostrar("alerta");
 }
 
 
-/* ====================================
-   ACTIVAR FASE 4
-==================================== */
-
 function activarFase4(){
 
 localStorage.setItem(
@@ -1839,7 +2012,7 @@ mostrar("panel");
 
 
 /* ====================================
-   PROGRESO
+   PROGRESO VISUAL
 ==================================== */
 
 function actualizarProgreso(){
@@ -1857,7 +2030,53 @@ const f4 =
 localStorage.getItem("riudecols_fase4");
 
 
-/* FASE 1 */
+/* RESET VISUAL */
+
+document.getElementById("fase1")
+.className="phase active";
+
+document.getElementById("estado1")
+.innerText="EN CURSO";
+
+document.getElementById("fase2")
+.className="phase locked";
+
+document.getElementById("estado2")
+.innerText="RESTRINGIDO";
+
+document.getElementById("titulo2")
+.innerText="INFORMACIÓN RESERVADA";
+
+document.getElementById("fase3")
+.className="phase locked";
+
+document.getElementById("estado3")
+.innerText="RESTRINGIDO";
+
+document.getElementById("titulo3")
+.innerText="INFORMACIÓN RESERVADA";
+
+document.getElementById("fase4")
+.className="phase locked";
+
+document.getElementById("estado4")
+.innerText="RESTRINGIDO";
+
+document.getElementById("titulo4")
+.innerText="INFORMACIÓN RESERVADA";
+
+
+document.getElementById("preguntaFase1")
+.classList.remove("hidden");
+
+document.getElementById("preguntaFase2")
+.classList.add("hidden");
+
+document.getElementById("preguntaFase3")
+.classList.add("hidden");
+
+
+/* FASE 1 COMPLETADA */
 
 if(f1 === "completada"){
 
@@ -1866,6 +2085,7 @@ document.getElementById("fase1")
 
 document.getElementById("estado1")
 .innerText="COMPLETADA ✓";
+
 
 document.getElementById("fase2")
 .className="phase active";
@@ -1876,6 +2096,7 @@ document.getElementById("estado2")
 document.getElementById("titulo2")
 .innerText="LA NOCHE DE 2019";
 
+
 document.getElementById("preguntaFase1")
 .classList.add("hidden");
 
@@ -1885,7 +2106,7 @@ document.getElementById("preguntaFase2")
 }
 
 
-/* FASE 2 */
+/* FASE 2 COMPLETADA */
 
 if(f2 === "completada"){
 
@@ -1894,6 +2115,7 @@ document.getElementById("fase2")
 
 document.getElementById("estado2")
 .innerText="COMPLETADA ✓";
+
 
 document.getElementById("fase3")
 .className="phase active";
@@ -1904,6 +2126,7 @@ document.getElementById("estado3")
 document.getElementById("titulo3")
 .innerText="LA CAÍDA";
 
+
 document.getElementById("preguntaFase2")
 .classList.add("hidden");
 
@@ -1913,7 +2136,7 @@ document.getElementById("preguntaFase3")
 }
 
 
-/* FASE 3 */
+/* FASE 3 COMPLETADA */
 
 if(f3 === "completada"){
 
@@ -1929,7 +2152,7 @@ document.getElementById("preguntaFase3")
 }
 
 
-/* FASE 4 */
+/* FASE 4 ACTIVA */
 
 if(f4 === "activa"){
 
@@ -1948,35 +2171,223 @@ document.getElementById("titulo4")
 
 
 /* ====================================
-   ADMIN RESET
+   ADMIN
 ==================================== */
 
-function adminReset(){
+function abrirAdmin(){
 
 const clave =
 prompt("Código de administración:");
 
 
-if(clave === "2019"){
+if(clave !== "2019"){
 
-const confirmar =
-confirm(
-"¿Reiniciar todo el progreso del Caso de Riudecols?"
-);
+return;
+
+}
+
+actualizarAdmin();
+
+document
+.getElementById("adminPanel")
+.classList.add("active");
+
+}
 
 
-if(confirmar){
+function cerrarAdmin(){
+
+document
+.getElementById("adminPanel")
+.classList.remove("active");
+
+}
+
+
+function obtenerFaseActual(){
+
+if(
+localStorage.getItem("riudecols_fase4")
+=== "activa"
+){
+return 4;
+}
+
+if(
+localStorage.getItem("riudecols_fase2")
+=== "completada"
+){
+return 3;
+}
+
+if(
+localStorage.getItem("riudecols_fase1")
+=== "completada"
+){
+return 2;
+}
+
+return 1;
+
+}
+
+
+function actualizarAdmin(){
+
+const fase =
+obtenerFaseActual();
+
+const nombres = {
+
+1:"EL EXPEDIENTE OLVIDADO",
+
+2:"LA NOCHE DE 2019",
+
+3:"LA CAÍDA",
+
+4:"RIUDECOLS"
+
+};
+
+
+document
+.getElementById("adminFaseActual")
+.innerHTML =
+"FASE ACTUAL: 0" +
+fase +
+"<br><span style='color:#8298a8;font-size:10px'>" +
+nombres[fase] +
+"</span>";
+
+}
+
+
+/* ====================================
+   ADMIN · IR A FASE
+==================================== */
+
+function adminIrAFase(fase){
 
 localStorage.removeItem("riudecols_fase1");
 localStorage.removeItem("riudecols_fase2");
 localStorage.removeItem("riudecols_fase3");
 localStorage.removeItem("riudecols_fase4");
 
-location.reload();
+
+if(fase >= 2){
+
+localStorage.setItem(
+"riudecols_fase1",
+"completada"
+);
 
 }
 
+
+if(fase >= 3){
+
+localStorage.setItem(
+"riudecols_fase2",
+"completada"
+);
+
 }
+
+
+if(fase >= 4){
+
+localStorage.setItem(
+"riudecols_fase3",
+"completada"
+);
+
+localStorage.setItem(
+"riudecols_fase4",
+"activa"
+);
+
+}
+
+
+cerrarAdmin();
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* ====================================
+   ADMIN · AVANZAR
+==================================== */
+
+function adminAvanzar(){
+
+let fase =
+obtenerFaseActual();
+
+if(fase < 4){
+
+fase++;
+
+}
+
+adminIrAFase(fase);
+
+}
+
+
+/* ====================================
+   ADMIN · RETROCEDER
+==================================== */
+
+function adminRetroceder(){
+
+let fase =
+obtenerFaseActual();
+
+if(fase > 1){
+
+fase--;
+
+}
+
+adminIrAFase(fase);
+
+}
+
+
+/* ====================================
+   ADMIN · RESTABLECER
+==================================== */
+
+function adminRestablecer(){
+
+const confirmar =
+confirm(
+"¿Restablecer completamente la investigación?\n\nSe eliminará todo el progreso guardado."
+);
+
+
+if(!confirmar){
+
+return;
+
+}
+
+
+localStorage.removeItem("riudecols_fase1");
+localStorage.removeItem("riudecols_fase2");
+localStorage.removeItem("riudecols_fase3");
+localStorage.removeItem("riudecols_fase4");
+
+
+cerrarAdmin();
+
+actualizarProgreso();
+
+mostrar("panel");
 
 }
 
@@ -1992,7 +2403,9 @@ document
 function(event){
 
 if(event.key === "Enter"){
+
 comprobarFase1();
+
 }
 
 });
@@ -2005,14 +2418,16 @@ document
 function(event){
 
 if(event.key === "Enter"){
+
 comprobarFase3();
+
 }
 
 });
 
 
 /* ====================================
-   INICIAR
+   INICIALIZACIÓN
 ==================================== */
 
 actualizarProgreso();
