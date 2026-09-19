@@ -2,28 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#07111c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Riudecols">
 
-<title>Caso de Riudecols</title>
+<title>Terminal CR/2026-017</title>
 
 <style>
-
 *{box-sizing:border-box}
 
 :root{
 --linea:#29455d;
+--linea2:#3b5a70;
 --texto:#e7edf2;
+--texto2:#aab9c4;
+--apagado:#667b8b;
 --verde:#76bd8a;
 --rojo:#cc7373;
 --ambar:#d1a75c;
---fondo:#050b11;
+--azul:#789bb5;
+--fondo:#04090e;
+--panel:#08131d;
+--panel2:#0c1c28;
 }
 
 html{background:var(--fondo)}
@@ -31,9 +33,17 @@ html{background:var(--fondo)}
 body{
 margin:0;
 min-height:100vh;
-background:linear-gradient(180deg,#0b1824 0%,#07111a 45%,#04090e 100%);
+background:
+radial-gradient(circle at 50% -10%,#102a3d 0%,transparent 35%),
+linear-gradient(180deg,#08141e 0%,#050b11 55%,#03070a 100%);
 color:var(--texto);
 font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+
+button,input{font:inherit}
+
+button{
+-webkit-tap-highlight-color:transparent;
 }
 
 .screen{
@@ -41,9 +51,7 @@ display:none;
 min-height:100vh;
 }
 
-.screen.active{
-display:block;
-}
+.screen.active{display:block}
 
 .container{
 width:100%;
@@ -51,59 +59,59 @@ max-width:900px;
 margin:auto;
 }
 
-.hidden{
-display:none !important;
-}
+.hidden{display:none!important}
 
-/* ================================
+
+/* ==================================
    CABECERA
-================================ */
+================================== */
 
 .institutional-header{
-padding:calc(18px + env(safe-area-inset-top)) 22px 18px;
-background:linear-gradient(135deg,#102a40,#081725);
+padding:calc(16px + env(safe-area-inset-top)) 20px 16px;
+background:linear-gradient(135deg,#102a40,#071522);
 border-bottom:3px solid #365c7a;
+box-shadow:0 6px 30px rgba(0,0,0,.22);
 }
 
 .institution-row{
 display:flex;
 align-items:center;
-gap:15px;
+gap:14px;
 }
 
 .fake-shield{
-width:54px;
-height:62px;
+width:50px;
+height:58px;
 border:2px solid #9aafbf;
-border-radius:7px 7px 18px 18px;
+border-radius:7px 7px 17px 17px;
 display:flex;
 align-items:center;
 justify-content:center;
 font-weight:900;
-font-size:17px;
+font-size:15px;
 color:#c7d5df;
 background:rgba(255,255,255,.035);
 flex-shrink:0;
 }
 
 .institution-name{
-font-size:11px;
-letter-spacing:1.8px;
-color:#b3c1cc;
+font-size:9px;
+letter-spacing:1.7px;
+color:#a9bac6;
 text-transform:uppercase;
 }
 
 .unit-name{
 margin-top:5px;
-font-size:16px;
+font-size:15px;
 font-weight:750;
-letter-spacing:.6px;
+letter-spacing:.5px;
 }
 
 .session{
 margin-left:auto;
 font-family:monospace;
-font-size:10px;
+font-size:9px;
 color:var(--verde);
 white-space:nowrap;
 }
@@ -113,16 +121,39 @@ content:"●";
 margin-right:5px;
 }
 
-/* ================================
+
+/* ==================================
+   BOTÓN ATRÁS
+================================== */
+
+.backbar{
+padding:13px 20px;
+border-bottom:1px solid #203747;
+background:rgba(4,11,17,.8);
+}
+
+.back-button{
+border:0;
+background:transparent;
+color:#91a7b7;
+font-family:monospace;
+font-size:10px;
+letter-spacing:1px;
+cursor:pointer;
+padding:5px 0;
+}
+
+
+/* ==================================
    PORTADA
-================================ */
+================================== */
 
 .cover{
-min-height:calc(100vh - 100px);
+min-height:calc(100vh - 90px);
 display:flex;
 flex-direction:column;
 justify-content:center;
-padding:38px 24px 70px;
+padding:38px 24px 65px;
 }
 
 .classification{
@@ -162,18 +193,16 @@ border-bottom:1px solid var(--linea);
 
 .info-row{
 display:grid;
-grid-template-columns:130px 1fr;
+grid-template-columns:125px 1fr;
 padding:13px 0;
 border-bottom:1px solid rgba(70,100,125,.3);
 }
 
-.info-row:last-child{
-border-bottom:none;
-}
+.info-row:last-child{border-bottom:none}
 
 .info-label{
 color:#748b9d;
-font-size:10px;
+font-size:9px;
 letter-spacing:1px;
 text-transform:uppercase;
 }
@@ -193,8 +222,8 @@ border-radius:3px;
 background:#142c3f;
 color:white;
 font-weight:800;
-font-size:12px;
-letter-spacing:1.3px;
+font-size:11px;
+letter-spacing:1.2px;
 cursor:pointer;
 }
 
@@ -208,14 +237,159 @@ background:linear-gradient(180deg,#173650,#10283c);
 margin-top:18px;
 text-align:center;
 font-family:monospace;
-font-size:9px;
+font-size:8px;
 letter-spacing:1px;
 color:#637584;
 }
 
-/* ================================
-   EXPEDIENTE
-================================ */
+
+/* ==================================
+   HOME TERMINAL
+================================== */
+
+.home-content{
+padding:32px 20px 60px;
+}
+
+.terminal-intro{
+padding-bottom:24px;
+border-bottom:1px solid var(--linea);
+}
+
+.terminal-label{
+font-family:monospace;
+font-size:9px;
+letter-spacing:2px;
+color:#758c9d;
+}
+
+.terminal-title{
+font-size:29px;
+font-weight:800;
+margin-top:6px;
+letter-spacing:.3px;
+}
+
+.terminal-meta{
+margin-top:9px;
+font-size:12px;
+color:#8297a6;
+}
+
+.home-status{
+margin-top:24px;
+padding:14px 16px;
+border-left:3px solid var(--verde);
+background:rgba(70,130,90,.07);
+}
+
+.home-status-small{
+font-family:monospace;
+font-size:8px;
+letter-spacing:1.5px;
+color:#6f887a;
+}
+
+.home-status-main{
+margin-top:6px;
+font-size:13px;
+font-weight:650;
+}
+
+.module-label{
+margin:32px 0 12px;
+font-size:9px;
+letter-spacing:2px;
+color:#748a9a;
+text-transform:uppercase;
+}
+
+.module-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:11px;
+}
+
+.module-card{
+position:relative;
+min-height:165px;
+padding:20px;
+border:1px solid #304b5f;
+background:
+linear-gradient(145deg,rgba(17,39,55,.92),rgba(7,18,27,.95));
+color:var(--texto);
+text-align:left;
+cursor:pointer;
+overflow:hidden;
+}
+
+.module-card:active{
+transform:scale(.99);
+}
+
+.module-card.large{
+grid-column:1/-1;
+min-height:130px;
+}
+
+.module-code{
+font-family:monospace;
+font-size:8px;
+letter-spacing:1.5px;
+color:#6f8798;
+}
+
+.module-icon{
+font-size:28px;
+margin:19px 0 14px;
+opacity:.85;
+}
+
+.module-title{
+font-size:15px;
+font-weight:800;
+letter-spacing:.5px;
+}
+
+.module-desc{
+margin-top:7px;
+font-size:10px;
+line-height:1.5;
+color:#8397a5;
+max-width:300px;
+}
+
+.module-arrow{
+position:absolute;
+right:17px;
+bottom:16px;
+font-size:18px;
+color:#668094;
+}
+
+.module-indicator{
+position:absolute;
+right:15px;
+top:15px;
+font-family:monospace;
+font-size:8px;
+color:var(--verde);
+}
+
+.terminal-footer{
+margin-top:35px;
+padding-top:17px;
+border-top:1px solid #203746;
+font-family:monospace;
+font-size:8px;
+line-height:1.7;
+color:#4f6575;
+}
+
+
+/* ==================================
+   CONTENIDO GENERAL
+================================== */
 
 .content{
 padding:28px 20px 60px;
@@ -236,7 +410,7 @@ gap:15px;
 .eyebrow{
 color:#758b9c;
 text-transform:uppercase;
-font-size:10px;
+font-size:9px;
 letter-spacing:2px;
 }
 
@@ -248,7 +422,7 @@ font-size:23px;
 .open-status{
 color:var(--verde);
 font-family:monospace;
-font-size:11px;
+font-size:10px;
 }
 
 .open-status::before{
@@ -262,21 +436,22 @@ margin-bottom:28px;
 border-left:3px solid #688ca8;
 background:rgba(54,88,114,.12);
 color:#b7c5cf;
-font-size:12px;
-line-height:1.6;
+font-size:11px;
+line-height:1.65;
 }
 
 .section-label{
 margin-bottom:12px;
 color:#778d9d;
-font-size:10px;
+font-size:9px;
 letter-spacing:2px;
 text-transform:uppercase;
 }
 
-/* ================================
+
+/* ==================================
    FASES
-================================ */
+================================== */
 
 .phase{
 position:relative;
@@ -302,13 +477,13 @@ opacity:.28;
 .phase-number{
 color:#758b9c;
 font-family:monospace;
-font-size:10px;
+font-size:9px;
 margin-bottom:7px;
 }
 
 .phase-title{
 font-weight:750;
-font-size:15px;
+font-size:14px;
 }
 
 .phase-status{
@@ -316,13 +491,14 @@ position:absolute;
 right:17px;
 top:18px;
 font-family:monospace;
-font-size:10px;
+font-size:9px;
 color:#93a6b4;
 }
 
-/* ================================
+
+/* ==================================
    PREGUNTAS
-================================ */
+================================== */
 
 .investigation-card{
 margin-top:32px;
@@ -335,12 +511,12 @@ border-radius:3px;
 .document-reference{
 color:#748b9d;
 font-family:monospace;
-font-size:10px;
+font-size:9px;
 margin-bottom:15px;
 }
 
 .question-title{
-font-size:11px;
+font-size:10px;
 font-weight:700;
 letter-spacing:1.5px;
 color:#a8b8c4;
@@ -350,7 +526,7 @@ text-transform:uppercase;
 .question{
 margin:17px 0 24px;
 font-family:Georgia,"Times New Roman",serif;
-font-size:22px;
+font-size:21px;
 line-height:1.45;
 }
 
@@ -373,7 +549,7 @@ border-color:#829cad;
 .suspect-label{
 margin:15px 0 6px;
 font-family:monospace;
-font-size:10px;
+font-size:9px;
 letter-spacing:1px;
 color:#8298a8;
 }
@@ -386,20 +562,263 @@ border-left:3px solid var(--rojo);
 background:rgba(160,60,60,.08);
 color:#d99595;
 font-family:monospace;
-font-size:11px;
+font-size:10px;
 line-height:1.5;
 }
 
 .evidence-warning{
 margin-top:16px;
 color:#697d8c;
-font-size:11px;
+font-size:10px;
 line-height:1.5;
 }
 
-/* ================================
+
+/* ==================================
+   EVIDENCIAS
+================================== */
+
+.evidence-header{
+padding-bottom:22px;
+border-bottom:1px solid var(--linea);
+}
+
+.evidence-title{
+margin:6px 0 0;
+font-size:26px;
+}
+
+.evidence-subtitle{
+margin-top:9px;
+color:#8196a5;
+font-size:11px;
+line-height:1.6;
+}
+
+.device-card{
+margin-top:27px;
+border:1px solid #38566c;
+background:linear-gradient(145deg,#0c1c28,#071018);
+overflow:hidden;
+}
+
+.device-top{
+padding:18px;
+display:flex;
+gap:15px;
+align-items:center;
+border-bottom:1px solid #294254;
+}
+
+.usb-icon{
+width:54px;
+height:54px;
+border:1px solid #56748a;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+background:#08131c;
+}
+
+.device-id{
+font-family:monospace;
+font-size:9px;
+color:#7990a0;
+letter-spacing:1.4px;
+}
+
+.device-name{
+font-size:17px;
+font-weight:800;
+margin-top:4px;
+}
+
+.device-status{
+margin-left:auto;
+font-family:monospace;
+font-size:8px;
+color:var(--verde);
+}
+
+.device-info{
+padding:18px;
+}
+
+.device-row{
+display:grid;
+grid-template-columns:115px 1fr;
+gap:10px;
+padding:9px 0;
+border-bottom:1px solid rgba(58,86,106,.3);
+font-size:10px;
+}
+
+.device-row:last-child{border-bottom:none}
+
+.device-key{
+color:#687f90;
+text-transform:uppercase;
+font-size:8px;
+letter-spacing:1px;
+}
+
+.device-value{
+color:#b5c2cb;
+line-height:1.45;
+}
+
+.device-open{
+width:calc(100% - 36px);
+margin:0 18px 18px;
+padding:15px;
+border:1px solid #496a82;
+background:#102a3d;
+color:white;
+font-size:10px;
+font-weight:800;
+letter-spacing:1px;
+cursor:pointer;
+}
+
+
+/* ==================================
+   USB
+================================== */
+
+.usb-path{
+font-family:monospace;
+font-size:9px;
+color:#698293;
+margin-bottom:18px;
+}
+
+.usb-window{
+border:1px solid #334f63;
+background:#061019;
+}
+
+.usb-toolbar{
+padding:13px 16px;
+border-bottom:1px solid #2a4355;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.usb-toolbar-title{
+font-family:monospace;
+font-size:9px;
+letter-spacing:1px;
+color:#8ca1b0;
+}
+
+.usb-connected{
+font-family:monospace;
+font-size:8px;
+color:var(--verde);
+}
+
+.folder{
+padding:20px;
+display:flex;
+align-items:center;
+gap:15px;
+border-bottom:1px solid #203847;
+}
+
+.folder:last-child{border-bottom:none}
+
+.folder-icon{
+font-size:31px;
+opacity:.8;
+}
+
+.folder-name{
+font-size:14px;
+font-weight:700;
+}
+
+.folder-meta{
+margin-top:5px;
+font-family:monospace;
+font-size:8px;
+color:#62798a;
+}
+
+.empty-folder{
+padding:50px 25px;
+text-align:center;
+color:#62798a;
+}
+
+.empty-folder-symbol{
+font-size:40px;
+opacity:.5;
+margin-bottom:16px;
+}
+
+.empty-folder-title{
+font-family:monospace;
+font-size:10px;
+letter-spacing:1.5px;
+color:#8399a9;
+}
+
+.empty-folder-text{
+max-width:380px;
+margin:12px auto 0;
+font-size:10px;
+line-height:1.6;
+}
+
+
+/* ==================================
+   EXPEDIENTE
+================================== */
+
+.file-sheet{
+margin-top:25px;
+border:1px solid #334d60;
+background:#08131d;
+padding:22px;
+}
+
+.file-sheet-title{
+font-family:monospace;
+font-size:9px;
+letter-spacing:1.5px;
+color:#788f9f;
+margin-bottom:18px;
+}
+
+.file-data-row{
+display:grid;
+grid-template-columns:120px 1fr;
+padding:11px 0;
+border-bottom:1px solid #203746;
+gap:12px;
+}
+
+.file-data-row:last-child{border-bottom:none}
+
+.file-data-label{
+font-size:8px;
+letter-spacing:1px;
+color:#6d8495;
+text-transform:uppercase;
+}
+
+.file-data-value{
+font-size:11px;
+line-height:1.5;
+color:#c0cbd2;
+}
+
+
+/* ==================================
    VALIDACIONES
-================================ */
+================================== */
 
 .validation-screen{
 padding:40px 22px 70px;
@@ -415,13 +834,13 @@ padding:25px;
 .validation-header{
 color:var(--verde);
 font-family:monospace;
-font-size:11px;
+font-size:10px;
 letter-spacing:1px;
 }
 
 .validation-title{
 margin:12px 0 25px;
-font-size:28px;
+font-size:27px;
 }
 
 .validation-text{
@@ -430,7 +849,7 @@ border-top:1px solid #294052;
 border-bottom:1px solid #294052;
 color:#bdc9d2;
 line-height:1.7;
-font-size:14px;
+font-size:13px;
 }
 
 .instruction{
@@ -442,7 +861,7 @@ background:rgba(46,78,103,.15);
 
 .instruction-label{
 color:#849aaa;
-font-size:9px;
+font-size:8px;
 letter-spacing:1.7px;
 text-transform:uppercase;
 }
@@ -450,16 +869,15 @@ text-transform:uppercase;
 .instruction strong{
 display:block;
 margin-top:8px;
-font-size:16px;
+font-size:15px;
 }
 
-.return-btn{
-margin-top:20px;
-}
+.return-btn{margin-top:20px}
 
-/* ================================
-   FALSO FINAL OPORTO
-================================ */
+
+/* ==================================
+   CIERRE OPORTO
+================================== */
 
 .closed-case{
 text-align:center;
@@ -481,7 +899,7 @@ color:var(--verde);
 
 .closed-small{
 font-family:monospace;
-font-size:11px;
+font-size:10px;
 letter-spacing:2px;
 color:var(--verde);
 }
@@ -497,9 +915,10 @@ font-size:21px;
 color:#98a9b6;
 }
 
-/* ================================
+
+/* ==================================
    ALERTA
-================================ */
+================================== */
 
 .alert-box{
 margin-top:30px;
@@ -511,7 +930,7 @@ padding:25px;
 .alert-header{
 color:var(--ambar);
 font-family:monospace;
-font-size:11px;
+font-size:10px;
 letter-spacing:1.5px;
 }
 
@@ -525,7 +944,7 @@ padding:20px 0;
 border-top:1px solid #51462f;
 border-bottom:1px solid #51462f;
 color:#c9c3b7;
-font-size:14px;
+font-size:13px;
 line-height:1.75;
 }
 
@@ -536,44 +955,29 @@ border:1px solid #75613d;
 background:rgba(135,105,55,.1);
 }
 
-/* ================================
-   FOOTER / ADMIN TRIGGER
-================================ */
 
-.footer{
-margin-top:35px;
-padding-top:18px;
-border-top:1px solid #263b4b;
-color:#516676;
-font-family:monospace;
-font-size:9px;
-line-height:1.7;
-}
+/* ==================================
+   ADMIN
+================================== */
 
 .admin-trigger{
 margin-top:45px;
-padding:10px;
+padding:13px;
 text-align:center;
 font-family:monospace;
-font-size:8px;
+font-size:7px;
 letter-spacing:2px;
-color:#1c2b36;
+color:#1d303d;
 cursor:pointer;
 user-select:none;
 }
-
-/* ================================
-   PANEL ADMIN
-================================ */
 
 .admin-panel{
 display:none;
 position:fixed;
 inset:0;
 z-index:9999;
-padding:
-calc(25px + env(safe-area-inset-top))
-18px
+padding:calc(25px + env(safe-area-inset-top)) 18px
 calc(25px + env(safe-area-inset-bottom));
 background:rgba(1,5,9,.94);
 backdrop-filter:blur(12px);
@@ -606,7 +1010,7 @@ border-bottom:1px solid #294052;
 
 .admin-small{
 font-family:monospace;
-font-size:9px;
+font-size:8px;
 letter-spacing:2px;
 color:#748b9d;
 }
@@ -615,7 +1019,6 @@ color:#748b9d;
 margin-top:5px;
 font-size:22px;
 font-weight:800;
-letter-spacing:1px;
 }
 
 .admin-close{
@@ -635,9 +1038,8 @@ border-left:3px solid var(--ambar);
 background:rgba(209,167,92,.08);
 color:#cbb88e;
 font-family:monospace;
-font-size:9px;
+font-size:8px;
 line-height:1.6;
-letter-spacing:.5px;
 }
 
 .admin-current{
@@ -647,15 +1049,14 @@ border:1px solid #38566c;
 background:#050c12;
 color:var(--verde);
 font-family:monospace;
-font-size:13px;
-letter-spacing:1px;
+font-size:12px;
 }
 
 .admin-section-title{
 margin-top:25px;
 margin-bottom:10px;
 color:#778d9d;
-font-size:9px;
+font-size:8px;
 letter-spacing:1.8px;
 text-transform:uppercase;
 }
@@ -666,12 +1067,13 @@ grid-template-columns:1fr 1fr;
 gap:8px;
 }
 
-.admin-navigation button{
+.admin-navigation button,
+.admin-grid button{
 padding:14px 8px;
 border:1px solid #3d596e;
 background:#102638;
 color:#e7edf2;
-font-size:10px;
+font-size:9px;
 font-weight:700;
 cursor:pointer;
 }
@@ -683,93 +1085,79 @@ gap:8px;
 }
 
 .admin-grid button{
-min-height:75px;
-padding:12px;
-border:1px solid #314b5f;
-background:#09151f;
-color:#d9e2e8;
+min-height:70px;
 text-align:left;
-font-size:10px;
-font-weight:700;
-line-height:1.4;
-cursor:pointer;
+background:#09151f;
 }
 
-.admin-grid button span{
+.admin-grid span{
 display:block;
 margin-bottom:5px;
-color:#71899b;
 font-family:monospace;
+font-size:8px;
+color:#71899b;
+}
+
+.admin-reset-button,
+.admin-exit-button{
+width:100%;
+padding:15px;
 font-size:9px;
+font-weight:800;
+letter-spacing:1px;
+cursor:pointer;
 }
 
 .admin-reset-button{
-width:100%;
-padding:15px;
 border:1px solid #7b4747;
 background:rgba(130,48,48,.13);
 color:#d28a8a;
-font-size:10px;
-font-weight:800;
-letter-spacing:1px;
-cursor:pointer;
 }
 
 .admin-exit-button{
-width:100%;
 margin-top:8px;
-padding:15px;
 border:1px solid #40596b;
 background:#112638;
 color:white;
-font-size:10px;
-font-weight:800;
-letter-spacing:1px;
-cursor:pointer;
 }
 
-/* ================================
-   MÓVIL
-================================ */
+
+/* ==================================
+   RESPONSIVE
+================================== */
 
 @media(max-width:520px){
 
-.institution-name{
-font-size:8px;
+.institution-name{font-size:7px}
+.unit-name{font-size:12px}
+.session{font-size:7px}
+.fake-shield{width:43px;height:50px}
+
+.module-card{
+min-height:155px;
+padding:17px;
 }
 
-.unit-name{
-font-size:13px;
-}
+.module-title{font-size:13px}
 
-.session{
-font-size:8px;
-}
+.phase-status{font-size:7px}
 
-.fake-shield{
-width:45px;
-height:52px;
-}
+.admin-grid{grid-template-columns:1fr}
 
-.phase-status{
-font-size:8px;
-}
-
-.admin-grid{
-grid-template-columns:1fr;
+.device-row{
+grid-template-columns:90px 1fr;
 }
 
 }
-
 </style>
 </head>
 
 <body>
 
 
-<!-- ===================================
+<!-- =====================================================
      PORTADA
-=================================== -->
+===================================================== -->
 
 <section id="inicio" class="screen active">
 
@@ -788,9 +1176,7 @@ Unidad de Investigación Criminal
 </div>
 </div>
 
-<div class="session">
-SISTEMA ACTIVO
-</div>
+<div class="session">SISTEMA ACTIVO</div>
 
 </div>
 </div>
@@ -800,7 +1186,7 @@ SISTEMA ACTIVO
 <div class="cover">
 
 <div class="classification">
-Investigación en curso · Acceso restringido
+Terminal operativo · Acceso restringido
 </div>
 
 <div class="case-code">
@@ -812,58 +1198,197 @@ Caso de<br>Riudecols
 </h1>
 
 <div class="case-subtitle">
-Diligencias de investigación
+Terminal de investigación
 </div>
 
 <div class="info-grid">
 
 <div class="info-row">
 <div class="info-label">Clasificación</div>
-<div class="info-value">
-Muerte sospechosa / posible homicidio
-</div>
+<div class="info-value">Muerte sospechosa / posible homicidio</div>
 </div>
 
 <div class="info-row">
 <div class="info-label">Localización</div>
-<div class="info-value">
-Riudecols · Tarragona
-</div>
+<div class="info-value">Riudecols · Tarragona</div>
 </div>
 
 <div class="info-row">
 <div class="info-label">Fecha</div>
-<div class="info-value">
-20 diciembre 2026
-</div>
+<div class="info-value">20 diciembre 2026</div>
 </div>
 
 <div class="info-row">
 <div class="info-label">Estado</div>
-<div class="info-value">
-Investigación activa
-</div>
+<div class="info-value">Investigación activa</div>
 </div>
 
 </div>
 
-<button class="access-btn" onclick="entrar()">
-ACCEDER A DILIGENCIAS
+<button class="access-btn" onclick="entrarTerminal()">
+ACCEDER AL TERMINAL
 </button>
 
 <div class="confidential">
-DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
+TERMINAL ASIGNADO AL EQUIPO INVESTIGADOR · NIVEL DE ACCESO 03
 </div>
 
 </div>
 </div>
-
 </section>
 
 
-<!-- ===================================
-     PANEL PRINCIPAL
-=================================== -->
+<!-- =====================================================
+     HOME DEL TERMINAL
+===================================================== -->
+
+<section id="terminal" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Terminal CR/2026-017</div>
+</div>
+
+<div class="session">CONECTADO</div>
+
+</div>
+</div>
+</div>
+
+<div class="container home-content">
+
+<div class="terminal-intro">
+
+<div class="terminal-label">
+SESIÓN DE INVESTIGACIÓN · CR/2026-017
+</div>
+
+<div class="terminal-title">
+CASO DE RIUDECOLS
+</div>
+
+<div class="terminal-meta">
+20 DIC 2026 · RIUDECOLS, TARRAGONA
+</div>
+
+</div>
+
+<div class="home-status">
+
+<div class="home-status-small">
+ESTADO DEL EXPEDIENTE
+</div>
+
+<div id="homeStatus" class="home-status-main">
+Investigación activa · Fase 01 en curso
+</div>
+
+</div>
+
+
+<div class="module-label">
+Módulos del terminal
+</div>
+
+
+<div class="module-grid">
+
+<button class="module-card" onclick="abrirInvestigacion()">
+
+<div id="investigationIndicator" class="module-indicator">
+FASE 01
+</div>
+
+<div class="module-code">
+MOD-01
+</div>
+
+<div class="module-icon">⌕</div>
+
+<div class="module-title">
+INVESTIGACIÓN
+</div>
+
+<div class="module-desc">
+Diligencias, progreso, cuestiones de investigación y validación de conclusiones.
+</div>
+
+<div class="module-arrow">›</div>
+
+</button>
+
+
+<button class="module-card" onclick="abrirEvidencias()">
+
+<div class="module-indicator">
+1 DISPOSITIVO
+</div>
+
+<div class="module-code">
+MOD-02
+</div>
+
+<div class="module-icon">▣</div>
+
+<div class="module-title">
+EVIDENCIAS DIGITALES
+</div>
+
+<div class="module-desc">
+Dispositivos y soportes de almacenamiento incorporados a las diligencias.
+</div>
+
+<div class="module-arrow">›</div>
+
+</button>
+
+
+<button class="module-card large" onclick="abrirExpediente()">
+
+<div class="module-code">
+MOD-03
+</div>
+
+<div class="module-icon">▤</div>
+
+<div class="module-title">
+EXPEDIENTE
+</div>
+
+<div class="module-desc">
+Información general y datos administrativos del Caso de Riudecols.
+</div>
+
+<div class="module-arrow">›</div>
+
+</button>
+
+</div>
+
+
+<div class="terminal-footer">
+TERMINAL UIC-03 · SESIÓN AUTORIZADA<br>
+EXPEDIENTE CR/2026-017 · REGISTRO INTERNO
+</div>
+
+
+<div class="admin-trigger" onclick="abrirAdmin()">
+CONTROL DEL SISTEMA
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     INVESTIGACIÓN
+===================================================== -->
 
 <section id="panel" class="screen">
 
@@ -874,19 +1399,21 @@ DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Diligencias</div>
 </div>
-<div class="unit-name">
-CR/2026-017
+
+<div class="session">ACTIVO</div>
+
+</div>
 </div>
 </div>
 
-<div class="session">
-SESIÓN ACTIVA
-</div>
-
-</div>
+<div class="backbar">
+<div class="container">
+<button class="back-button" onclick="mostrar('terminal')">
+‹ VOLVER AL TERMINAL
+</button>
 </div>
 </div>
 
@@ -900,19 +1427,14 @@ SESIÓN ACTIVA
 <h2>CASO DE RIUDECOLS</h2>
 </div>
 
-<div class="open-status">
-ABIERTO
-</div>
+<div class="open-status">ABIERTO</div>
 
 </div>
 </div>
 
 <div class="notice">
-
 La documentación mostrada forma parte de diligencias activas.
-
-Toda conclusión deberá sustentarse en las evidencias disponibles en el expediente.
-
+Toda conclusión deberá sustentarse en las evidencias disponibles.
 </div>
 
 <div class="section-label">
@@ -926,13 +1448,11 @@ Fases de investigación
 <div class="phase-title">EL EXPEDIENTE OLVIDADO</div>
 </div>
 
-
 <div id="fase2" class="phase locked">
 <div id="estado2" class="phase-status">RESTRINGIDO</div>
 <div class="phase-number">FASE 02 · DILIGENCIA CR-02</div>
 <div id="titulo2" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
-
 
 <div id="fase3" class="phase locked">
 <div id="estado3" class="phase-status">RESTRINGIDO</div>
@@ -940,20 +1460,17 @@ Fases de investigación
 <div id="titulo3" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
-
 <div id="fase4" class="phase locked">
 <div id="estado4" class="phase-status">RESTRINGIDO</div>
 <div class="phase-number">FASE 04 · DILIGENCIA CR-04</div>
 <div id="titulo4" class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
 
-
 <div class="phase locked">
 <div class="phase-status">RESTRINGIDO</div>
 <div class="phase-number">FASE 05</div>
 <div class="phase-title">INFORMACIÓN RESERVADA</div>
 </div>
-
 
 <div class="phase locked">
 <div class="phase-status">RESTRINGIDO</div>
@@ -962,7 +1479,7 @@ Fases de investigación
 </div>
 
 
-<!-- PREGUNTA 1 -->
+<!-- FASE 1 -->
 
 <div id="preguntaFase1" class="investigation-card">
 
@@ -975,24 +1492,16 @@ Cuestión de investigación
 </div>
 
 <div class="question">
-
-¿Qué evidencia llevó a la víctima
-de Riudecols a cuestionar la
-conclusión oficial del caso de 2019?
-
+¿Qué evidencia llevó a la víctima de Riudecols a cuestionar la conclusión oficial del caso de 2019?
 </div>
 
-<input
-id="respuesta1"
+<input id="respuesta1"
 class="answer-input"
 type="text"
 placeholder="Registrar conclusión..."
-autocomplete="off"
->
+autocomplete="off">
 
-<button
-class="validate-btn"
-onclick="comprobarFase1()">
+<button class="validate-btn" onclick="comprobarFase1()">
 REGISTRAR CONCLUSIÓN
 </button>
 
@@ -1005,10 +1514,9 @@ Revise las evidencias disponibles.
 </div>
 
 
-<!-- PREGUNTA 2 -->
+<!-- FASE 2 -->
 
-<div id="preguntaFase2"
-class="investigation-card hidden">
+<div id="preguntaFase2" class="investigation-card hidden">
 
 <div class="document-reference">
 REF. CR/2026-017 · CUESTIÓN 02
@@ -1019,66 +1527,26 @@ Reconstrucción de los hechos
 </div>
 
 <div class="question">
-
-¿Qué tres miembros del grupo fueron
-identificados por la investigación
-como los principales sospechosos
-de los hechos ocurridos en Oporto
-en 2019?
-
+¿Qué tres miembros del grupo fueron identificados por la investigación como los principales sospechosos de los hechos ocurridos en Oporto en 2019?
 </div>
 
-<div class="suspect-label">
-SOSPECHOSO 01
-</div>
+<div class="suspect-label">SOSPECHOSO 01</div>
+<input id="sospechoso1" class="answer-input" type="text" placeholder="Nombre...">
 
-<input
-id="sospechoso1"
-class="answer-input"
-type="text"
-placeholder="Nombre..."
-autocomplete="off"
->
+<div class="suspect-label">SOSPECHOSO 02</div>
+<input id="sospechoso2" class="answer-input" type="text" placeholder="Nombre...">
 
-<div class="suspect-label">
-SOSPECHOSO 02
-</div>
+<div class="suspect-label">SOSPECHOSO 03</div>
+<input id="sospechoso3" class="answer-input" type="text" placeholder="Nombre...">
 
-<input
-id="sospechoso2"
-class="answer-input"
-type="text"
-placeholder="Nombre..."
-autocomplete="off"
->
-
-<div class="suspect-label">
-SOSPECHOSO 03
-</div>
-
-<input
-id="sospechoso3"
-class="answer-input"
-type="text"
-placeholder="Nombre..."
-autocomplete="off"
->
-
-<button
-class="validate-btn"
-onclick="comprobarFase2()">
+<button class="validate-btn" onclick="comprobarFase2()">
 VALIDAR SOSPECHOSOS
 </button>
 
 <div id="error2" class="error">
-
 RECONSTRUCCIÓN NO VALIDADA
-
 <br><br>
-
-La selección no coincide con las
-evidencias disponibles.
-
+La selección no coincide con las evidencias disponibles.
 </div>
 
 <div class="evidence-warning">
@@ -1088,10 +1556,9 @@ El orden de los tres nombres no es relevante.
 </div>
 
 
-<!-- PREGUNTA 3 -->
+<!-- FASE 3 -->
 
-<div id="preguntaFase3"
-class="investigation-card hidden">
+<div id="preguntaFase3" class="investigation-card hidden">
 
 <div class="document-reference">
 REF. CR/2026-017 · CUESTIÓN 03
@@ -1102,76 +1569,433 @@ Determinación de responsabilidad
 </div>
 
 <div class="question">
-
-Tras reconstruir los últimos minutos
-de la víctima y contrastar las
-evidencias disponibles:
-
+Tras reconstruir los últimos minutos de la víctima y contrastar las evidencias disponibles:
 <br><br>
-
-¿Quién fue responsable de la muerte
-de la joven portuguesa en Oporto
-en 2019?
-
+¿Quién fue responsable de la muerte de la joven portuguesa en Oporto en 2019?
 </div>
 
 <div class="suspect-label">
 PERSONA RESPONSABLE
 </div>
 
-<input
-id="responsable2019"
+<input id="responsable2019"
 class="answer-input"
 type="text"
 placeholder="Introducir nombre..."
-autocomplete="off"
->
+autocomplete="off">
 
-<button
-class="validate-btn"
-onclick="comprobarFase3()">
+<button class="validate-btn" onclick="comprobarFase3()">
 VALIDAR CONCLUSIÓN
 </button>
 
 <div id="error3" class="error">
-
 CONCLUSIÓN NO ADMITIDA
-
 <br><br>
-
-La persona indicada no coincide
-con la reconstrucción de los hechos.
-
+La persona indicada no coincide con la reconstrucción de los hechos.
 </div>
 
 </div>
 
-
-<div class="footer">
-
-EXPEDIENTE CR/2026-017
-<br>
-UNIDAD DE INVESTIGACIÓN CRIMINAL
-<br>
-REGISTRO INTERNO · SESIÓN 01
-
 </div>
-
-<div class="admin-trigger"
-onclick="abrirAdmin()">
-
-CONTROL DEL SISTEMA
-
-</div>
-
-</div>
-
 </section>
 
 
-<!-- ===================================
-     VALIDACIÓN 1
-=================================== -->
+<!-- =====================================================
+     EVIDENCIAS DIGITALES
+===================================================== -->
+
+<section id="evidencias" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Evidencias digitales</div>
+</div>
+
+<div class="session">SEGURO</div>
+
+</div>
+</div>
+</div>
+
+<div class="backbar">
+<div class="container">
+<button class="back-button" onclick="mostrar('terminal')">
+‹ VOLVER AL TERMINAL
+</button>
+</div>
+</div>
+
+<div class="container content">
+
+<div class="evidence-header">
+
+<div class="eyebrow">
+EXPEDIENTE CR/2026-017
+</div>
+
+<h2 class="evidence-title">
+EVIDENCIAS DIGITALES
+</h2>
+
+<div class="evidence-subtitle">
+Registro de dispositivos electrónicos y soportes de almacenamiento incorporados a la investigación.
+</div>
+
+</div>
+
+<div class="section-label" style="margin-top:28px">
+Dispositivos recuperados
+</div>
+
+
+<div class="device-card">
+
+<div class="device-top">
+
+<div class="usb-icon">
+▣
+</div>
+
+<div>
+
+<div class="device-id">
+EVIDENCIA DIGITAL · USB-01
+</div>
+
+<div class="device-name">
+Dispositivo USB
+</div>
+
+</div>
+
+<div class="device-status">
+EXTRAÍDO ✓
+</div>
+
+</div>
+
+
+<div class="device-info">
+
+<div class="device-row">
+<div class="device-key">Procedencia</div>
+<div class="device-value">
+Pertenencias personales de la víctima
+</div>
+</div>
+
+<div class="device-row">
+<div class="device-key">Tipo</div>
+<div class="device-value">
+Dispositivo de almacenamiento USB
+</div>
+</div>
+
+<div class="device-row">
+<div class="device-key">Estado</div>
+<div class="device-value">
+Contenido extraído y disponible para consulta
+</div>
+</div>
+
+<div class="device-row">
+<div class="device-key">Referencia</div>
+<div class="device-value">
+CR/2026-017 · USB-01
+</div>
+</div>
+
+</div>
+
+
+<button class="device-open" onclick="abrirUSB()">
+ACCEDER AL CONTENIDO
+</button>
+
+</div>
+
+
+<div class="notice" style="margin-top:25px">
+El contenido mostrado corresponde a una copia de trabajo del dispositivo original incorporado a las evidencias.
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     USB
+===================================================== -->
+
+<section id="usb" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">Análisis de evidencias</div>
+<div class="unit-name">USB-01</div>
+</div>
+
+<div class="session">MONTADO</div>
+
+</div>
+</div>
+</div>
+
+<div class="backbar">
+<div class="container">
+<button class="back-button" onclick="mostrar('evidencias')">
+‹ VOLVER A EVIDENCIAS
+</button>
+</div>
+</div>
+
+<div class="container content">
+
+<div class="usb-path">
+/EVIDENCIAS/CR-2026-017/USB-01/
+</div>
+
+<div class="case-header">
+
+<div class="eyebrow">
+CONTENIDO EXTRAÍDO
+</div>
+
+<h2 style="margin:6px 0 0">
+USB-01
+</h2>
+
+</div>
+
+
+<div class="usb-window">
+
+<div class="usb-toolbar">
+
+<div class="usb-toolbar-title">
+DIRECTORIO RAÍZ
+</div>
+
+<div class="usb-connected">
+● DISPOSITIVO DISPONIBLE
+</div>
+
+</div>
+
+
+<div class="folder" onclick="abrirCarpetaInvestigacion()" style="cursor:pointer">
+
+<div class="folder-icon">
+📁
+</div>
+
+<div>
+
+<div class="folder-name">
+INVESTIGACIÓN
+</div>
+
+<div class="folder-meta">
+ARCHIVOS RECUPERADOS · ACCESO DISPONIBLE
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="notice" style="margin-top:24px">
+
+El contenido de esta evidencia pertenece al material recopilado por la víctima antes de su fallecimiento.
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     CARPETA INVESTIGACIÓN VACÍA
+===================================================== -->
+
+<section id="carpetaInvestigacion" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">Evidencia digital USB-01</div>
+<div class="unit-name">Investigación</div>
+</div>
+
+<div class="session">ABIERTO</div>
+
+</div>
+</div>
+</div>
+
+<div class="backbar">
+<div class="container">
+<button class="back-button" onclick="mostrar('usb')">
+‹ USB-01
+</button>
+</div>
+</div>
+
+<div class="container content">
+
+<div class="usb-path">
+/USB-01/INVESTIGACIÓN/
+</div>
+
+<div class="usb-window">
+
+<div class="usb-toolbar">
+
+<div class="usb-toolbar-title">
+CARPETA · INVESTIGACIÓN
+</div>
+
+<div class="usb-connected">
+● ACCESO AUTORIZADO
+</div>
+
+</div>
+
+<div class="empty-folder">
+
+<div class="empty-folder-symbol">
+□
+</div>
+
+<div class="empty-folder-title">
+CONTENIDO PENDIENTE DE CATALOGACIÓN
+</div>
+
+<div class="empty-folder-text">
+Los archivos asociados a esta carpeta se incorporarán al sistema conforme avance el análisis de la evidencia digital.
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     EXPEDIENTE
+===================================================== -->
+
+<section id="expediente" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Expediente</div>
+</div>
+
+<div class="session">ABIERTO</div>
+
+</div>
+</div>
+</div>
+
+<div class="backbar">
+<div class="container">
+<button class="back-button" onclick="mostrar('terminal')">
+‹ VOLVER AL TERMINAL
+</button>
+</div>
+</div>
+
+<div class="container content">
+
+<div class="case-header">
+
+<div class="eyebrow">
+INFORMACIÓN GENERAL
+</div>
+
+<h2>
+EXPEDIENTE CR/2026-017
+</h2>
+
+</div>
+
+
+<div class="file-sheet">
+
+<div class="file-sheet-title">
+FICHA DE INVESTIGACIÓN
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Caso</div>
+<div class="file-data-value">Caso de Riudecols</div>
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Referencia</div>
+<div class="file-data-value">CR/2026-017</div>
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Fecha</div>
+<div class="file-data-value">20 de diciembre de 2026</div>
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Localización</div>
+<div class="file-data-value">Riudecols · Tarragona</div>
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Clasificación</div>
+<div class="file-data-value">Muerte sospechosa / posible homicidio</div>
+</div>
+
+<div class="file-data-row">
+<div class="file-data-label">Estado</div>
+<div class="file-data-value">Investigación activa</div>
+</div>
+
+</div>
+
+
+<div class="notice" style="margin-top:25px">
+La información documental adicional del expediente se incorporará progresivamente durante la investigación.
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     VALIDACIÓN FASE 1
+===================================================== -->
 
 <section id="validacion1" class="screen">
 
@@ -1182,17 +2006,11 @@ CONTROL DEL SISTEMA
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
-</div>
-<div class="unit-name">
-Validación de diligencias
-</div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Validación de diligencias</div>
 </div>
 
-<div class="session">
-VERIFICADO
-</div>
+<div class="session">VERIFICADO</div>
 
 </div>
 </div>
@@ -1212,22 +2030,15 @@ Diligencia CR-01 completada
 
 <div class="validation-text">
 
-La pulsera localizada entre las
-evidencias de la escena coincide
-con las utilizadas por el grupo
-durante una actividad Erasmus
-celebrada en Oporto.
+La pulsera localizada entre las evidencias de la escena coincide con las utilizadas por el grupo durante una actividad Erasmus celebrada en Oporto.
 
 <br><br>
 
-La víctima portuguesa no participó
-en dicha actividad.
+La víctima portuguesa no participó en dicha actividad.
 
 <br><br>
 
-Queda por determinar cómo una
-de estas pulseras terminó en
-el lugar de los hechos.
+Queda por determinar cómo una de estas pulseras terminó en el lugar de los hechos.
 
 </div>
 
@@ -1243,21 +2054,19 @@ SE AUTORIZA LA APERTURA DEL SOBRE 02
 
 </div>
 
-<button class="return-btn"
-onclick="continuarFase2()">
+<button class="return-btn" onclick="continuarFase2()">
 CONTINUAR INVESTIGACIÓN
 </button>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===================================
-     VALIDACIÓN 2
-=================================== -->
+<!-- =====================================================
+     VALIDACIÓN FASE 2
+===================================================== -->
 
 <section id="validacion2" class="screen">
 
@@ -1268,17 +2077,11 @@ CONTINUAR INVESTIGACIÓN
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
-</div>
-<div class="unit-name">
-Validación de diligencias
-</div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Validación de diligencias</div>
 </div>
 
-<div class="session">
-VERIFICADO
-</div>
+<div class="session">VERIFICADO</div>
 
 </div>
 </div>
@@ -1298,24 +2101,15 @@ Diligencia CR-02 completada
 
 <div class="validation-text">
 
-El análisis conjunto de las
-declaraciones, registros horarios
-y material recuperado permite
-reducir el círculo de investigación
-a tres personas.
+El análisis conjunto de las declaraciones, registros horarios y material recuperado permite reducir el círculo de investigación a tres personas.
 
 <br><br>
 
-Sin embargo, las evidencias
-analizadas hasta este momento
-no permiten atribuir individualmente
-la responsabilidad por el
-fallecimiento.
+Sin embargo, las evidencias analizadas hasta este momento no permiten atribuir individualmente la responsabilidad por el fallecimiento.
 
 <br><br>
 
-Es necesario reconstruir los
-últimos minutos de la víctima.
+Es necesario reconstruir los últimos minutos de la víctima.
 
 </div>
 
@@ -1331,21 +2125,19 @@ SE AUTORIZA LA APERTURA DEL SOBRE 03
 
 </div>
 
-<button class="return-btn"
-onclick="continuarFase3()">
+<button class="return-btn" onclick="continuarFase3()">
 CONTINUAR INVESTIGACIÓN
 </button>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===================================
-     VALIDACIÓN 3
-=================================== -->
+<!-- =====================================================
+     VALIDACIÓN FASE 3
+===================================================== -->
 
 <section id="validacion3" class="screen">
 
@@ -1356,17 +2148,11 @@ CONTINUAR INVESTIGACIÓN
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
-</div>
-<div class="unit-name">
-Reconstrucción de Oporto
-</div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Reconstrucción de Oporto</div>
 </div>
 
-<div class="session">
-VERIFICADO
-</div>
+<div class="session">VERIFICADO</div>
 
 </div>
 </div>
@@ -1386,43 +2172,31 @@ Reconstrucción de los hechos
 
 <div class="validation-text">
 
-Las evidencias permiten situar
-a la persona identificada junto
-a la víctima durante sus últimos
-minutos con vida.
+Las evidencias permiten situar a la persona identificada junto a la víctima durante sus últimos minutos con vida.
 
 <br><br>
 
-La reconstrucción resulta compatible
-con una discusión que continuó
-en el exterior y terminó con una
-caída provocada durante el
-enfrentamiento.
+La reconstrucción resulta compatible con una discusión que continuó en el exterior y terminó con una caída provocada durante el enfrentamiento.
 
 <br><br>
 
-Las evidencias disponibles no
-permiten establecer que existiera
-una intención previa de causar
-la muerte.
+Las evidencias disponibles no permiten establecer que existiera una intención previa de causar la muerte.
 
 </div>
 
-<button class="return-btn"
-onclick="mostrarCierreOporto()">
+<button class="return-btn" onclick="mostrarCierreOporto()">
 CERRAR DILIGENCIA DE OPORTO
 </button>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===================================
-     FALSO CIERRE
-=================================== -->
+<!-- =====================================================
+     FALSO CIERRE OPORTO
+===================================================== -->
 
 <section id="cierreOporto" class="screen">
 
@@ -1433,17 +2207,11 @@ CERRAR DILIGENCIA DE OPORTO
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
-</div>
-<div class="unit-name">
-Archivo histórico
-</div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">Archivo histórico</div>
 </div>
 
-<div class="session">
-RESUELTO
-</div>
+<div class="session">RESUELTO</div>
 
 </div>
 </div>
@@ -1453,9 +2221,7 @@ RESUELTO
 
 <div class="closed-case">
 
-<div class="closed-symbol">
-✓
-</div>
+<div class="closed-symbol">✓</div>
 
 <div class="closed-small">
 RECONSTRUCCIÓN COMPLETADA
@@ -1473,20 +2239,15 @@ CASO DE OPORTO
 
 <div class="validation-text">
 
-La investigación permite reconstruir
-las circunstancias que rodearon
-la muerte de la joven portuguesa.
+La investigación permite reconstruir las circunstancias que rodearon la muerte de la joven portuguesa.
 
 <br><br>
 
-La diligencia histórica queda
-resuelta a efectos de la presente
-investigación.
+La diligencia histórica queda resuelta a efectos de la presente investigación.
 
 </div>
 
-<button class="return-btn"
-onclick="mostrarAlerta()">
+<button class="return-btn" onclick="mostrarAlerta()">
 FINALIZAR RECONSTRUCCIÓN
 </button>
 
@@ -1495,13 +2256,12 @@ FINALIZAR RECONSTRUCCIÓN
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===================================
+<!-- =====================================================
      GIRO
-=================================== -->
+===================================================== -->
 
 <section id="alerta" class="screen">
 
@@ -1512,16 +2272,11 @@ FINALIZAR RECONSTRUCCIÓN
 <div class="fake-shield">UI</div>
 
 <div>
-<div class="institution-name">
-Unidad de Investigación Criminal
-</div>
-<div class="unit-name">
-CR/2026-017
-</div>
+<div class="institution-name">Unidad de Investigación Criminal</div>
+<div class="unit-name">CR/2026-017</div>
 </div>
 
-<div class="session"
-style="color:#d1a75c">
+<div class="session" style="color:#d1a75c">
 REVISIÓN
 </div>
 
@@ -1543,31 +2298,19 @@ La investigación no ha terminado
 
 <div class="alert-text">
 
-La reconstrucción de los hechos
-ocurridos en Oporto en 2019
-permite establecer la responsabilidad
-sobre aquella muerte.
+La reconstrucción de los hechos ocurridos en Oporto en 2019 permite establecer la responsabilidad sobre aquella muerte.
 
 <br><br>
 
-Sin embargo, dicha conclusión
-no explica las circunstancias
-del fallecimiento ocurrido en
-Riudecols el 20 de diciembre
-de 2026.
+Sin embargo, dicha conclusión no explica las circunstancias del fallecimiento ocurrido en Riudecols el 20 de diciembre de 2026.
 
 <br><br>
 
-El examen toxicológico confirma
-que la víctima de Riudecols
-había sufrido una intoxicación
-antes de caer a la piscina.
+El examen toxicológico confirma que la víctima de Riudecols había sufrido una intoxicación antes de caer a la piscina.
 
 <br><br>
 
-Debe determinarse si ambos
-sucesos fueron cometidos por
-la misma persona.
+Debe determinarse si ambos sucesos fueron cometidos por la misma persona.
 
 </div>
 
@@ -1583,21 +2326,19 @@ SE AUTORIZA LA APERTURA DEL SOBRE 04
 
 </div>
 
-<button class="return-btn"
-onclick="activarFase4()">
+<button class="return-btn" onclick="activarFase4()">
 REABRIR INVESTIGACIÓN
 </button>
 
 </div>
 
 </div>
-
 </section>
 
 
-<!-- ===================================
-     PANEL ADMIN
-=================================== -->
+<!-- =====================================================
+     ADMIN
+===================================================== -->
 
 <div id="adminPanel" class="admin-panel">
 
@@ -1606,48 +2347,30 @@ REABRIR INVESTIGACIÓN
 <div class="admin-top">
 
 <div>
-
 <div class="admin-small">
 CR/2026-017 · SISTEMA DE CONTROL
 </div>
-
 <div class="admin-title">
 ADMINISTRACIÓN
 </div>
-
 </div>
 
-<button
-class="admin-close"
-onclick="cerrarAdmin()">
-×
-</button>
+<button class="admin-close" onclick="cerrarAdmin()">×</button>
 
 </div>
-
 
 <div class="admin-warning">
-
-MODO DE PRUEBAS
-
-<br>
-
-Las acciones realizadas desde este panel
-modifican el progreso almacenado de la investigación.
-
+MODO DE PRUEBAS<br>
+Las acciones realizadas desde este panel modifican el progreso almacenado de la investigación.
 </div>
 
-
-<div id="adminFaseActual"
-class="admin-current">
+<div id="adminFaseActual" class="admin-current">
 FASE ACTUAL: 01
 </div>
-
 
 <div class="admin-section-title">
 Control de progreso
 </div>
-
 
 <div class="admin-navigation">
 
@@ -1661,11 +2384,9 @@ SIGUIENTE FASE →
 
 </div>
 
-
 <div class="admin-section-title">
 Acceso directo
 </div>
-
 
 <div class="admin-grid">
 
@@ -1691,40 +2412,27 @@ RIUDECOLS
 
 </div>
 
-
 <div class="admin-section-title">
 Partida
 </div>
 
-
-<button
-class="admin-reset-button"
-onclick="adminRestablecer()">
+<button class="admin-reset-button" onclick="adminRestablecer()">
 RESTABLECER INVESTIGACIÓN
 </button>
 
-
-<button
-class="admin-exit-button"
-onclick="cerrarAdmin()">
+<button class="admin-exit-button" onclick="cerrarAdmin()">
 CERRAR PANEL
 </button>
 
 </div>
-
 </div>
 
 
 <script>
 
-/* ====================================
+/* =====================================================
    RESPUESTAS PROVISIONALES
-==================================== */
-
-/*
-FASE 2:
-A + X + Y
-*/
+===================================================== */
 
 const sospechososCorrectos = [
 "a",
@@ -1732,27 +2440,19 @@ const sospechososCorrectos = [
 "y"
 ];
 
-
-/*
-FASE 3:
-A
-*/
-
 const responsableCorrecto2019 = "a";
 
 
-/* ====================================
-   PANTALLAS
-==================================== */
+/* =====================================================
+   NAVEGACIÓN
+===================================================== */
 
 function mostrar(id){
 
 document
 .querySelectorAll(".screen")
 .forEach(function(p){
-
 p.classList.remove("active");
-
 });
 
 document
@@ -1764,18 +2464,54 @@ window.scrollTo(0,0);
 }
 
 
-function entrar(){
+function entrarTerminal(){
 
 actualizarProgreso();
+actualizarTerminal();
+mostrar("terminal");
 
+}
+
+
+function abrirInvestigacion(){
+
+actualizarProgreso();
 mostrar("panel");
 
 }
 
 
-/* ====================================
-   NORMALIZAR
-==================================== */
+function abrirEvidencias(){
+
+mostrar("evidencias");
+
+}
+
+
+function abrirUSB(){
+
+mostrar("usb");
+
+}
+
+
+function abrirCarpetaInvestigacion(){
+
+mostrar("carpetaInvestigacion");
+
+}
+
+
+function abrirExpediente(){
+
+mostrar("expediente");
+
+}
+
+
+/* =====================================================
+   NORMALIZACIÓN
+===================================================== */
 
 function normalizar(texto){
 
@@ -1788,9 +2524,9 @@ return texto
 }
 
 
-/* ====================================
+/* =====================================================
    FASE 1
-==================================== */
+===================================================== */
 
 function comprobarFase1(){
 
@@ -1799,9 +2535,7 @@ normalizar(
 document.getElementById("respuesta1").value
 );
 
-
 const correctas = [
-
 "pulsera",
 "la pulsera",
 "una pulsera",
@@ -1812,17 +2546,12 @@ const correctas = [
 "la pulsera del grupo",
 "pulsera del evento",
 "la pulsera del evento"
-
 ];
-
 
 const correcto =
 correctas.some(function(opcion){
-
 return respuesta.includes(opcion);
-
 });
-
 
 if(correcto){
 
@@ -1831,18 +2560,14 @@ localStorage.setItem(
 "completada"
 );
 
-document
-.getElementById("error1")
+document.getElementById("error1")
 .style.display="none";
 
 mostrar("validacion1");
 
-}
+}else{
 
-else{
-
-document
-.getElementById("error1")
+document.getElementById("error1")
 .style.display="block";
 
 }
@@ -1853,58 +2578,44 @@ document
 function continuarFase2(){
 
 actualizarProgreso();
-
+actualizarTerminal();
 mostrar("panel");
 
 }
 
 
-/* ====================================
+/* =====================================================
    FASE 2
-==================================== */
+===================================================== */
 
 function comprobarFase2(){
 
 const respuestas = [
 
-normalizar(
-document.getElementById("sospechoso1").value
-),
+normalizar(document.getElementById("sospechoso1").value),
 
-normalizar(
-document.getElementById("sospechoso2").value
-),
+normalizar(document.getElementById("sospechoso2").value),
 
-normalizar(
-document.getElementById("sospechoso3").value
-)
+normalizar(document.getElementById("sospechoso3").value)
 
 ];
-
 
 const respuestasUnicas =
 [...new Set(respuestas)];
 
-
 if(respuestasUnicas.length !== 3){
 
-document
-.getElementById("error2")
+document.getElementById("error2")
 .style.display="block";
 
 return;
 
 }
 
-
 const correcto =
-sospechososCorrectos.every(
-function(nombre){
-
+sospechososCorrectos.every(function(nombre){
 return respuestas.includes(nombre);
-
 });
-
 
 if(correcto){
 
@@ -1913,18 +2624,14 @@ localStorage.setItem(
 "completada"
 );
 
-document
-.getElementById("error2")
+document.getElementById("error2")
 .style.display="none";
 
 mostrar("validacion2");
 
-}
+}else{
 
-else{
-
-document
-.getElementById("error2")
+document.getElementById("error2")
 .style.display="block";
 
 }
@@ -1935,15 +2642,15 @@ document
 function continuarFase3(){
 
 actualizarProgreso();
-
+actualizarTerminal();
 mostrar("panel");
 
 }
 
 
-/* ====================================
+/* =====================================================
    FASE 3
-==================================== */
+===================================================== */
 
 function comprobarFase3(){
 
@@ -1952,7 +2659,6 @@ normalizar(
 document.getElementById("responsable2019").value
 );
 
-
 if(respuesta === responsableCorrecto2019){
 
 localStorage.setItem(
@@ -1960,18 +2666,14 @@ localStorage.setItem(
 "completada"
 );
 
-document
-.getElementById("error3")
+document.getElementById("error3")
 .style.display="none";
 
 mostrar("validacion3");
 
-}
+}else{
 
-else{
-
-document
-.getElementById("error3")
+document.getElementById("error3")
 .style.display="block";
 
 }
@@ -1979,9 +2681,9 @@ document
 }
 
 
-/* ====================================
-   FALSO FINAL
-==================================== */
+/* =====================================================
+   FALSO CIERRE
+===================================================== */
 
 function mostrarCierreOporto(){
 
@@ -2005,15 +2707,16 @@ localStorage.setItem(
 );
 
 actualizarProgreso();
+actualizarTerminal();
 
 mostrar("panel");
 
 }
 
 
-/* ====================================
+/* =====================================================
    PROGRESO VISUAL
-==================================== */
+===================================================== */
 
 function actualizarProgreso(){
 
@@ -2065,7 +2768,6 @@ document.getElementById("estado4")
 document.getElementById("titulo4")
 .innerText="INFORMACIÓN RESERVADA";
 
-
 document.getElementById("preguntaFase1")
 .classList.remove("hidden");
 
@@ -2076,7 +2778,7 @@ document.getElementById("preguntaFase3")
 .classList.add("hidden");
 
 
-/* FASE 1 COMPLETADA */
+/* FASE 1 */
 
 if(f1 === "completada"){
 
@@ -2085,7 +2787,6 @@ document.getElementById("fase1")
 
 document.getElementById("estado1")
 .innerText="COMPLETADA ✓";
-
 
 document.getElementById("fase2")
 .className="phase active";
@@ -2096,7 +2797,6 @@ document.getElementById("estado2")
 document.getElementById("titulo2")
 .innerText="LA NOCHE DE 2019";
 
-
 document.getElementById("preguntaFase1")
 .classList.add("hidden");
 
@@ -2106,7 +2806,7 @@ document.getElementById("preguntaFase2")
 }
 
 
-/* FASE 2 COMPLETADA */
+/* FASE 2 */
 
 if(f2 === "completada"){
 
@@ -2115,7 +2815,6 @@ document.getElementById("fase2")
 
 document.getElementById("estado2")
 .innerText="COMPLETADA ✓";
-
 
 document.getElementById("fase3")
 .className="phase active";
@@ -2126,7 +2825,6 @@ document.getElementById("estado3")
 document.getElementById("titulo3")
 .innerText="LA CAÍDA";
 
-
 document.getElementById("preguntaFase2")
 .classList.add("hidden");
 
@@ -2136,7 +2834,7 @@ document.getElementById("preguntaFase3")
 }
 
 
-/* FASE 3 COMPLETADA */
+/* FASE 3 */
 
 if(f3 === "completada"){
 
@@ -2152,7 +2850,7 @@ document.getElementById("preguntaFase3")
 }
 
 
-/* FASE 4 ACTIVA */
+/* FASE 4 */
 
 if(f4 === "activa"){
 
@@ -2170,39 +2868,9 @@ document.getElementById("titulo4")
 }
 
 
-/* ====================================
-   ADMIN
-==================================== */
-
-function abrirAdmin(){
-
-const clave =
-prompt("Código de administración:");
-
-
-if(clave !== "2019"){
-
-return;
-
-}
-
-actualizarAdmin();
-
-document
-.getElementById("adminPanel")
-.classList.add("active");
-
-}
-
-
-function cerrarAdmin(){
-
-document
-.getElementById("adminPanel")
-.classList.remove("active");
-
-}
-
+/* =====================================================
+   TERMINAL
+===================================================== */
 
 function obtenerFaseActual(){
 
@@ -2232,6 +2900,67 @@ return 1;
 }
 
 
+function actualizarTerminal(){
+
+const fase =
+obtenerFaseActual();
+
+const status =
+document.getElementById("homeStatus");
+
+const indicador =
+document.getElementById("investigationIndicator");
+
+if(status){
+
+status.innerText =
+"Investigación activa · Fase 0" +
+fase +
+" en curso";
+
+}
+
+if(indicador){
+
+indicador.innerText =
+"FASE 0" + fase;
+
+}
+
+}
+
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+function abrirAdmin(){
+
+const clave =
+prompt("Código de administración:");
+
+if(clave !== "2019"){
+return;
+}
+
+actualizarAdmin();
+
+document
+.getElementById("adminPanel")
+.classList.add("active");
+
+}
+
+
+function cerrarAdmin(){
+
+document
+.getElementById("adminPanel")
+.classList.remove("active");
+
+}
+
+
 function actualizarAdmin(){
 
 const fase =
@@ -2240,31 +2969,27 @@ obtenerFaseActual();
 const nombres = {
 
 1:"EL EXPEDIENTE OLVIDADO",
-
 2:"LA NOCHE DE 2019",
-
 3:"LA CAÍDA",
-
 4:"RIUDECOLS"
 
 };
-
 
 document
 .getElementById("adminFaseActual")
 .innerHTML =
 "FASE ACTUAL: 0" +
 fase +
-"<br><span style='color:#8298a8;font-size:10px'>" +
+"<br><span style='color:#8298a8;font-size:9px'>" +
 nombres[fase] +
 "</span>";
 
 }
 
 
-/* ====================================
+/* =====================================================
    ADMIN · IR A FASE
-==================================== */
+===================================================== */
 
 function adminIrAFase(fase){
 
@@ -2272,7 +2997,6 @@ localStorage.removeItem("riudecols_fase1");
 localStorage.removeItem("riudecols_fase2");
 localStorage.removeItem("riudecols_fase3");
 localStorage.removeItem("riudecols_fase4");
-
 
 if(fase >= 2){
 
@@ -2283,7 +3007,6 @@ localStorage.setItem(
 
 }
 
-
 if(fase >= 3){
 
 localStorage.setItem(
@@ -2292,7 +3015,6 @@ localStorage.setItem(
 );
 
 }
-
 
 if(fase >= 4){
 
@@ -2308,19 +3030,19 @@ localStorage.setItem(
 
 }
 
-
 cerrarAdmin();
 
 actualizarProgreso();
+actualizarTerminal();
 
-mostrar("panel");
+mostrar("terminal");
 
 }
 
 
-/* ====================================
+/* =====================================================
    ADMIN · AVANZAR
-==================================== */
+===================================================== */
 
 function adminAvanzar(){
 
@@ -2328,9 +3050,7 @@ let fase =
 obtenerFaseActual();
 
 if(fase < 4){
-
 fase++;
-
 }
 
 adminIrAFase(fase);
@@ -2338,9 +3058,9 @@ adminIrAFase(fase);
 }
 
 
-/* ====================================
+/* =====================================================
    ADMIN · RETROCEDER
-==================================== */
+===================================================== */
 
 function adminRetroceder(){
 
@@ -2348,9 +3068,7 @@ let fase =
 obtenerFaseActual();
 
 if(fase > 1){
-
 fase--;
-
 }
 
 adminIrAFase(fase);
@@ -2358,9 +3076,9 @@ adminIrAFase(fase);
 }
 
 
-/* ====================================
-   ADMIN · RESTABLECER
-==================================== */
+/* =====================================================
+   ADMIN · RESET
+===================================================== */
 
 function adminRestablecer(){
 
@@ -2369,32 +3087,28 @@ confirm(
 "¿Restablecer completamente la investigación?\n\nSe eliminará todo el progreso guardado."
 );
 
-
 if(!confirmar){
-
 return;
-
 }
-
 
 localStorage.removeItem("riudecols_fase1");
 localStorage.removeItem("riudecols_fase2");
 localStorage.removeItem("riudecols_fase3");
 localStorage.removeItem("riudecols_fase4");
 
-
 cerrarAdmin();
 
 actualizarProgreso();
+actualizarTerminal();
 
-mostrar("panel");
+mostrar("terminal");
 
 }
 
 
-/* ====================================
+/* =====================================================
    ENTER
-==================================== */
+===================================================== */
 
 document
 .getElementById("respuesta1")
@@ -2403,9 +3117,7 @@ document
 function(event){
 
 if(event.key === "Enter"){
-
 comprobarFase1();
-
 }
 
 });
@@ -2418,19 +3130,18 @@ document
 function(event){
 
 if(event.key === "Enter"){
-
 comprobarFase3();
-
 }
 
 });
 
 
-/* ====================================
-   INICIALIZACIÓN
-==================================== */
+/* =====================================================
+   INICIO
+===================================================== */
 
 actualizarProgreso();
+actualizarTerminal();
 
 </script>
 
