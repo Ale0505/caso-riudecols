@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <meta name="theme-color" content="#07111c">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,548 +15,444 @@
 
 <style>
 
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+:root{
+--linea:#29455d;
+--texto:#e7edf2;
+--verde:#76bd8a;
+--rojo:#cc7373;
+--fondo:#050b11;
 }
 
-:root {
-    --azul: #0b1c2c;
-    --azul2: #10283d;
-    --azul3: #163955;
-    --linea: #29455d;
-    --texto: #e7edf2;
-    --secundario: #93a6b5;
-    --verde: #76bd8a;
-    --rojo: #cc7373;
-    --fondo: #050b11;
+html{background:var(--fondo)}
+
+body{
+margin:0;
+min-height:100vh;
+background:linear-gradient(180deg,#0b1824 0%,#07111a 45%,#04090e 100%);
+color:var(--texto);
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-html {
-    background: var(--fondo);
+.screen{
+display:none;
+min-height:100vh;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    background:
-        linear-gradient(
-            180deg,
-            #0b1824 0%,
-            #07111a 45%,
-            #04090e 100%
-        );
-    color: var(--texto);
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-}
+.screen.active{display:block}
 
-.screen {
-    display: none;
-    min-height: 100vh;
-}
-
-.screen.active {
-    display: block;
-}
-
-.container {
-    width: 100%;
-    max-width: 900px;
-    margin: auto;
+.container{
+width:100%;
+max-width:900px;
+margin:auto;
 }
 
 /* CABECERA */
 
-.institutional-header {
-    padding:
-        calc(18px + env(safe-area-inset-top))
-        22px
-        18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #102a40,
-            #081725
-        );
-
-    border-bottom: 3px solid #365c7a;
+.institutional-header{
+padding:calc(18px + env(safe-area-inset-top)) 22px 18px;
+background:linear-gradient(135deg,#102a40,#081725);
+border-bottom:3px solid #365c7a;
 }
 
-.institution-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.institution-row{
+display:flex;
+align-items:center;
+gap:15px;
 }
 
-.fake-shield {
-    width: 54px;
-    height: 62px;
-    border: 2px solid #9aafbf;
-    border-radius: 7px 7px 18px 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-weight: 900;
-    font-size: 17px;
-
-    color: #c7d5df;
-    background: rgba(255,255,255,.035);
+.fake-shield{
+width:54px;
+height:62px;
+border:2px solid #9aafbf;
+border-radius:7px 7px 18px 18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+font-size:17px;
+color:#c7d5df;
+background:rgba(255,255,255,.035);
 }
 
-.institution-name {
-    font-size: 11px;
-    letter-spacing: 1.8px;
-    color: #b3c1cc;
-    text-transform: uppercase;
+.institution-name{
+font-size:11px;
+letter-spacing:1.8px;
+color:#b3c1cc;
+text-transform:uppercase;
 }
 
-.unit-name {
-    margin-top: 5px;
-    font-size: 16px;
-    font-weight: 750;
-    letter-spacing: .6px;
+.unit-name{
+margin-top:5px;
+font-size:16px;
+font-weight:750;
+letter-spacing:.6px;
 }
 
-.session {
-    margin-left: auto;
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--verde);
-    white-space: nowrap;
+.session{
+margin-left:auto;
+font-family:monospace;
+font-size:10px;
+color:var(--verde);
+white-space:nowrap;
 }
 
-.session::before {
-    content: "●";
-    margin-right: 5px;
+.session::before{
+content:"●";
+margin-right:5px;
 }
 
 /* PORTADA */
 
-.cover {
-    min-height: calc(100vh - 100px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 38px 24px 70px;
+.cover{
+min-height:calc(100vh - 100px);
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:38px 24px 70px;
 }
 
-.classification {
-    color: #a8bac7;
-    font-size: 10px;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    margin-bottom: 17px;
+.classification{
+color:#a8bac7;
+font-size:10px;
+letter-spacing:2.5px;
+text-transform:uppercase;
+margin-bottom:17px;
 }
 
-.case-code {
-    font-family: monospace;
-    font-size: 13px;
-    color: #aab8c2;
-    margin-bottom: 15px;
+.case-code{
+font-family:monospace;
+font-size:13px;
+color:#aab8c2;
+margin-bottom:15px;
 }
 
-.case-title {
-    margin: 0;
-    font-size: clamp(39px, 9vw, 68px);
-    line-height: 1;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.case-title{
+margin:0;
+font-size:clamp(39px,9vw,68px);
+line-height:1;
+letter-spacing:1px;
+text-transform:uppercase;
 }
 
-.case-subtitle {
-    margin-top: 15px;
-    color: #a4b2bd;
-    font-size: 18px;
+.case-subtitle{
+margin-top:15px;
+color:#a4b2bd;
+font-size:18px;
 }
 
-.info-grid {
-    margin-top: 40px;
-    border-top: 1px solid var(--linea);
-    border-bottom: 1px solid var(--linea);
+.info-grid{
+margin-top:40px;
+border-top:1px solid var(--linea);
+border-bottom:1px solid var(--linea);
 }
 
-.info-row {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    padding: 13px 0;
-
-    border-bottom:
-        1px solid rgba(70,100,125,.3);
+.info-row{
+display:grid;
+grid-template-columns:130px 1fr;
+padding:13px 0;
+border-bottom:1px solid rgba(70,100,125,.3);
 }
 
-.info-row:last-child {
-    border-bottom: none;
+.info-row:last-child{border-bottom:none}
+
+.info-label{
+color:#748b9d;
+font-size:10px;
+letter-spacing:1px;
+text-transform:uppercase;
 }
 
-.info-label {
-    color: #748b9d;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.info-value{
+font-size:12px;
+font-weight:600;
 }
 
-.info-value {
-    font-size: 12px;
-    font-weight: 600;
+.access-btn,
+.validate-btn,
+.return-btn{
+width:100%;
+padding:16px;
+border:1px solid #4c687d;
+border-radius:3px;
+background:#142c3f;
+color:white;
+font-weight:800;
+font-size:12px;
+letter-spacing:1.3px;
+cursor:pointer;
 }
 
-.access-btn {
-    width: 100%;
-    margin-top: 38px;
-    padding: 18px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #173650,
-            #10283c
-        );
-
-    border: 1px solid #49677e;
-    border-radius: 3px;
-
-    color: white;
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 1.6px;
-
-    cursor: pointer;
+.access-btn{
+margin-top:38px;
+padding:18px;
+background:linear-gradient(180deg,#173650,#10283c);
 }
 
-.access-btn:active {
-    transform: scale(.99);
-}
-
-.confidential {
-    margin-top: 18px;
-    text-align: center;
-    font-family: monospace;
-    font-size: 9px;
-    letter-spacing: 1px;
-    color: #637584;
+.confidential{
+margin-top:18px;
+text-align:center;
+font-family:monospace;
+font-size:9px;
+letter-spacing:1px;
+color:#637584;
 }
 
 /* EXPEDIENTE */
 
-.content {
-    padding: 28px 20px 60px;
+.content{
+padding:28px 20px 60px;
 }
 
-.case-header {
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--linea);
-    margin-bottom: 28px;
+.case-header{
+padding-bottom:20px;
+border-bottom:1px solid var(--linea);
+margin-bottom:28px;
 }
 
-.case-header-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
+.case-header-top{
+display:flex;
+justify-content:space-between;
+gap:15px;
 }
 
-.eyebrow {
-    color: #758b9c;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 2px;
+.eyebrow{
+color:#758b9c;
+text-transform:uppercase;
+font-size:10px;
+letter-spacing:2px;
 }
 
-.case-header h2 {
-    margin: 5px 0 0;
-    font-size: 23px;
-    letter-spacing: .5px;
+.case-header h2{
+margin:5px 0 0;
+font-size:23px;
 }
 
-.open-status {
-    color: var(--verde);
-    font-family: monospace;
-    font-size: 11px;
-    white-space: nowrap;
+.open-status{
+color:var(--verde);
+font-family:monospace;
+font-size:11px;
 }
 
-.open-status::before {
-    content: "●";
-    margin-right: 5px;
+.open-status::before{
+content:"●";
+margin-right:5px;
 }
 
-/* AVISO */
+.notice{
+padding:14px 16px;
+margin-bottom:28px;
+border-left:3px solid #688ca8;
+background:rgba(54,88,114,.12);
+color:#b7c5cf;
+font-size:12px;
+line-height:1.6;
+}
 
-.notice {
-    padding: 14px 16px;
-    margin-bottom: 28px;
-
-    border-left: 3px solid #688ca8;
-
-    background:
-        rgba(54,88,114,.12);
-
-    color: #b7c5cf;
-    font-size: 12px;
-    line-height: 1.6;
+.section-label{
+margin-bottom:12px;
+color:#778d9d;
+font-size:10px;
+letter-spacing:2px;
+text-transform:uppercase;
 }
 
 /* FASES */
 
-.section-label {
-    margin-bottom: 12px;
-    color: #778d9d;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.phase{
+position:relative;
+padding:18px;
+margin-bottom:9px;
+border:1px solid #263b4b;
+background:rgba(12,29,43,.55);
+border-radius:3px;
 }
 
-.phase {
-    position: relative;
-    padding: 18px;
-    margin-bottom: 9px;
-
-    border: 1px solid #263b4b;
-
-    background:
-        rgba(12,29,43,.55);
-
-    border-radius: 3px;
+.phase.active{
+border-left:4px solid #9eb4c4;
 }
 
-.phase.active {
-    border-left: 4px solid #9eb4c4;
+.phase.completed{
+border-left:4px solid var(--verde);
 }
 
-.phase.completed {
-    border-left: 4px solid var(--verde);
+.phase.locked{
+opacity:.28;
 }
 
-.phase.locked {
-    opacity: .28;
+.phase-number{
+color:#758b9c;
+font-family:monospace;
+font-size:10px;
+margin-bottom:7px;
 }
 
-.phase-number {
-    color: #758b9c;
-    font-family: monospace;
-    font-size: 10px;
-    margin-bottom: 7px;
+.phase-title{
+font-weight:750;
+font-size:15px;
 }
 
-.phase-title {
-    font-weight: 750;
-    font-size: 15px;
-    letter-spacing: .3px;
+.phase-status{
+position:absolute;
+right:17px;
+top:18px;
+font-family:monospace;
+font-size:10px;
+color:#93a6b4;
 }
 
-.phase-status {
-    position: absolute;
-    right: 17px;
-    top: 18px;
+/* PREGUNTAS */
 
-    font-family: monospace;
-    font-size: 10px;
-    color: #93a6b4;
+.investigation-card{
+margin-top:32px;
+padding:22px;
+background:#071019;
+border:1px solid #334b5e;
+border-radius:3px;
 }
 
-/* PREGUNTA */
-
-.investigation-card {
-    margin-top: 32px;
-    padding: 22px;
-
-    background: #071019;
-    border: 1px solid #334b5e;
-    border-radius: 3px;
+.document-reference{
+color:#748b9d;
+font-family:monospace;
+font-size:10px;
+margin-bottom:15px;
 }
 
-.document-reference {
-    color: #748b9d;
-    font-family: monospace;
-    font-size: 10px;
-    margin-bottom: 15px;
+.question-title{
+font-size:11px;
+font-weight:700;
+letter-spacing:1.5px;
+color:#a8b8c4;
+text-transform:uppercase;
 }
 
-.question-title {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    color: #a8b8c4;
-    text-transform: uppercase;
+.question{
+margin:17px 0 24px;
+font-family:Georgia,"Times New Roman",serif;
+font-size:22px;
+line-height:1.45;
 }
 
-.question {
-    margin: 17px 0 24px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 22px;
-    line-height: 1.45;
+.answer-input{
+width:100%;
+padding:16px;
+margin-bottom:10px;
+background:#03080c;
+border:1px solid #3c5364;
+border-radius:2px;
+color:white;
+font-size:16px;
+outline:none;
 }
 
-.answer-input {
-    width: 100%;
-    padding: 16px;
-
-    background: #03080c;
-    border: 1px solid #3c5364;
-    border-radius: 2px;
-
-    color: white;
-    font-size: 16px;
-    outline: none;
+.answer-input:focus{
+border-color:#829cad;
 }
 
-.answer-input:focus {
-    border-color: #829cad;
+.suspect-label{
+margin:15px 0 6px;
+font-family:monospace;
+font-size:10px;
+letter-spacing:1px;
+color:#8298a8;
 }
 
-.validate-btn {
-    width: 100%;
-    margin-top: 11px;
-    padding: 16px;
-
-    border: 1px solid #4c687d;
-    border-radius: 2px;
-
-    background: #142c3f;
-    color: white;
-
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 1.3px;
-
-    cursor: pointer;
+.error{
+display:none;
+margin-top:15px;
+padding:12px;
+border-left:3px solid var(--rojo);
+background:rgba(160,60,60,.08);
+color:#d99595;
+font-family:monospace;
+font-size:11px;
+line-height:1.5;
 }
 
-.error {
-    display: none;
-
-    margin-top: 15px;
-    padding: 12px;
-
-    border-left: 3px solid var(--rojo);
-
-    background:
-        rgba(160,60,60,.08);
-
-    color: #d99595;
-
-    font-family: monospace;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-.evidence-warning {
-    margin-top: 16px;
-    color: #697d8c;
-    font-size: 11px;
-    line-height: 1.5;
+.evidence-warning{
+margin-top:16px;
+color:#697d8c;
+font-size:11px;
+line-height:1.5;
 }
 
 /* VALIDACIÓN */
 
-.validation-screen {
-    padding: 40px 22px 70px;
+.validation-screen{
+padding:40px 22px 70px;
 }
 
-.validation-box {
-    margin-top: 30px;
-
-    border: 1px solid #355267;
-    background: #08131d;
-
-    padding: 25px;
+.validation-box{
+margin-top:30px;
+border:1px solid #355267;
+background:#08131d;
+padding:25px;
 }
 
-.validation-header {
-    color: var(--verde);
-    font-family: monospace;
-    font-size: 11px;
-    letter-spacing: 1px;
+.validation-header{
+color:var(--verde);
+font-family:monospace;
+font-size:11px;
+letter-spacing:1px;
 }
 
-.validation-title {
-    margin: 12px 0 25px;
-    font-size: 28px;
+.validation-title{
+margin:12px 0 25px;
+font-size:28px;
 }
 
-.validation-text {
-    padding: 20px 0;
-
-    border-top: 1px solid #294052;
-    border-bottom: 1px solid #294052;
-
-    color: #bdc9d2;
-
-    line-height: 1.7;
-    font-size: 14px;
+.validation-text{
+padding:20px 0;
+border-top:1px solid #294052;
+border-bottom:1px solid #294052;
+color:#bdc9d2;
+line-height:1.7;
+font-size:14px;
 }
 
-.instruction {
-    margin-top: 25px;
-    padding: 18px;
-
-    border: 1px solid #536f83;
-
-    background:
-        rgba(46,78,103,.15);
+.instruction{
+margin-top:25px;
+padding:18px;
+border:1px solid #536f83;
+background:rgba(46,78,103,.15);
 }
 
-.instruction-label {
-    color: #849aaa;
-    font-size: 9px;
-    letter-spacing: 1.7px;
-    text-transform: uppercase;
+.instruction-label{
+color:#849aaa;
+font-size:9px;
+letter-spacing:1.7px;
+text-transform:uppercase;
 }
 
-.instruction strong {
-    display: block;
-    margin-top: 8px;
-    font-size: 16px;
+.instruction strong{
+display:block;
+margin-top:8px;
+font-size:16px;
 }
 
-.return-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 16px;
-
-    background: #142c3f;
-    border: 1px solid #4a6579;
-
-    color: white;
-
-    font-weight: 700;
-    letter-spacing: 1px;
-
-    cursor: pointer;
+.return-btn{
+margin-top:20px;
 }
 
-/* PIE */
-
-.footer {
-    margin-top: 35px;
-    padding-top: 18px;
-
-    border-top: 1px solid #263b4b;
-
-    color: #516676;
-
-    font-family: monospace;
-    font-size: 9px;
-    line-height: 1.7;
+.footer{
+margin-top:35px;
+padding-top:18px;
+border-top:1px solid #263b4b;
+color:#516676;
+font-family:monospace;
+font-size:9px;
+line-height:1.7;
 }
 
-.admin-trigger {
-    margin-top: 50px;
-    height: 25px;
-    opacity: .01;
+.admin-trigger{
+margin-top:50px;
+height:25px;
+opacity:.01;
+}
+
+.hidden{
+display:none;
 }
 
 </style>
@@ -566,767 +460,997 @@ body {
 
 <body>
 
-
 <!-- PORTADA -->
 
 <section id="inicio" class="screen active">
 
-    <div class="institutional-header">
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
 
-        <div class="container">
+<div class="fake-shield">UI</div>
 
-            <div class="institution-row">
+<div>
+<div class="institution-name">
+Dirección General de Investigación
+</div>
+<div class="unit-name">
+Unidad de Investigación Criminal
+</div>
+</div>
 
-                <div class="fake-shield">
-                    UI
-                </div>
+<div class="session">
+SISTEMA ACTIVO
+</div>
 
-                <div>
-
-                    <div class="institution-name">
-                        Dirección General de Investigación
-                    </div>
-
-                    <div class="unit-name">
-                        Unidad de Investigación Criminal
-                    </div>
-
-                </div>
-
-                <div class="session">
-                    SISTEMA ACTIVO
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
+</div>
+</div>
 
 
-    <div class="container">
+<div class="container">
 
-        <div class="cover">
+<div class="cover">
 
-            <div class="classification">
-                Investigación en curso · Acceso restringido
-            </div>
+<div class="classification">
+Investigación en curso · Acceso restringido
+</div>
 
-            <div class="case-code">
-                EXPEDIENTE CR/2026-017
-            </div>
+<div class="case-code">
+EXPEDIENTE CR/2026-017
+</div>
 
-            <h1 class="case-title">
-                Caso de<br>Riudecols
-            </h1>
+<h1 class="case-title">
+Caso de<br>Riudecols
+</h1>
 
-            <div class="case-subtitle">
-                Diligencias de investigación
-            </div>
-
-
-            <div class="info-grid">
-
-                <div class="info-row">
-
-                    <div class="info-label">
-                        Clasificación
-                    </div>
-
-                    <div class="info-value">
-                        Muerte sospechosa / posible homicidio
-                    </div>
-
-                </div>
+<div class="case-subtitle">
+Diligencias de investigación
+</div>
 
 
-                <div class="info-row">
+<div class="info-grid">
 
-                    <div class="info-label">
-                        Localización
-                    </div>
+<div class="info-row">
+<div class="info-label">Clasificación</div>
+<div class="info-value">
+Muerte sospechosa / posible homicidio
+</div>
+</div>
 
-                    <div class="info-value">
-                        Riudecols · Tarragona
-                    </div>
+<div class="info-row">
+<div class="info-label">Localización</div>
+<div class="info-value">
+Riudecols · Tarragona
+</div>
+</div>
 
-                </div>
+<div class="info-row">
+<div class="info-label">Fecha</div>
+<div class="info-value">
+20 diciembre 2026
+</div>
+</div>
 
+<div class="info-row">
+<div class="info-label">Estado</div>
+<div class="info-value">
+Investigación activa
+</div>
+</div>
 
-                <div class="info-row">
-
-                    <div class="info-label">
-                        Fecha
-                    </div>
-
-                    <div class="info-value">
-                        20 diciembre 2026
-                    </div>
-
-                </div>
-
-
-                <div class="info-row">
-
-                    <div class="info-label">
-                        Estado
-                    </div>
-
-                    <div class="info-value">
-                        Investigación activa
-                    </div>
-
-                </div>
-
-            </div>
+</div>
 
 
-            <button
-                class="access-btn"
-                onclick="entrar()"
-            >
-                ACCEDER A DILIGENCIAS
-            </button>
+<button class="access-btn" onclick="entrar()">
+ACCEDER A DILIGENCIAS
+</button>
 
+<div class="confidential">
+DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
+</div>
 
-            <div class="confidential">
-                DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
-            </div>
-
-        </div>
-
-    </div>
+</div>
+</div>
 
 </section>
 
 
-
-<!-- PANEL PRINCIPAL -->
+<!-- PANEL -->
 
 <section id="panel" class="screen">
 
-    <div class="institutional-header">
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
 
-        <div class="container">
+<div class="fake-shield">UI</div>
 
-            <div class="institution-row">
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+CR/2026-017
+</div>
+</div>
 
-                <div class="fake-shield">
-                    UI
-                </div>
+<div class="session">
+SESIÓN ACTIVA
+</div>
 
-                <div>
+</div>
+</div>
+</div>
 
-                    <div class="institution-name">
-                        Unidad de Investigación Criminal
-                    </div>
 
-                    <div class="unit-name">
-                        CR/2026-017
-                    </div>
+<div class="container content">
 
-                </div>
+<div class="case-header">
+<div class="case-header-top">
 
-                <div class="session">
-                    SESIÓN ACTIVA
-                </div>
+<div>
+<div class="eyebrow">Expediente</div>
+<h2>CASO DE RIUDECOLS</h2>
+</div>
 
-            </div>
+<div class="open-status">
+ABIERTO
+</div>
 
-        </div>
+</div>
+</div>
 
-    </div>
 
+<div class="notice">
 
-    <div class="container content">
+La documentación mostrada forma parte de
+diligencias activas.
 
-        <div class="case-header">
+Toda conclusión deberá sustentarse en
+las evidencias disponibles en el expediente.
 
-            <div class="case-header-top">
+</div>
 
-                <div>
 
-                    <div class="eyebrow">
-                        Expediente
-                    </div>
+<div class="section-label">
+Fases de investigación
+</div>
 
-                    <h2>
-                        CASO DE RIUDECOLS
-                    </h2>
 
-                </div>
+<div id="fase1" class="phase active">
 
-                <div class="open-status">
-                    ABIERTO
-                </div>
+<div id="estado1" class="phase-status">
+EN CURSO
+</div>
 
-            </div>
+<div class="phase-number">
+FASE 01 · DILIGENCIA CR-01
+</div>
 
-        </div>
+<div class="phase-title">
+EL EXPEDIENTE OLVIDADO
+</div>
 
+</div>
 
-        <div class="notice">
 
-            La documentación mostrada forma parte de
-            diligencias activas.
+<div id="fase2" class="phase locked">
 
-            Toda conclusión deberá sustentarse en
-            las evidencias disponibles en el expediente.
+<div id="estado2" class="phase-status">
+RESTRINGIDO
+</div>
 
-        </div>
+<div class="phase-number">
+FASE 02 · DILIGENCIA CR-02
+</div>
 
+<div id="titulo2" class="phase-title">
+INFORMACIÓN RESERVADA
+</div>
 
-        <div class="section-label">
-            Fases de investigación
-        </div>
+</div>
 
 
-        <div id="fase1" class="phase active">
+<div id="fase3" class="phase locked">
 
-            <div id="estado1" class="phase-status">
-                EN CURSO
-            </div>
+<div id="estado3" class="phase-status">
+RESTRINGIDO
+</div>
 
-            <div class="phase-number">
-                FASE 01 · DILIGENCIA CR-01
-            </div>
+<div class="phase-number">
+FASE 03 · DILIGENCIA CR-03
+</div>
 
-            <div class="phase-title">
-                EL EXPEDIENTE OLVIDADO
-            </div>
+<div id="titulo3" class="phase-title">
+INFORMACIÓN RESERVADA
+</div>
 
-        </div>
+</div>
 
 
-        <div id="fase2" class="phase locked">
+<div class="phase locked">
+<div class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 04</div>
+<div class="phase-title">INFORMACIÓN RESERVADA</div>
+</div>
 
-            <div id="estado2" class="phase-status">
-                RESTRINGIDO
-            </div>
 
-            <div class="phase-number">
-                FASE 02
-            </div>
+<div class="phase locked">
+<div class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 05</div>
+<div class="phase-title">INFORMACIÓN RESERVADA</div>
+</div>
 
-            <div id="titulo2" class="phase-title">
-                INFORMACIÓN RESERVADA
-            </div>
 
-        </div>
+<div class="phase locked">
+<div class="phase-status">RESTRINGIDO</div>
+<div class="phase-number">FASE 06</div>
+<div class="phase-title">INFORMACIÓN RESERVADA</div>
+</div>
 
 
-        <div class="phase locked">
+<!-- PREGUNTA FASE 1 -->
 
-            <div class="phase-status">
-                RESTRINGIDO
-            </div>
+<div id="preguntaFase1" class="investigation-card">
 
-            <div class="phase-number">
-                FASE 03
-            </div>
+<div class="document-reference">
+REF. CR/2026-017 · CUESTIÓN 01
+</div>
 
-            <div class="phase-title">
-                INFORMACIÓN RESERVADA
-            </div>
+<div class="question-title">
+Cuestión de investigación
+</div>
 
-        </div>
+<div class="question">
 
+¿Qué evidencia llevó a la víctima
+de Riudecols a cuestionar la
+conclusión oficial del caso de 2019?
 
-        <div class="phase locked">
+</div>
 
-            <div class="phase-status">
-                RESTRINGIDO
-            </div>
 
-            <div class="phase-number">
-                FASE 04
-            </div>
+<input
+id="respuesta1"
+class="answer-input"
+type="text"
+placeholder="Registrar conclusión..."
+autocomplete="off"
+>
 
-            <div class="phase-title">
-                INFORMACIÓN RESERVADA
-            </div>
 
-        </div>
+<button
+class="validate-btn"
+onclick="comprobarFase1()"
+>
+REGISTRAR CONCLUSIÓN
+</button>
 
 
-        <div class="phase locked">
+<div id="error1" class="error">
 
-            <div class="phase-status">
-                RESTRINGIDO
-            </div>
+CONCLUSIÓN NO ADMITIDA
 
-            <div class="phase-number">
-                FASE 05
-            </div>
+<br><br>
 
-            <div class="phase-title">
-                INFORMACIÓN RESERVADA
-            </div>
+La información introducida no permite
+validar la diligencia.
 
-        </div>
+Revise las evidencias disponibles.
 
+</div>
 
-        <div class="phase locked">
+</div>
 
-            <div class="phase-status">
-                RESTRINGIDO
-            </div>
 
-            <div class="phase-number">
-                FASE 06
-            </div>
+<!-- PREGUNTA FASE 2 -->
 
-            <div class="phase-title">
-                INFORMACIÓN RESERVADA
-            </div>
+<div
+id="preguntaFase2"
+class="investigation-card hidden"
+>
 
-        </div>
+<div class="document-reference">
+REF. CR/2026-017 · CUESTIÓN 02
+</div>
 
+<div class="question-title">
+Reconstrucción de los hechos
+</div>
 
 
-        <!-- CUESTIÓN 01 -->
+<div class="question">
 
-        <div class="investigation-card">
+A partir de las declaraciones,
+movimientos y evidencias recopiladas
+por la investigación:
 
-            <div class="document-reference">
-                REF. CR/2026-017 · CUESTIÓN 01
-            </div>
+<br><br>
 
-            <div class="question-title">
-                Cuestión de investigación
-            </div>
+¿Qué tres miembros del grupo fueron
+identificados como los principales
+sospechosos de los hechos ocurridos
+en Oporto en 2019?
 
-            <div class="question">
+</div>
 
-                ¿Qué evidencia llevó a la víctima
-                de Riudecols a cuestionar la
-                conclusión oficial del caso de 2019?
 
-            </div>
+<div class="suspect-label">
+SOSPECHOSO 01
+</div>
 
+<input
+id="sospechoso1"
+class="answer-input"
+type="text"
+placeholder="Nombre y/o apellido..."
+autocomplete="off"
+>
 
-            <input
-                id="respuesta"
-                class="answer-input"
-                type="text"
-                placeholder="Registrar conclusión..."
-                autocomplete="off"
-            >
 
+<div class="suspect-label">
+SOSPECHOSO 02
+</div>
 
-            <button
-                class="validate-btn"
-                onclick="comprobar()"
-            >
-                REGISTRAR CONCLUSIÓN
-            </button>
+<input
+id="sospechoso2"
+class="answer-input"
+type="text"
+placeholder="Nombre y/o apellido..."
+autocomplete="off"
+>
 
 
-            <div id="error" class="error">
+<div class="suspect-label">
+SOSPECHOSO 03
+</div>
 
-                CONCLUSIÓN NO ADMITIDA
+<input
+id="sospechoso3"
+class="answer-input"
+type="text"
+placeholder="Nombre y/o apellido..."
+autocomplete="off"
+>
 
-                <br><br>
 
-                La información introducida no permite
-                validar la diligencia.
+<button
+class="validate-btn"
+onclick="comprobarFase2()"
+>
+VALIDAR SOSPECHOSOS
+</button>
 
-                Revise las evidencias disponibles.
 
-            </div>
+<div id="error2" class="error">
 
+RECONSTRUCCIÓN NO VALIDADA
 
-            <div class="evidence-warning">
+<br><br>
 
-                Introduzca únicamente información
-                respaldada por el material de investigación.
+La selección introducida no coincide
+con las conclusiones obtenidas a partir
+de las evidencias disponibles.
 
-            </div>
+<br><br>
 
-        </div>
+Revise las declaraciones, horarios
+y material recuperado.
 
+</div>
 
-        <div class="footer">
 
-            EXPEDIENTE CR/2026-017
-            <br>
+<div class="evidence-warning">
 
-            UNIDAD DE INVESTIGACIÓN CRIMINAL
-            <br>
+El orden de introducción de los
+tres nombres no es relevante.
 
-            REGISTRO INTERNO · SESIÓN 01
+</div>
 
-        </div>
+</div>
 
 
-        <div
-            class="admin-trigger"
-            onclick="adminReset()"
-        >
-            ADMIN
-        </div>
+<div class="footer">
 
-    </div>
+EXPEDIENTE CR/2026-017
+<br>
+UNIDAD DE INVESTIGACIÓN CRIMINAL
+<br>
+REGISTRO INTERNO · SESIÓN 01
+
+</div>
+
+
+<div
+class="admin-trigger"
+onclick="adminReset()"
+>
+ADMIN
+</div>
+
+</div>
 
 </section>
 
 
+<!-- VALIDACIÓN FASE 1 -->
 
-<!-- VALIDACIÓN -->
+<section id="validacion1" class="screen">
 
-<section id="validacion" class="screen">
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
 
-    <div class="institutional-header">
+<div class="fake-shield">UI</div>
 
-        <div class="container">
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+Validación de diligencias
+</div>
+</div>
 
-            <div class="institution-row">
+<div class="session">
+VERIFICADO
+</div>
 
-                <div class="fake-shield">
-                    UI
-                </div>
-
-                <div>
-
-                    <div class="institution-name">
-                        Unidad de Investigación Criminal
-                    </div>
-
-                    <div class="unit-name">
-                        Validación de diligencias
-                    </div>
-
-                </div>
-
-                <div class="session">
-                    VERIFICADO
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
+</div>
+</div>
 
 
-    <div class="container validation-screen">
+<div class="container validation-screen">
 
-        <div class="validation-box">
+<div class="validation-box">
 
-            <div class="validation-header">
-                ✓ CONCLUSIÓN ADMITIDA
-            </div>
+<div class="validation-header">
+✓ CONCLUSIÓN ADMITIDA
+</div>
 
+<div class="validation-title">
+Diligencia CR-01 completada
+</div>
 
-            <div class="validation-title">
-                Diligencia CR-01 completada
-            </div>
+<div class="validation-text">
 
+La evidencia identificada permite
+cuestionar la conclusión oficial
+de los hechos ocurridos en Oporto
+en 2019.
 
-            <div class="validation-text">
+<br><br>
 
-                La evidencia identificada permite
-                cuestionar la conclusión oficial
-                de los hechos ocurridos en Oporto
-                en 2019.
+La pulsera localizada entre las
+evidencias de la escena coincide
+con las utilizadas por el grupo
+durante una actividad Erasmus
+celebrada en Oporto.
 
-                <br><br>
+<br><br>
 
-                La pulsera localizada entre las
-                evidencias de la escena coincide
-                con las utilizadas por el grupo
-                durante una actividad Erasmus
-                celebrada en Oporto.
+La víctima portuguesa no participó
+en dicha actividad.
 
-                <br><br>
+<br><br>
 
-                La víctima portuguesa no participó
-                en dicha actividad.
+Por tanto, queda sin explicar cómo
+una de esas pulseras terminó en el
+lugar de los hechos.
 
-                <br><br>
-
-                Por tanto, queda sin explicar cómo
-                una de esas pulseras terminó en el
-                lugar de los hechos.
-
-            </div>
+</div>
 
 
-            <div class="instruction">
+<div class="instruction">
 
-                <div class="instruction-label">
-                    Instrucción operativa
-                </div>
+<div class="instruction-label">
+Instrucción operativa
+</div>
 
-                <strong>
-                    SE AUTORIZA LA APERTURA DEL SOBRE 02
-                </strong>
+<strong>
+SE AUTORIZA LA APERTURA DEL SOBRE 02
+</strong>
 
-            </div>
-
-
-            <button
-                class="return-btn"
-                onclick="volverPanel()"
-            >
-                CONTINUAR INVESTIGACIÓN
-            </button>
-
-        </div>
+</div>
 
 
-        <div class="footer">
+<button
+class="return-btn"
+onclick="continuarFase2()"
+>
+CONTINUAR INVESTIGACIÓN
+</button>
 
-            AUTORIZACIÓN:
-            CR/2026-017-A02
+</div>
 
-            <br>
-
-            NUEVAS DILIGENCIAS HABILITADAS
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
+
+<!-- VALIDACIÓN FASE 2 -->
+
+<section id="validacion2" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+Validación de diligencias
+</div>
+</div>
+
+<div class="session">
+VERIFICADO
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="container validation-screen">
+
+<div class="validation-box">
+
+<div class="validation-header">
+✓ RECONSTRUCCIÓN PARCIAL VALIDADA
+</div>
+
+
+<div class="validation-title">
+Diligencia CR-02 completada
+</div>
+
+
+<div class="validation-text">
+
+El análisis conjunto de las
+declaraciones, registros horarios
+y material recuperado permite
+reducir el círculo de investigación
+a tres personas.
+
+<br><br>
+
+Las inconsistencias detectadas
+justifican que estas tres personas
+sean consideradas los principales
+sospechosos de los hechos ocurridos
+en Oporto en 2019.
+
+<br><br>
+
+Sin embargo, las evidencias
+analizadas hasta este momento
+no permiten atribuir individualmente
+la responsabilidad por el
+fallecimiento.
+
+<br><br>
+
+Es necesario reconstruir los últimos
+minutos de la víctima.
+
+</div>
+
+
+<div class="instruction">
+
+<div class="instruction-label">
+Instrucción operativa
+</div>
+
+<strong>
+SE AUTORIZA LA APERTURA DEL SOBRE 03
+</strong>
+
+</div>
+
+
+<button
+class="return-btn"
+onclick="continuarFase3()"
+>
+CONTINUAR INVESTIGACIÓN
+</button>
+
+</div>
+
+</div>
+
+</section>
 
 
 <script>
 
-/* PANTALLAS */
+/* =====================================
+   CONFIGURACIÓN DEL CASO
+===================================== */
 
-function mostrar(id) {
+/*
+IMPORTANTE:
 
-    document
-        .querySelectorAll(".screen")
-        .forEach(function(pantalla) {
+Cuando decidamos quiénes son
+A, X e Y solamente tendrás que
+cambiar estos tres nombres.
 
-            pantalla.classList.remove("active");
+Por ahora usamos nombres provisionales.
+*/
 
-        });
+const sospechososCorrectos = [
+    "sospechoso a",
+    "sospechoso x",
+    "sospechoso y"
+];
 
-    document
-        .getElementById(id)
-        .classList.add("active");
 
-    window.scrollTo(0,0);
-}
+/* =====================================
+   PANTALLAS
+===================================== */
 
-
-function entrar() {
-
-    actualizarProgreso();
-
-    mostrar("panel");
-}
-
-
-/* NORMALIZAR TEXTO */
-
-function normalizar(texto) {
-
-    return texto
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .trim();
-}
-
-
-/* COMPROBAR RESPUESTA */
-
-function comprobar() {
-
-    const campo =
-        document.getElementById("respuesta");
-
-    const respuesta =
-        normalizar(campo.value);
-
-
-    const respuestasCorrectas = [
-
-        "pulsera",
-
-        "la pulsera",
-
-        "una pulsera",
-
-        "pulsera erasmus",
-
-        "pulsera del erasmus",
-
-        "la pulsera del erasmus",
-
-        "pulsera del grupo",
-
-        "la pulsera del grupo",
-
-        "pulsera del evento",
-
-        "la pulsera del evento"
-
-    ];
-
-
-    const correcto =
-        respuestasCorrectas.some(
-            function(opcion) {
-
-                return respuesta.includes(opcion);
-
-            }
-        );
-
-
-    if (correcto) {
-
-        localStorage.setItem(
-            "riudecols_fase1",
-            "completada"
-        );
-
-        document
-            .getElementById("error")
-            .style.display = "none";
-
-        mostrar("validacion");
-
-    }
-
-    else {
-
-        document
-            .getElementById("error")
-            .style.display = "block";
-
-    }
-
-}
-
-
-/* PROGRESO */
-
-function actualizarProgreso() {
-
-    const completada =
-        localStorage.getItem(
-            "riudecols_fase1"
-        );
-
-
-    if (completada === "completada") {
-
-        const fase1 =
-            document.getElementById("fase1");
-
-        const fase2 =
-            document.getElementById("fase2");
-
-
-        fase1
-            .classList
-            .remove("active");
-
-        fase1
-            .classList
-            .add("completed");
-
-
-        document
-            .getElementById("estado1")
-            .innerText =
-            "COMPLETADA ✓";
-
-
-        fase2
-            .classList
-            .remove("locked");
-
-        fase2
-            .classList
-            .add("active");
-
-
-        document
-            .getElementById("estado2")
-            .innerText =
-            "HABILITADA";
-
-
-        document
-            .getElementById("titulo2")
-            .innerText =
-            "LA NOCHE DE 2019";
-
-    }
-
-}
-
-
-/* VOLVER */
-
-function volverPanel() {
-
-    actualizarProgreso();
-
-    mostrar("panel");
-}
-
-
-/* ENTER */
+function mostrar(id){
 
 document
-    .getElementById("respuesta")
-    .addEventListener(
-        "keydown",
-        function(event) {
+.querySelectorAll(".screen")
+.forEach(function(p){
 
-            if (event.key === "Enter") {
+p.classList.remove("active");
 
-                comprobar();
+});
 
-            }
+document
+.getElementById(id)
+.classList.add("active");
 
-        }
-    );
-
-
-/* RESET ADMINISTRADOR */
-
-function adminReset() {
-
-    const clave =
-        prompt(
-            "Código de administración:"
-        );
-
-
-    if (clave === "2019") {
-
-        const confirmar =
-            confirm(
-                "¿Reiniciar progreso del Caso de Riudecols?"
-            );
-
-
-        if (confirmar) {
-
-            localStorage.removeItem(
-                "riudecols_fase1"
-            );
-
-            location.reload();
-
-        }
-
-    }
+window.scrollTo(0,0);
 
 }
 
 
-/* INICIALIZACIÓN */
+function entrar(){
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* =====================================
+   NORMALIZAR
+===================================== */
+
+function normalizar(texto){
+
+return texto
+.toLowerCase()
+.normalize("NFD")
+.replace(/[\u0300-\u036f]/g,"")
+.trim();
+
+}
+
+
+/* =====================================
+   FASE 1
+===================================== */
+
+function comprobarFase1(){
+
+const respuesta =
+normalizar(
+document.getElementById("respuesta1").value
+);
+
+
+const respuestasCorrectas = [
+
+"pulsera",
+"la pulsera",
+"una pulsera",
+"pulsera erasmus",
+"pulsera del erasmus",
+"la pulsera del erasmus",
+"pulsera del grupo",
+"la pulsera del grupo",
+"pulsera del evento",
+"la pulsera del evento"
+
+];
+
+
+const correcto =
+respuestasCorrectas.some(
+function(opcion){
+
+return respuesta.includes(opcion);
+
+});
+
+
+if(correcto){
+
+localStorage.setItem(
+"riudecols_fase1",
+"completada"
+);
+
+document
+.getElementById("error1")
+.style.display="none";
+
+mostrar("validacion1");
+
+}
+
+else{
+
+document
+.getElementById("error1")
+.style.display="block";
+
+}
+
+}
+
+
+/* =====================================
+   PASAR A FASE 2
+===================================== */
+
+function continuarFase2(){
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* =====================================
+   FASE 2
+===================================== */
+
+function comprobarFase2(){
+
+const respuestas = [
+
+normalizar(
+document.getElementById("sospechoso1").value
+),
+
+normalizar(
+document.getElementById("sospechoso2").value
+),
+
+normalizar(
+document.getElementById("sospechoso3").value
+)
+
+];
+
+
+/* Evita repetir el mismo nombre */
+
+const respuestasUnicas =
+[...new Set(respuestas)];
+
+
+if(respuestasUnicas.length !== 3){
+
+document
+.getElementById("error2")
+.style.display="block";
+
+return;
+
+}
+
+
+/* Comprueba los 3 sin importar el orden */
+
+const correcto =
+sospechososCorrectos.every(
+function(nombre){
+
+return respuestas.includes(nombre);
+
+});
+
+
+if(correcto){
+
+localStorage.setItem(
+"riudecols_fase2",
+"completada"
+);
+
+document
+.getElementById("error2")
+.style.display="none";
+
+mostrar("validacion2");
+
+}
+
+else{
+
+document
+.getElementById("error2")
+.style.display="block";
+
+}
+
+}
+
+
+/* =====================================
+   PASAR A FASE 3
+===================================== */
+
+function continuarFase3(){
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* =====================================
+   ACTUALIZAR PROGRESO
+===================================== */
+
+function actualizarProgreso(){
+
+const fase1 =
+localStorage.getItem("riudecols_fase1");
+
+const fase2 =
+localStorage.getItem("riudecols_fase2");
+
+
+/* FASE 1 COMPLETADA */
+
+if(fase1 === "completada"){
+
+document
+.getElementById("fase1")
+.className="phase completed";
+
+document
+.getElementById("estado1")
+.innerText="COMPLETADA ✓";
+
+
+document
+.getElementById("fase2")
+.className="phase active";
+
+document
+.getElementById("estado2")
+.innerText="EN CURSO";
+
+document
+.getElementById("titulo2")
+.innerText="LA NOCHE DE 2019";
+
+
+document
+.getElementById("preguntaFase1")
+.classList.add("hidden");
+
+document
+.getElementById("preguntaFase2")
+.classList.remove("hidden");
+
+}
+
+
+/* FASE 2 COMPLETADA */
+
+if(fase2 === "completada"){
+
+document
+.getElementById("fase2")
+.className="phase completed";
+
+document
+.getElementById("estado2")
+.innerText="COMPLETADA ✓";
+
+
+document
+.getElementById("fase3")
+.className="phase active";
+
+document
+.getElementById("estado3")
+.innerText="HABILITADA";
+
+document
+.getElementById("titulo3")
+.innerText="LA CAÍDA";
+
+
+document
+.getElementById("preguntaFase2")
+.classList.add("hidden");
+
+}
+
+}
+
+
+/* =====================================
+   ADMINISTRADOR
+===================================== */
+
+function adminReset(){
+
+const clave =
+prompt("Código de administración:");
+
+
+if(clave === "2019"){
+
+const confirmar =
+confirm(
+"¿Reiniciar todo el progreso del Caso de Riudecols?"
+);
+
+
+if(confirmar){
+
+localStorage.removeItem(
+"riudecols_fase1"
+);
+
+localStorage.removeItem(
+"riudecols_fase2"
+);
+
+location.reload();
+
+}
+
+}
+
+}
+
+
+/* =====================================
+   ENTER FASE 1
+===================================== */
+
+document
+.getElementById("respuesta1")
+.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+
+comprobarFase1();
+
+}
+
+});
+
+
+/* =====================================
+   INICIAR
+===================================== */
 
 actualizarProgreso();
 
