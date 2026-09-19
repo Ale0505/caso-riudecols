@@ -22,6 +22,7 @@ content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 --texto:#e7edf2;
 --verde:#76bd8a;
 --rojo:#cc7373;
+--ambar:#d1a75c;
 --fondo:#050b11;
 }
 
@@ -40,7 +41,9 @@ display:none;
 min-height:100vh;
 }
 
-.screen.active{display:block}
+.screen.active{
+display:block;
+}
 
 .container{
 width:100%;
@@ -48,7 +51,9 @@ max-width:900px;
 margin:auto;
 }
 
-/* CABECERA */
+/* ================================
+   CABECERA
+================================ */
 
 .institutional-header{
 padding:calc(18px + env(safe-area-inset-top)) 22px 18px;
@@ -103,7 +108,9 @@ content:"●";
 margin-right:5px;
 }
 
-/* PORTADA */
+/* ================================
+   PORTADA
+================================ */
 
 .cover{
 min-height:calc(100vh - 100px);
@@ -155,7 +162,9 @@ padding:13px 0;
 border-bottom:1px solid rgba(70,100,125,.3);
 }
 
-.info-row:last-child{border-bottom:none}
+.info-row:last-child{
+border-bottom:none;
+}
 
 .info-label{
 color:#748b9d;
@@ -199,7 +208,9 @@ letter-spacing:1px;
 color:#637584;
 }
 
-/* EXPEDIENTE */
+/* ================================
+   EXPEDIENTE
+================================ */
 
 .content{
 padding:28px 20px 60px;
@@ -258,7 +269,9 @@ letter-spacing:2px;
 text-transform:uppercase;
 }
 
-/* FASES */
+/* ================================
+   FASES
+================================ */
 
 .phase{
 position:relative;
@@ -302,7 +315,9 @@ font-size:10px;
 color:#93a6b4;
 }
 
-/* PREGUNTAS */
+/* ================================
+   PREGUNTAS
+================================ */
 
 .investigation-card{
 margin-top:32px;
@@ -377,7 +392,9 @@ font-size:11px;
 line-height:1.5;
 }
 
-/* VALIDACIÓN */
+/* ================================
+   VALIDACIONES
+================================ */
 
 .validation-screen{
 padding:40px 22px 70px;
@@ -435,6 +452,95 @@ font-size:16px;
 margin-top:20px;
 }
 
+/* ================================
+   FALSO FINAL
+================================ */
+
+.closed-case{
+text-align:center;
+padding:55px 20px 30px;
+}
+
+.closed-symbol{
+width:82px;
+height:82px;
+margin:0 auto 28px;
+border:2px solid var(--verde);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:37px;
+color:var(--verde);
+}
+
+.closed-small{
+font-family:monospace;
+font-size:11px;
+letter-spacing:2px;
+color:var(--verde);
+}
+
+.closed-title{
+font-size:36px;
+margin:12px 0 10px;
+}
+
+.closed-year{
+font-family:Georgia,serif;
+font-size:21px;
+color:#98a9b6;
+}
+
+/* ================================
+   ALERTA RIUDECOLS
+================================ */
+
+.alert-box{
+margin-top:30px;
+border:1px solid #705f40;
+background:#14120d;
+padding:25px;
+}
+
+.alert-header{
+color:var(--ambar);
+font-family:monospace;
+font-size:11px;
+letter-spacing:1.5px;
+}
+
+.alert-title{
+font-size:28px;
+margin:13px 0 22px;
+}
+
+.alert-text{
+padding:20px 0;
+border-top:1px solid #51462f;
+border-bottom:1px solid #51462f;
+color:#c9c3b7;
+font-size:14px;
+line-height:1.75;
+}
+
+.alert-instruction{
+margin-top:24px;
+padding:18px;
+border:1px solid #75613d;
+background:rgba(135,105,55,.1);
+}
+
+.alert-instruction strong{
+display:block;
+margin-top:7px;
+font-size:16px;
+}
+
+/* ================================
+   PIE
+================================ */
+
 .footer{
 margin-top:35px;
 padding-top:18px;
@@ -452,7 +558,7 @@ opacity:.01;
 }
 
 .hidden{
-display:none;
+display:none !important;
 }
 
 </style>
@@ -460,7 +566,10 @@ display:none;
 
 <body>
 
-<!-- PORTADA -->
+
+<!-- ===================================
+     PORTADA
+=================================== -->
 
 <section id="inicio" class="screen active">
 
@@ -487,9 +596,7 @@ SISTEMA ACTIVO
 </div>
 </div>
 
-
 <div class="container">
-
 <div class="cover">
 
 <div class="classification">
@@ -507,7 +614,6 @@ Caso de<br>Riudecols
 <div class="case-subtitle">
 Diligencias de investigación
 </div>
-
 
 <div class="info-grid">
 
@@ -541,7 +647,6 @@ Investigación activa
 
 </div>
 
-
 <button class="access-btn" onclick="entrar()">
 ACCEDER A DILIGENCIAS
 </button>
@@ -556,7 +661,9 @@ DOCUMENTACIÓN DE USO INTERNO · NIVEL DE ACCESO 03
 </section>
 
 
-<!-- PANEL -->
+<!-- ===================================
+     PANEL
+=================================== -->
 
 <section id="panel" class="screen">
 
@@ -583,15 +690,18 @@ SESIÓN ACTIVA
 </div>
 </div>
 
-
 <div class="container content">
 
 <div class="case-header">
 <div class="case-header-top">
 
 <div>
-<div class="eyebrow">Expediente</div>
-<h2>CASO DE RIUDECOLS</h2>
+<div class="eyebrow">
+Expediente
+</div>
+<h2>
+CASO DE RIUDECOLS
+</h2>
 </div>
 
 <div class="open-status">
@@ -601,22 +711,20 @@ ABIERTO
 </div>
 </div>
 
-
 <div class="notice">
 
-La documentación mostrada forma parte de
-diligencias activas.
+La documentación mostrada forma parte de diligencias activas.
 
-Toda conclusión deberá sustentarse en
-las evidencias disponibles en el expediente.
+Toda conclusión deberá sustentarse en las evidencias disponibles en el expediente.
 
 </div>
-
 
 <div class="section-label">
 Fases de investigación
 </div>
 
+
+<!-- FASE 1 -->
 
 <div id="fase1" class="phase active">
 
@@ -635,6 +743,8 @@ EL EXPEDIENTE OLVIDADO
 </div>
 
 
+<!-- FASE 2 -->
+
 <div id="fase2" class="phase locked">
 
 <div id="estado2" class="phase-status">
@@ -651,6 +761,8 @@ INFORMACIÓN RESERVADA
 
 </div>
 
+
+<!-- FASE 3 -->
 
 <div id="fase3" class="phase locked">
 
@@ -669,28 +781,55 @@ INFORMACIÓN RESERVADA
 </div>
 
 
-<div class="phase locked">
-<div class="phase-status">RESTRINGIDO</div>
-<div class="phase-number">FASE 04</div>
-<div class="phase-title">INFORMACIÓN RESERVADA</div>
+<!-- FASE 4 -->
+
+<div id="fase4" class="phase locked">
+
+<div id="estado4" class="phase-status">
+RESTRINGIDO
+</div>
+
+<div class="phase-number">
+FASE 04 · DILIGENCIA CR-04
+</div>
+
+<div id="titulo4" class="phase-title">
+INFORMACIÓN RESERVADA
+</div>
+
 </div>
 
 
 <div class="phase locked">
-<div class="phase-status">RESTRINGIDO</div>
-<div class="phase-number">FASE 05</div>
-<div class="phase-title">INFORMACIÓN RESERVADA</div>
+<div class="phase-status">
+RESTRINGIDO
+</div>
+<div class="phase-number">
+FASE 05
+</div>
+<div class="phase-title">
+INFORMACIÓN RESERVADA
+</div>
 </div>
 
 
 <div class="phase locked">
-<div class="phase-status">RESTRINGIDO</div>
-<div class="phase-number">FASE 06</div>
-<div class="phase-title">INFORMACIÓN RESERVADA</div>
+<div class="phase-status">
+RESTRINGIDO
+</div>
+<div class="phase-number">
+FASE 06
+</div>
+<div class="phase-title">
+INFORMACIÓN RESERVADA
+</div>
 </div>
 
 
-<!-- PREGUNTA FASE 1 -->
+
+<!-- ================================
+     PREGUNTA FASE 1
+================================ -->
 
 <div id="preguntaFase1" class="investigation-card">
 
@@ -710,7 +849,6 @@ conclusión oficial del caso de 2019?
 
 </div>
 
-
 <input
 id="respuesta1"
 class="answer-input"
@@ -719,7 +857,6 @@ placeholder="Registrar conclusión..."
 autocomplete="off"
 >
 
-
 <button
 class="validate-btn"
 onclick="comprobarFase1()"
@@ -727,15 +864,11 @@ onclick="comprobarFase1()"
 REGISTRAR CONCLUSIÓN
 </button>
 
-
 <div id="error1" class="error">
 
 CONCLUSIÓN NO ADMITIDA
 
 <br><br>
-
-La información introducida no permite
-validar la diligencia.
 
 Revise las evidencias disponibles.
 
@@ -744,7 +877,10 @@ Revise las evidencias disponibles.
 </div>
 
 
-<!-- PREGUNTA FASE 2 -->
+
+<!-- ================================
+     PREGUNTA FASE 2
+================================ -->
 
 <div
 id="preguntaFase2"
@@ -759,19 +895,13 @@ REF. CR/2026-017 · CUESTIÓN 02
 Reconstrucción de los hechos
 </div>
 
-
 <div class="question">
 
-A partir de las declaraciones,
-movimientos y evidencias recopiladas
-por la investigación:
-
-<br><br>
-
 ¿Qué tres miembros del grupo fueron
-identificados como los principales
-sospechosos de los hechos ocurridos
-en Oporto en 2019?
+identificados por la investigación
+como los principales sospechosos
+de los hechos ocurridos en Oporto
+en 2019?
 
 </div>
 
@@ -784,8 +914,7 @@ SOSPECHOSO 01
 id="sospechoso1"
 class="answer-input"
 type="text"
-placeholder="Nombre y/o apellido..."
-autocomplete="off"
+placeholder="Nombre..."
 >
 
 
@@ -797,8 +926,7 @@ SOSPECHOSO 02
 id="sospechoso2"
 class="answer-input"
 type="text"
-placeholder="Nombre y/o apellido..."
-autocomplete="off"
+placeholder="Nombre..."
 >
 
 
@@ -810,8 +938,7 @@ SOSPECHOSO 03
 id="sospechoso3"
 class="answer-input"
 type="text"
-placeholder="Nombre y/o apellido..."
-autocomplete="off"
+placeholder="Nombre..."
 >
 
 
@@ -829,34 +956,106 @@ RECONSTRUCCIÓN NO VALIDADA
 
 <br><br>
 
-La selección introducida no coincide
-con las conclusiones obtenidas a partir
-de las evidencias disponibles.
-
-<br><br>
-
-Revise las declaraciones, horarios
-y material recuperado.
+La selección no coincide con
+las evidencias disponibles.
 
 </div>
 
 
 <div class="evidence-warning">
 
-El orden de introducción de los
-tres nombres no es relevante.
+El orden de los tres nombres
+no es relevante.
 
 </div>
 
 </div>
+
+
+
+<!-- ================================
+     PREGUNTA FASE 3
+================================ -->
+
+<div
+id="preguntaFase3"
+class="investigation-card hidden"
+>
+
+<div class="document-reference">
+REF. CR/2026-017 · CUESTIÓN 03
+</div>
+
+<div class="question-title">
+Determinación de responsabilidad
+</div>
+
+
+<div class="question">
+
+Tras reconstruir los últimos minutos
+de la víctima y contrastar las
+evidencias disponibles:
+
+<br><br>
+
+¿Quién fue responsable de la muerte
+de la joven portuguesa en Oporto
+en 2019?
+
+</div>
+
+
+<div class="suspect-label">
+PERSONA RESPONSABLE
+</div>
+
+<input
+id="responsable2019"
+class="answer-input"
+type="text"
+placeholder="Introducir nombre..."
+autocomplete="off"
+>
+
+
+<button
+class="validate-btn"
+onclick="comprobarFase3()"
+>
+VALIDAR CONCLUSIÓN
+</button>
+
+
+<div id="error3" class="error">
+
+CONCLUSIÓN NO ADMITIDA
+
+<br><br>
+
+La persona indicada no coincide
+con la reconstrucción de los hechos.
+
+<br><br>
+
+Revise nuevamente la cronología,
+las declaraciones y las evidencias
+del lugar de la caída.
+
+</div>
+
+</div>
+
 
 
 <div class="footer">
 
 EXPEDIENTE CR/2026-017
 <br>
+
 UNIDAD DE INVESTIGACIÓN CRIMINAL
 <br>
+
 REGISTRO INTERNO · SESIÓN 01
 
 </div>
@@ -874,7 +1073,10 @@ ADMIN
 </section>
 
 
-<!-- VALIDACIÓN FASE 1 -->
+
+<!-- ===================================
+     VALIDACIÓN FASE 1
+=================================== -->
 
 <section id="validacion1" class="screen">
 
@@ -916,13 +1118,6 @@ Diligencia CR-01 completada
 
 <div class="validation-text">
 
-La evidencia identificada permite
-cuestionar la conclusión oficial
-de los hechos ocurridos en Oporto
-en 2019.
-
-<br><br>
-
 La pulsera localizada entre las
 evidencias de la escena coincide
 con las utilizadas por el grupo
@@ -936,9 +1131,9 @@ en dicha actividad.
 
 <br><br>
 
-Por tanto, queda sin explicar cómo
-una de esas pulseras terminó en el
-lugar de los hechos.
+Queda por determinar cómo una
+de estas pulseras terminó en
+el lugar de los hechos.
 
 </div>
 
@@ -970,7 +1165,10 @@ CONTINUAR INVESTIGACIÓN
 </section>
 
 
-<!-- VALIDACIÓN FASE 2 -->
+
+<!-- ===================================
+     VALIDACIÓN FASE 2
+=================================== -->
 
 <section id="validacion2" class="screen">
 
@@ -1006,11 +1204,9 @@ VERIFICADO
 ✓ RECONSTRUCCIÓN PARCIAL VALIDADA
 </div>
 
-
 <div class="validation-title">
 Diligencia CR-02 completada
 </div>
-
 
 <div class="validation-text">
 
@@ -1022,14 +1218,6 @@ a tres personas.
 
 <br><br>
 
-Las inconsistencias detectadas
-justifican que estas tres personas
-sean consideradas los principales
-sospechosos de los hechos ocurridos
-en Oporto en 2019.
-
-<br><br>
-
 Sin embargo, las evidencias
 analizadas hasta este momento
 no permiten atribuir individualmente
@@ -1038,8 +1226,8 @@ fallecimiento.
 
 <br><br>
 
-Es necesario reconstruir los últimos
-minutos de la víctima.
+Es necesario reconstruir los
+últimos minutos de la víctima.
 
 </div>
 
@@ -1071,32 +1259,318 @@ CONTINUAR INVESTIGACIÓN
 </section>
 
 
+
+<!-- ===================================
+     VALIDACIÓN FASE 3
+=================================== -->
+
+<section id="validacion3" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+Reconstrucción de Oporto
+</div>
+</div>
+
+<div class="session">
+VERIFICADO
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="container validation-screen">
+
+<div class="validation-box">
+
+<div class="validation-header">
+✓ RESPONSABILIDAD ESTABLECIDA
+</div>
+
+<div class="validation-title">
+Reconstrucción de los hechos
+</div>
+
+<div class="validation-text">
+
+Las evidencias permiten situar
+a la persona identificada junto
+a la víctima durante sus últimos
+minutos con vida.
+
+<br><br>
+
+La reconstrucción resulta compatible
+con una discusión que continuó
+en el exterior y terminó con una
+caída provocada durante el
+enfrentamiento.
+
+<br><br>
+
+Las evidencias disponibles no
+permiten establecer que existiera
+una intención previa de causar
+la muerte.
+
+</div>
+
+
+<button
+class="return-btn"
+onclick="mostrarCierreOporto()"
+>
+CERRAR DILIGENCIA DE OPORTO
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================
+     FALSO FINAL OPORTO
+=================================== -->
+
+<section id="cierreOporto" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+Archivo histórico
+</div>
+</div>
+
+<div class="session">
+RESUELTO
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="container">
+
+<div class="closed-case">
+
+<div class="closed-symbol">
+✓
+</div>
+
+<div class="closed-small">
+RECONSTRUCCIÓN COMPLETADA
+</div>
+
+<div class="closed-title">
+CASO DE OPORTO
+</div>
+
+<div class="closed-year">
+2019
+</div>
+
+
+<div class="validation-box">
+
+<div class="validation-text">
+
+La investigación permite reconstruir
+las circunstancias que rodearon
+la muerte de la joven portuguesa.
+
+<br><br>
+
+La diligencia histórica queda
+resuelta a efectos de la presente
+investigación.
+
+</div>
+
+
+<button
+class="return-btn"
+onclick="mostrarAlerta()"
+>
+FINALIZAR RECONSTRUCCIÓN
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ===================================
+     GIRO / ALERTA
+=================================== -->
+
+<section id="alerta" class="screen">
+
+<div class="institutional-header">
+<div class="container">
+<div class="institution-row">
+
+<div class="fake-shield">UI</div>
+
+<div>
+<div class="institution-name">
+Unidad de Investigación Criminal
+</div>
+<div class="unit-name">
+CR/2026-017
+</div>
+</div>
+
+<div
+class="session"
+style="color:#d1a75c"
+>
+REVISIÓN
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="container validation-screen">
+
+<div class="alert-box">
+
+<div class="alert-header">
+⚠ INCONSISTENCIA DETECTADA
+</div>
+
+<div class="alert-title">
+La investigación no ha terminado
+</div>
+
+
+<div class="alert-text">
+
+La reconstrucción de los hechos
+ocurridos en Oporto en 2019
+permite establecer la responsabilidad
+sobre aquella muerte.
+
+<br><br>
+
+Sin embargo, dicha conclusión
+no explica las circunstancias
+del fallecimiento ocurrido en
+Riudecols el 20 de diciembre
+de 2026.
+
+<br><br>
+
+El examen toxicológico confirma
+que la víctima de Riudecols
+había sufrido una intoxicación
+antes de caer a la piscina.
+
+<br><br>
+
+Debe determinarse si ambos
+sucesos fueron cometidos por
+la misma persona.
+
+</div>
+
+
+<div class="alert-instruction">
+
+<div class="instruction-label">
+Nueva línea de investigación
+</div>
+
+<strong>
+SE AUTORIZA LA APERTURA DEL SOBRE 04
+</strong>
+
+</div>
+
+
+<button
+class="return-btn"
+onclick="activarFase4()"
+>
+REABRIR INVESTIGACIÓN
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
 <script>
 
-/* =====================================
-   CONFIGURACIÓN DEL CASO
-===================================== */
+/* ====================================
+   CONFIGURACIÓN PROVISIONAL
+==================================== */
 
 /*
-IMPORTANTE:
+FASE 2:
+Hasta que elijamos los personajes
+reales, introducir:
 
-Cuando decidamos quiénes son
-A, X e Y solamente tendrás que
-cambiar estos tres nombres.
+A
+X
+Y
 
-Por ahora usamos nombres provisionales.
+en cualquier orden.
 */
 
 const sospechososCorrectos = [
-    "sospechoso a",
-    "sospechoso x",
-    "sospechoso y"
+"a",
+"x",
+"y"
 ];
 
 
-/* =====================================
-   PANTALLAS
-===================================== */
+/*
+FASE 3:
+Por ahora el responsable de 2019
+es simplemente:
+
+A
+*/
+
+const responsableCorrecto2019 = "a";
+
+
+/* ====================================
+   UTILIDADES
+==================================== */
 
 function mostrar(id){
 
@@ -1117,19 +1591,6 @@ window.scrollTo(0,0);
 }
 
 
-function entrar(){
-
-actualizarProgreso();
-
-mostrar("panel");
-
-}
-
-
-/* =====================================
-   NORMALIZAR
-===================================== */
-
 function normalizar(texto){
 
 return texto
@@ -1141,9 +1602,18 @@ return texto
 }
 
 
-/* =====================================
+function entrar(){
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* ====================================
    FASE 1
-===================================== */
+==================================== */
 
 function comprobarFase1(){
 
@@ -1153,7 +1623,7 @@ document.getElementById("respuesta1").value
 );
 
 
-const respuestasCorrectas = [
+const correctas = [
 
 "pulsera",
 "la pulsera",
@@ -1170,8 +1640,7 @@ const respuestasCorrectas = [
 
 
 const correcto =
-respuestasCorrectas.some(
-function(opcion){
+correctas.some(function(opcion){
 
 return respuesta.includes(opcion);
 
@@ -1204,10 +1673,6 @@ document
 }
 
 
-/* =====================================
-   PASAR A FASE 2
-===================================== */
-
 function continuarFase2(){
 
 actualizarProgreso();
@@ -1217,9 +1682,9 @@ mostrar("panel");
 }
 
 
-/* =====================================
+/* ====================================
    FASE 2
-===================================== */
+==================================== */
 
 function comprobarFase2(){
 
@@ -1240,8 +1705,6 @@ document.getElementById("sospechoso3").value
 ];
 
 
-/* Evita repetir el mismo nombre */
-
 const respuestasUnicas =
 [...new Set(respuestas)];
 
@@ -1256,8 +1719,6 @@ return;
 
 }
 
-
-/* Comprueba los 3 sin importar el orden */
 
 const correcto =
 sospechososCorrectos.every(
@@ -1294,10 +1755,6 @@ document
 }
 
 
-/* =====================================
-   PASAR A FASE 3
-===================================== */
-
 function continuarFase3(){
 
 actualizarProgreso();
@@ -1307,94 +1764,192 @@ mostrar("panel");
 }
 
 
-/* =====================================
-   ACTUALIZAR PROGRESO
-===================================== */
+/* ====================================
+   FASE 3
+==================================== */
+
+function comprobarFase3(){
+
+const respuesta =
+normalizar(
+document.getElementById("responsable2019").value
+);
+
+
+if(respuesta === responsableCorrecto2019){
+
+localStorage.setItem(
+"riudecols_fase3",
+"completada"
+);
+
+document
+.getElementById("error3")
+.style.display="none";
+
+mostrar("validacion3");
+
+}
+
+else{
+
+document
+.getElementById("error3")
+.style.display="block";
+
+}
+
+}
+
+
+/* ====================================
+   FALSO FINAL
+==================================== */
+
+function mostrarCierreOporto(){
+
+mostrar("cierreOporto");
+
+}
+
+
+function mostrarAlerta(){
+
+mostrar("alerta");
+
+}
+
+
+/* ====================================
+   ACTIVAR FASE 4
+==================================== */
+
+function activarFase4(){
+
+localStorage.setItem(
+"riudecols_fase4",
+"activa"
+);
+
+actualizarProgreso();
+
+mostrar("panel");
+
+}
+
+
+/* ====================================
+   PROGRESO
+==================================== */
 
 function actualizarProgreso(){
 
-const fase1 =
+const f1 =
 localStorage.getItem("riudecols_fase1");
 
-const fase2 =
+const f2 =
 localStorage.getItem("riudecols_fase2");
 
+const f3 =
+localStorage.getItem("riudecols_fase3");
 
-/* FASE 1 COMPLETADA */
+const f4 =
+localStorage.getItem("riudecols_fase4");
 
-if(fase1 === "completada"){
 
-document
-.getElementById("fase1")
+/* FASE 1 */
+
+if(f1 === "completada"){
+
+document.getElementById("fase1")
 .className="phase completed";
 
-document
-.getElementById("estado1")
+document.getElementById("estado1")
 .innerText="COMPLETADA ✓";
 
-
-document
-.getElementById("fase2")
+document.getElementById("fase2")
 .className="phase active";
 
-document
-.getElementById("estado2")
+document.getElementById("estado2")
 .innerText="EN CURSO";
 
-document
-.getElementById("titulo2")
+document.getElementById("titulo2")
 .innerText="LA NOCHE DE 2019";
 
-
-document
-.getElementById("preguntaFase1")
+document.getElementById("preguntaFase1")
 .classList.add("hidden");
 
-document
-.getElementById("preguntaFase2")
+document.getElementById("preguntaFase2")
 .classList.remove("hidden");
 
 }
 
 
-/* FASE 2 COMPLETADA */
+/* FASE 2 */
 
-if(fase2 === "completada"){
+if(f2 === "completada"){
 
-document
-.getElementById("fase2")
+document.getElementById("fase2")
 .className="phase completed";
 
-document
-.getElementById("estado2")
+document.getElementById("estado2")
 .innerText="COMPLETADA ✓";
 
-
-document
-.getElementById("fase3")
+document.getElementById("fase3")
 .className="phase active";
 
-document
-.getElementById("estado3")
-.innerText="HABILITADA";
+document.getElementById("estado3")
+.innerText="EN CURSO";
 
-document
-.getElementById("titulo3")
+document.getElementById("titulo3")
 .innerText="LA CAÍDA";
 
+document.getElementById("preguntaFase2")
+.classList.add("hidden");
 
-document
-.getElementById("preguntaFase2")
+document.getElementById("preguntaFase3")
+.classList.remove("hidden");
+
+}
+
+
+/* FASE 3 */
+
+if(f3 === "completada"){
+
+document.getElementById("fase3")
+.className="phase completed";
+
+document.getElementById("estado3")
+.innerText="COMPLETADA ✓";
+
+document.getElementById("preguntaFase3")
 .classList.add("hidden");
 
 }
 
+
+/* FASE 4 */
+
+if(f4 === "activa"){
+
+document.getElementById("fase4")
+.className="phase active";
+
+document.getElementById("estado4")
+.innerText="EN CURSO";
+
+document.getElementById("titulo4")
+.innerText="RIUDECOLS";
+
+}
+
 }
 
 
-/* =====================================
-   ADMINISTRADOR
-===================================== */
+/* ====================================
+   ADMIN RESET
+==================================== */
 
 function adminReset(){
 
@@ -1412,13 +1967,10 @@ confirm(
 
 if(confirmar){
 
-localStorage.removeItem(
-"riudecols_fase1"
-);
-
-localStorage.removeItem(
-"riudecols_fase2"
-);
+localStorage.removeItem("riudecols_fase1");
+localStorage.removeItem("riudecols_fase2");
+localStorage.removeItem("riudecols_fase3");
+localStorage.removeItem("riudecols_fase4");
 
 location.reload();
 
@@ -1429,9 +1981,9 @@ location.reload();
 }
 
 
-/* =====================================
-   ENTER FASE 1
-===================================== */
+/* ====================================
+   ENTER
+==================================== */
 
 document
 .getElementById("respuesta1")
@@ -1440,17 +1992,28 @@ document
 function(event){
 
 if(event.key === "Enter"){
-
 comprobarFase1();
-
 }
 
 });
 
 
-/* =====================================
+document
+.getElementById("responsable2019")
+.addEventListener(
+"keydown",
+function(event){
+
+if(event.key === "Enter"){
+comprobarFase3();
+}
+
+});
+
+
+/* ====================================
    INICIAR
-===================================== */
+==================================== */
 
 actualizarProgreso();
 
