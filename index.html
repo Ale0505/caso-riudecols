@@ -9,7 +9,6 @@
 >
 
 <meta name="theme-color" content="#07111c">
-
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Riudecols">
@@ -17,10 +16,6 @@
 <title>Caso de Riudecols</title>
 
 <style>
-
-/* ==============================
-   GENERAL
-================================ */
 
 * {
     box-sizing: border-box;
@@ -45,7 +40,6 @@ html {
 body {
     margin: 0;
     min-height: 100vh;
-
     background:
         linear-gradient(
             180deg,
@@ -53,9 +47,7 @@ body {
             #07111a 45%,
             #04090e 100%
         );
-
     color: var(--texto);
-
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -63,11 +55,6 @@ body {
         Arial,
         sans-serif;
 }
-
-
-/* ==============================
-   PANTALLAS
-================================ */
 
 .screen {
     display: none;
@@ -84,13 +71,9 @@ body {
     margin: auto;
 }
 
-
-/* ==============================
-   CABECERA INSTITUCIONAL
-================================ */
+/* CABECERA */
 
 .institutional-header {
-
     padding:
         calc(18px + env(safe-area-inset-top))
         22px
@@ -113,14 +96,10 @@ body {
 }
 
 .fake-shield {
-
     width: 54px;
     height: 62px;
-
     border: 2px solid #9aafbf;
-
-    border-radius:
-        7px 7px 18px 18px;
+    border-radius: 7px 7px 18px 18px;
 
     display: flex;
     align-items: center;
@@ -130,39 +109,28 @@ body {
     font-size: 17px;
 
     color: #c7d5df;
-
-    background:
-        rgba(255,255,255,.035);
+    background: rgba(255,255,255,.035);
 }
 
 .institution-name {
-
     font-size: 11px;
     letter-spacing: 1.8px;
     color: #b3c1cc;
-
     text-transform: uppercase;
 }
 
 .unit-name {
-
     margin-top: 5px;
-
     font-size: 16px;
     font-weight: 750;
-
     letter-spacing: .6px;
 }
 
 .session {
-
     margin-left: auto;
-
     font-family: monospace;
     font-size: 10px;
-
     color: var(--verde);
-
     white-space: nowrap;
 }
 
@@ -171,15 +139,10 @@ body {
     margin-right: 5px;
 }
 
-
-/* ==============================
-   PORTADA
-================================ */
+/* PORTADA */
 
 .cover {
-
-    min-height:
-        calc(100vh - 100px);
+    min-height: calc(100vh - 100px);
 
     display: flex;
     flex-direction: column;
@@ -189,68 +152,43 @@ body {
 }
 
 .classification {
-
     color: #a8bac7;
-
     font-size: 10px;
-
     letter-spacing: 2.5px;
-
     text-transform: uppercase;
-
     margin-bottom: 17px;
 }
 
 .case-code {
-
     font-family: monospace;
-
     font-size: 13px;
-
     color: #aab8c2;
-
     margin-bottom: 15px;
 }
 
 .case-title {
-
     margin: 0;
-
-    font-size:
-        clamp(39px, 9vw, 68px);
-
+    font-size: clamp(39px, 9vw, 68px);
     line-height: 1;
-
     letter-spacing: 1px;
-
     text-transform: uppercase;
 }
 
 .case-subtitle {
-
     margin-top: 15px;
-
     color: #a4b2bd;
-
     font-size: 18px;
 }
 
 .info-grid {
-
     margin-top: 40px;
-
     border-top: 1px solid var(--linea);
-
     border-bottom: 1px solid var(--linea);
 }
 
 .info-row {
-
     display: grid;
-
-    grid-template-columns:
-        130px 1fr;
-
+    grid-template-columns: 130px 1fr;
     padding: 13px 0;
 
     border-bottom:
@@ -262,29 +200,20 @@ body {
 }
 
 .info-label {
-
     color: #748b9d;
-
     font-size: 10px;
-
     letter-spacing: 1px;
-
     text-transform: uppercase;
 }
 
 .info-value {
-
     font-size: 12px;
-
     font-weight: 600;
 }
 
 .access-btn {
-
     width: 100%;
-
     margin-top: 38px;
-
     padding: 18px;
 
     background:
@@ -295,15 +224,11 @@ body {
         );
 
     border: 1px solid #49677e;
-
     border-radius: 3px;
 
     color: white;
-
     font-weight: 800;
-
     font-size: 13px;
-
     letter-spacing: 1.6px;
 
     cursor: pointer;
@@ -314,77 +239,49 @@ body {
 }
 
 .confidential {
-
     margin-top: 18px;
-
     text-align: center;
-
     font-family: monospace;
-
     font-size: 9px;
-
     letter-spacing: 1px;
-
     color: #637584;
 }
 
-
-/* ==============================
-   EXPEDIENTE
-================================ */
+/* EXPEDIENTE */
 
 .content {
     padding: 28px 20px 60px;
 }
 
 .case-header {
-
     padding-bottom: 20px;
-
-    border-bottom:
-        1px solid var(--linea);
-
+    border-bottom: 1px solid var(--linea);
     margin-bottom: 28px;
 }
 
 .case-header-top {
-
     display: flex;
-
     justify-content: space-between;
-
     gap: 15px;
 }
 
 .eyebrow {
-
     color: #758b9c;
-
     text-transform: uppercase;
-
     font-size: 10px;
-
     letter-spacing: 2px;
 }
 
 .case-header h2 {
-
-    margin:
-        5px 0 0;
-
+    margin: 5px 0 0;
     font-size: 23px;
-
     letter-spacing: .5px;
 }
 
 .open-status {
-
     color: var(--verde);
-
     font-family: monospace;
-
     font-size: 11px;
-
     white-space: nowrap;
 }
 
@@ -393,58 +290,38 @@ body {
     margin-right: 5px;
 }
 
-
-/* ==============================
-   AVISO
-================================ */
+/* AVISO */
 
 .notice {
-
     padding: 14px 16px;
-
     margin-bottom: 28px;
 
-    border-left:
-        3px solid #688ca8;
+    border-left: 3px solid #688ca8;
 
     background:
         rgba(54,88,114,.12);
 
     color: #b7c5cf;
-
     font-size: 12px;
-
     line-height: 1.6;
 }
 
-
-/* ==============================
-   FASES
-================================ */
+/* FASES */
 
 .section-label {
-
     margin-bottom: 12px;
-
     color: #778d9d;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     text-transform: uppercase;
 }
 
 .phase {
-
     position: relative;
-
     padding: 18px;
-
     margin-bottom: 9px;
 
-    border:
-        1px solid #263b4b;
+    border: 1px solid #263b4b;
 
     background:
         rgba(12,29,43,.55);
@@ -453,104 +330,68 @@ body {
 }
 
 .phase.active {
-
-    border-left:
-        4px solid #9eb4c4;
+    border-left: 4px solid #9eb4c4;
 }
 
 .phase.completed {
-
-    border-left:
-        4px solid var(--verde);
+    border-left: 4px solid var(--verde);
 }
 
 .phase.locked {
-
     opacity: .28;
 }
 
 .phase-number {
-
     color: #758b9c;
-
     font-family: monospace;
-
     font-size: 10px;
-
     margin-bottom: 7px;
 }
 
 .phase-title {
-
     font-weight: 750;
-
     font-size: 15px;
-
     letter-spacing: .3px;
 }
 
 .phase-status {
-
     position: absolute;
-
     right: 17px;
-
     top: 18px;
 
     font-family: monospace;
-
     font-size: 10px;
-
     color: #93a6b4;
 }
 
-
-/* ==============================
-   PREGUNTA
-================================ */
+/* PREGUNTA */
 
 .investigation-card {
-
     margin-top: 32px;
-
     padding: 22px;
 
     background: #071019;
-
-    border:
-        1px solid #334b5e;
-
+    border: 1px solid #334b5e;
     border-radius: 3px;
 }
 
 .document-reference {
-
     color: #748b9d;
-
     font-family: monospace;
-
     font-size: 10px;
-
     margin-bottom: 15px;
 }
 
 .question-title {
-
     font-size: 11px;
-
     font-weight: 700;
-
     letter-spacing: 1.5px;
-
     color: #a8b8c4;
-
     text-transform: uppercase;
 }
 
 .question {
-
-    margin:
-        17px 0 24px;
+    margin: 17px 0 24px;
 
     font-family:
         Georgia,
@@ -558,27 +399,19 @@ body {
         serif;
 
     font-size: 22px;
-
     line-height: 1.45;
 }
 
 .answer-input {
-
     width: 100%;
-
     padding: 16px;
 
     background: #03080c;
-
-    border:
-        1px solid #3c5364;
-
+    border: 1px solid #3c5364;
     border-radius: 2px;
 
     color: white;
-
     font-size: 16px;
-
     outline: none;
 }
 
@@ -587,40 +420,30 @@ body {
 }
 
 .validate-btn {
-
     width: 100%;
-
     margin-top: 11px;
-
     padding: 16px;
 
     border: 1px solid #4c687d;
-
     border-radius: 2px;
 
     background: #142c3f;
-
     color: white;
 
     font-size: 12px;
-
     font-weight: 800;
-
     letter-spacing: 1.3px;
 
     cursor: pointer;
 }
 
 .error {
-
     display: none;
 
     margin-top: 15px;
-
     padding: 12px;
 
-    border-left:
-        3px solid var(--rojo);
+    border-left: 3px solid var(--rojo);
 
     background:
         rgba(160,60,60,.08);
@@ -628,189 +451,125 @@ body {
     color: #d99595;
 
     font-family: monospace;
-
     font-size: 11px;
-
     line-height: 1.5;
 }
 
 .evidence-warning {
-
     margin-top: 16px;
-
     color: #697d8c;
-
     font-size: 11px;
-
     line-height: 1.5;
 }
 
-
-/* ==============================
-   VALIDACIÓN
-================================ */
+/* VALIDACIÓN */
 
 .validation-screen {
-
     padding: 40px 22px 70px;
 }
 
 .validation-box {
-
     margin-top: 30px;
 
-    border:
-        1px solid #355267;
-
+    border: 1px solid #355267;
     background: #08131d;
 
     padding: 25px;
 }
 
 .validation-header {
-
     color: var(--verde);
-
     font-family: monospace;
-
     font-size: 11px;
-
     letter-spacing: 1px;
 }
 
 .validation-title {
-
-    margin:
-        12px 0 25px;
-
+    margin: 12px 0 25px;
     font-size: 28px;
 }
 
 .validation-text {
+    padding: 20px 0;
 
-    padding:
-        20px 0;
-
-    border-top:
-        1px solid #294052;
-
-    border-bottom:
-        1px solid #294052;
+    border-top: 1px solid #294052;
+    border-bottom: 1px solid #294052;
 
     color: #bdc9d2;
 
     line-height: 1.7;
-
     font-size: 14px;
 }
 
 .instruction {
-
     margin-top: 25px;
-
     padding: 18px;
 
-    border:
-        1px solid #536f83;
+    border: 1px solid #536f83;
 
     background:
         rgba(46,78,103,.15);
 }
 
 .instruction-label {
-
     color: #849aaa;
-
     font-size: 9px;
-
     letter-spacing: 1.7px;
-
     text-transform: uppercase;
 }
 
 .instruction strong {
-
     display: block;
-
     margin-top: 8px;
-
     font-size: 16px;
 }
 
 .return-btn {
-
     width: 100%;
-
     margin-top: 20px;
-
     padding: 16px;
 
     background: #142c3f;
-
-    border:
-        1px solid #4a6579;
+    border: 1px solid #4a6579;
 
     color: white;
 
     font-weight: 700;
-
     letter-spacing: 1px;
 
     cursor: pointer;
 }
 
-
-/* ==============================
-   PIE
-================================ */
+/* PIE */
 
 .footer {
-
     margin-top: 35px;
-
     padding-top: 18px;
 
-    border-top:
-        1px solid #263b4b;
+    border-top: 1px solid #263b4b;
 
     color: #516676;
 
     font-family: monospace;
-
     font-size: 9px;
-
     line-height: 1.7;
 }
 
-
-/* ==============================
-   ADMIN
-================================ */
-
 .admin-trigger {
-
     margin-top: 50px;
-
     height: 25px;
-
     opacity: .01;
 }
 
 </style>
 </head>
 
-
 <body>
 
 
-<!-- ==================================
-     PORTADA
-=================================== -->
+<!-- PORTADA -->
 
-<section
-    id="inicio"
-    class="screen active"
->
+<section id="inicio" class="screen active">
 
     <div class="institutional-header">
 
@@ -942,14 +701,9 @@ body {
 
 
 
-<!-- ==================================
-     PANEL PRINCIPAL
-=================================== -->
+<!-- PANEL PRINCIPAL -->
 
-<section
-    id="panel"
-    class="screen"
->
+<section id="panel" class="screen">
 
     <div class="institutional-header">
 
@@ -1027,15 +781,9 @@ body {
         </div>
 
 
-        <div
-            id="fase1"
-            class="phase active"
-        >
+        <div id="fase1" class="phase active">
 
-            <div
-                id="estado1"
-                class="phase-status"
-            >
+            <div id="estado1" class="phase-status">
                 EN CURSO
             </div>
 
@@ -1050,15 +798,9 @@ body {
         </div>
 
 
-        <div
-            id="fase2"
-            class="phase locked"
-        >
+        <div id="fase2" class="phase locked">
 
-            <div
-                id="estado2"
-                class="phase-status"
-            >
+            <div id="estado2" class="phase-status">
                 RESTRINGIDO
             </div>
 
@@ -1066,10 +808,7 @@ body {
                 FASE 02
             </div>
 
-            <div
-                id="titulo2"
-                class="phase-title"
-            >
+            <div id="titulo2" class="phase-title">
                 INFORMACIÓN RESERVADA
             </div>
 
@@ -1145,7 +884,7 @@ body {
 
 
 
-        <!-- PREGUNTA -->
+        <!-- CUESTIÓN 01 -->
 
         <div class="investigation-card">
 
@@ -1159,10 +898,9 @@ body {
 
             <div class="question">
 
-                ¿Qué elemento llevó a la víctima
+                ¿Qué evidencia llevó a la víctima
                 de Riudecols a cuestionar la
-                versión oficial de los hechos
-                ocurridos en 2019?
+                conclusión oficial del caso de 2019?
 
             </div>
 
@@ -1184,10 +922,7 @@ body {
             </button>
 
 
-            <div
-                id="error"
-                class="error"
-            >
+            <div id="error" class="error">
 
                 CONCLUSIÓN NO ADMITIDA
 
@@ -1224,8 +959,6 @@ body {
         </div>
 
 
-        <!-- Zona invisible para futuro panel admin -->
-
         <div
             class="admin-trigger"
             onclick="adminReset()"
@@ -1239,14 +972,9 @@ body {
 
 
 
-<!-- ==================================
-     VALIDACIÓN
-=================================== -->
+<!-- VALIDACIÓN -->
 
-<section
-    id="validacion"
-    class="screen"
->
+<section id="validacion" class="screen">
 
     <div class="institutional-header">
 
@@ -1297,21 +1025,29 @@ body {
 
             <div class="validation-text">
 
-                El análisis de las evidencias permite
-                establecer el motivo que originó la
-                investigación privada sobre los hechos
-                ocurridos en 2019.
+                La evidencia identificada permite
+                cuestionar la conclusión oficial
+                de los hechos ocurridos en Oporto
+                en 2019.
 
                 <br><br>
 
-                La pulsera documentada entre las
-                evidencias no debería haber estado
-                en posesión de la víctima portuguesa.
+                La pulsera localizada entre las
+                evidencias de la escena coincide
+                con las utilizadas por el grupo
+                durante una actividad Erasmus
+                celebrada en Oporto.
 
                 <br><br>
 
-                Su procedencia establece una conexión
-                entre la escena y el grupo investigado.
+                La víctima portuguesa no participó
+                en dicha actividad.
+
+                <br><br>
+
+                Por tanto, queda sin explicar cómo
+                una de esas pulseras terminó en el
+                lugar de los hechos.
 
             </div>
 
@@ -1358,9 +1094,7 @@ body {
 
 <script>
 
-/* ==============================
-   PANTALLAS
-================================ */
+/* PANTALLAS */
 
 function mostrar(id) {
 
@@ -1388,30 +1122,19 @@ function entrar() {
 }
 
 
-/* ==============================
-   NORMALIZAR TEXTO
-================================ */
+/* NORMALIZAR TEXTO */
 
 function normalizar(texto) {
 
     return texto
-
         .toLowerCase()
-
         .normalize("NFD")
-
-        .replace(
-            /[\u0300-\u036f]/g,
-            ""
-        )
-
+        .replace(/[\u0300-\u036f]/g, "")
         .trim();
 }
 
 
-/* ==============================
-   COMPROBAR RESPUESTA
-================================ */
+/* COMPROBAR RESPUESTA */
 
 function comprobar() {
 
@@ -1430,11 +1153,19 @@ function comprobar() {
 
         "una pulsera",
 
+        "pulsera erasmus",
+
+        "pulsera del erasmus",
+
+        "la pulsera del erasmus",
+
         "pulsera del grupo",
 
         "la pulsera del grupo",
 
-        "pulsera exclusiva del grupo"
+        "pulsera del evento",
+
+        "la pulsera del evento"
 
     ];
 
@@ -1475,9 +1206,7 @@ function comprobar() {
 }
 
 
-/* ==============================
-   PROGRESO
-================================ */
+/* PROGRESO */
 
 function actualizarProgreso() {
 
@@ -1536,9 +1265,7 @@ function actualizarProgreso() {
 }
 
 
-/* ==============================
-   VOLVER
-================================ */
+/* VOLVER */
 
 function volverPanel() {
 
@@ -1548,9 +1275,7 @@ function volverPanel() {
 }
 
 
-/* ==============================
-   ENTER
-================================ */
+/* ENTER */
 
 document
     .getElementById("respuesta")
@@ -1568,9 +1293,7 @@ document
     );
 
 
-/* ==============================
-   RESET ADMINISTRADOR
-================================ */
+/* RESET ADMINISTRADOR */
 
 function adminReset() {
 
@@ -1603,9 +1326,7 @@ function adminReset() {
 }
 
 
-/* ==============================
-   INICIALIZACIÓN
-================================ */
+/* INICIALIZACIÓN */
 
 actualizarProgreso();
 
